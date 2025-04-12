@@ -3,12 +3,20 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('login');
+    return view('/auth/login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    });
+    Route::get('/form', function () {
+        return view('form');
+    });
+    Route::get('/view_post', function () {
+        return view('/post/viewPost');
+    });
 });
-Route::get('/form', function () {
-    return view('form');
-});
+
+

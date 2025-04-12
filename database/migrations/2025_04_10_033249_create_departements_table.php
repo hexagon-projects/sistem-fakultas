@@ -1,0 +1,46 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('departements', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('id_profil_fakultas')->nullable();
+            $table->foreign('id_profil_fakultas')->references('id')->on('profile_fakultas');
+            $table->string('name');
+            $table->string('akreditasi');
+            $table->string('tagline');
+            $table->string('yt');
+            $table->string('statistik1');
+            $table->string('statistik2');
+            $table->string('statistik3');
+            $table->string('statistik4');
+            $table->string('title1');
+            $table->string('title2');
+            $table->string('title3');
+            $table->string('title4');
+            $table->text('description1');
+            $table->text('description2');
+            $table->text('description3');
+            $table->text('description4');
+            $table->string('status');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('departements');
+    }
+};
