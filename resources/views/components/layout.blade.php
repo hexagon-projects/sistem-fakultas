@@ -13,6 +13,11 @@
     <script src="./assets/js/init-alpine.js"></script>
   </head>
   <body>
+    @if (session()->has('success'))
+        <div class="mb-4 p-4 text-sm text-green-700 bg-green-100 border border-green-300 rounded-lg z-50 fixed top-0 right-0 m-4" role="alert">
+            {{ session('success') }}
+        </div>
+      @endif
     <div
     class="flex bg-slate-200 relative  "
     :class="{ 'overflow-hidden': isSideMenuOpen }"

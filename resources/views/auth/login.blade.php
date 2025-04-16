@@ -42,12 +42,13 @@
             >
               Login
             </h1>
+            
             <form action="{{ route('login') }}" method="POST" class="user">
               @csrf
             <label class="block text-sm font-semibold">
               <span class="text-gray-700">Email</span>
               <input
-                class="block w-full mt-1 text-sm dark:border-gray-600 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input @error('email') @enderror""
+                class="block w-full mt-1 text-sm dark:border-gray-600 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input @error('email') @enderror"
                 placeholder="Jane Doe" type="email"
                 name="email"
               />
@@ -59,11 +60,15 @@
             <label class="block mt-4 text-sm font-semibold">
               <span class="text-gray-700 ">Password</span>
               <input
-                class="block w-full mt-1 text-sm dark:border-gray-600  focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
+                class="block w-full mt-1 text-sm dark:border-gray-600  focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input @error('password') @enderror"
                 placeholder="***************"
                 type="password"
                 name="password"
               />
+
+              @error('password')
+              <p class="text-red-500 text-xs italic mt-2">{{ $message }}</p>
+             @enderror
             </label>
 
             <!-- You should use a button here, as the anchor is only used for the example  -->
