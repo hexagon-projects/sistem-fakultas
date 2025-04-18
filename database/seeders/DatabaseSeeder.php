@@ -39,5 +39,36 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => now(),
             ],
         ]);
+       
+        DB::table('faq_categories')->insert([
+            ['id' => 1, 'name' => 'Laravel'],
+            ['id' => 2, 'name' => 'Quill Editor'],
+        ]);
+
+        DB::table('posts')->insert([
+            [
+                'id_category' => 1,
+                'title' => 'Cara Menggunakan Laravel',
+                'resume' => 'Panduan singkat cara menggunakan Laravel.',
+                'content' => '<p>Laravel adalah framework PHP yang sangat powerful...</p>',
+                'publish' => 'yes',
+                'image' => 'images/posts/post1.jpg',
+                'yt' => 'https://www.youtube.com/watch?v=video1',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'id_category' => 2,
+                'title' => 'Tips Belajar Quill Editor',
+                'resume' => 'Cara integrasi Quill Editor di Laravel.',
+                'content' => '<p>Quill adalah rich text editor yang ringan dan mudah digunakan...</p>',
+                'publish' => 'no',
+                'image' => 'images/posts/post2.jpg',
+                'yt' => 'https://www.youtube.com/watch?v=video2',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+          
+        ]);
     }
 }

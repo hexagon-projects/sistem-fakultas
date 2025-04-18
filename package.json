@@ -16,6 +16,8 @@
         "vite": "^6.2.4"
     },
     "dependencies": {
+        "@ckeditor/ckeditor5-media-embed": "^45.0.0",
+        "@ckeditor/ckeditor5-table": "^45.0.0",
         "alpinejs": "^3.14.9"
     }
 }
