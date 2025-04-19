@@ -8,7 +8,7 @@
         </h2>
 
         <div class="flex items-center gap-5 mb-2">
-          <div class="flex gap-2 w-auto px-3 py-[0.4rem] mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-yellow-500 border border-transparent rounded-lg active:bg-[#034833] hover:bg-[#034833] focus:outline-none focus:shadow-outline-purple mb-5">
+          <div class="flex gap-2 w-auto px-3 py-[0.4rem] mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-[#034833] border border-transparent rounded-lg active:bg-[#1d3e34] hover:bg-yellow-300 focus:outline-none focus:shadow-outline-purple mb-5">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z"/>
               <polyline points="14 2 14 8 20 8"/>
@@ -22,8 +22,8 @@
           </div>
          
           <a
-          class="block w-auto px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-yellow-500 border border-transparent rounded-lg active:bg-[#034833] hover:bg-[#034833] focus:outline-none focus:shadow-outline-purple mb-5"
-         href=""
+          class="block w-auto px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-[#034833] border border-transparent rounded-lg active:bg-[#034833] hover:bg-yellow-300 focus:outline-none focus:shadow-outline-purple mb-5"
+         href="/view_category"
         >
           Categories
         </a>
@@ -31,22 +31,29 @@
 
 
         <!-- With avatar -->
-        <div class="w-full mb-8 overflow-hidden rounded-lg shadow-xs h-screen">
+        <div class="w-full mb-8 overflow-hidden rounded-lg shadow-xs h-auto">
           <div class="w-full overflow-x-auto">
+           
             <table class="w-full whitespace-no-wrap">
+              
               <thead>
+                 
                 <tr
                   class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-50"
                 >
                   <th class="px-4 py-3">No</th>
                   <th class="px-4 py-3">Title & Description</th>
-                  <th class="px-4 py-3 text-center">Image</th>
+                  <th class="px-4 py-3 pl-14">Image</th>
                   {{-- <th class="px-4 py-3 text-center">Action</th> --}}
                 </tr>
               </thead>
+            
+                  
+           
               <tbody
                 class="bg-white divide-y "
               >
+              @foreach ($posts as $post)
                 <tr class="text-gray-700">
                  
                   <td class="px-4 py-3 text-sm">
@@ -57,14 +64,14 @@
                       <!-- Avatar with inset shadow -->
                      
                       <div>
-                        <p class="font-semibold">Startup Unicorn Cuma Modal Ide Gila & Kodingan? Salah Besar! Ini Dia Peran Akuntan, Si 'Pahlawan Keuangan' di Balik Kesuksesan Mereka!</p>
+                        <p class="font-semibold">{{ $post->title }}</p>
                         <p class="text-xs text-gray-600 ">
-                          08 Mar 2025 | Artikel
+                          {{ $post->publish }} | {{ $post->category->name }}
                         </p>
 
                         <div class="flex items-center space-x-4 text-sm mt-7">
-                          <button
-                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg focus:outline-none focus:shadow-outline-gray"
+                          <a
+                            class="flex hover:bg-yellow-400 items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-[#034833] rounded-lg focus:outline-none focus:shadow-outline-gray" href="/post/{{ $post->id }}/edit"
                             aria-label="Edit"
                           >
                             <svg
@@ -77,10 +84,12 @@
                                 d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"
                               ></path>
                             </svg>
-                          </button>
-                          <button
-                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg focus:outline-none focus:shadow-outline-gray"
-                            aria-label="Delete"
+                          </a>
+                          <a
+                          class="flex hover:bg-yellow-400  items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-[#034833] rounded-lg focus:outline-none focus:shadow-outline-gray"
+                          href="/post/{{ $post->id }}/delete"
+                          aria-label="Delete"
+                          onclick="return confirm('Yakin ingin menghapus post ini?')"
                           >
                             <svg
                               class="w-5 h-5"
@@ -94,7 +103,7 @@
                                 clip-rule="evenodd"
                               ></path>
                             </svg>
-                          </button>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -104,20 +113,16 @@
                     class="relative hidden w-auto h-auto mr-3 rounded-full md:block"
                   >
                     <img
-                      class="object-cover w-36 h-36 "
-                      src="{{ asset('assets/img/logo.webp') }}"
+                      class="object-cover w-36 h-36 rounded-lg "
+                      src="{{ asset('storage/' . $post->image) }}"
                       alt=""
                       loading="lazy"
                     />
                     
                   </div>
                   </td>
-
-                  
-                
-                </tr>
-
-              
+                </tr> 
+                @endforeach
               </tbody>
             </table>
           </div>
@@ -166,7 +171,7 @@
                   </li>
                   <li>
                     <button
-                      class="px-3 py-1 text-white transition-colors duration-150 bg-purple-600 border border-r-0 border-purple-600 rounded-md focus:outline-none focus:shadow-outline-purple"
+                      class="px-3 py-1 text-white transition-colors duration-150 bg-[#034833] border border-r-0 border-[#034833] rounded-md focus:outline-none focus:shadow-outline-purple"
                     >
                       3
                     </button>

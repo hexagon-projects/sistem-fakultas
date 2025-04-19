@@ -17,15 +17,16 @@ class Post extends Model
         'content',
         'publish',
         'image',
+        'status',
         'yt',
         'id_category',
-        'created_at',
     ];
 
-    public $timestamps = false;
+ 
     // Relasi ke kategori (jika ada model FaqCategory)
     public function category()
     {
         return $this->belongsTo(Faq_Category::class, 'id_category');
     }
+    
 }

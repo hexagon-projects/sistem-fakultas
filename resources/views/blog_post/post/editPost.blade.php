@@ -3,7 +3,7 @@
     <h4
     class="mb-4 text-lg font-semibold text-gray-600 "
   >
-    Create Post
+    Edit Post
   </h4>
     <div    
     class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md h-auto"
@@ -11,11 +11,13 @@
 
 
   <form 
-  action="{{ route('posts.store') }}" 
-  method="POST" 
+  action="{{ route('post.update', $post->id) }}" 
+  method="POST"     
   enctype="multipart/form-data" 
   class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md h-auto"
 >
+
+@method('PUT')
   @csrf
 
   <label class="block text-sm mt-3">
@@ -24,18 +26,18 @@
       name="title"
       type="text"
       class="block w-full mt-1 text-sm focus:border-[#034833] focus:outline-none focus:shadow-outline-purple form-input border-gray-300 border-2 p-2 rounded-md"
-      
+      value="{{ old('title', $post->title) }}"
     />
   </label>
 
   <label class="block text-sm mt-3">
     <span class="text-gray-700 font-semibold">Resume</span>
-    <textarea name="resume" id="resume" class="block w-full mt-1 text-sm border-gray-300 border-2 p-2 rounded-md"></textarea>
+    <textarea name="resume" id="resume" class="block w-full mt-1 text-sm border-gray-300 border-2 p-2 rounded-md">{{ old('title', $post->resume) }}</textarea>
   </label>
 
   <label class="block text-sm mt-3">
     <span class="text-gray-700 font-semibold">Content</span>
-    <textarea name="content" id="content" class="block w-full mt-1 text-sm border-gray-300 border-2 p-2 rounded-md"></textarea>
+    <textarea name="content" id="content" class="block w-full mt-1 text-sm border-gray-300 border-2 p-2 rounded-md">{{ old('title', $post->content) }}</textarea>
   </label>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
@@ -44,6 +46,7 @@
       <select
         id="id_category"
         name="id_category"
+        value="{{ old('title', $post->id_category) }}"
         class="mt-3 h-10 block w-full border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm"
       >
         <option value="1">Artikel</option>
@@ -56,6 +59,7 @@
         <select
           id="status"
           name="status"
+            value="{{ old('title', $post->status) }}"
           class="mt-3 h-10 block w-full border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm"
         >
           <option value="active">Active</option>
@@ -71,6 +75,7 @@
         type="date"
         name="publish"
         id="publish"
+          value="{{ old('title', $post->publish) }}"
         class="mt-3 h-10 block w-full border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm"
       />
     </div>
@@ -79,8 +84,10 @@
       <label for="yt" class="block text-sm font-medium text-gray-700">YouTube URL</label>
       <input
         type="text"
+      value="{{ old('title', $post->image) }}"
         name="yt"
         id="yt"
+          value="{{ old('title', $post->yt) }}"
         placeholder="https://youtube.com/..."
         class="mt-3 h-10 block w-full border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm"
       />
