@@ -11,7 +11,7 @@
 
 
   <form 
-  action="/upload_post" 
+  action="" 
   method="POST" 
   enctype="multipart/form-data" 
   class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md h-auto"
@@ -24,7 +24,7 @@
       name="title"
       type="text"
       class="block w-full mt-1 text-sm focus:border-[#034833] focus:outline-none focus:shadow-outline-purple form-input border-gray-300 border-2 p-2 rounded-md"
-      placeholder=""
+      
     />
   </label>
 
@@ -80,7 +80,6 @@
       type="file"
       name="image"
       id="image"
-      accept="image/*"
       class="mt-3 h-10 block w-full border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm
              file:mr-4 file:py-2 file:px-4
              file:rounded-md file:border-0

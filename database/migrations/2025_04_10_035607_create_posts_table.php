@@ -18,9 +18,10 @@ return new class extends Migration
             $table->string('title');
             $table->text('resume');
             $table->text('content');
-            $table->string('publish');
+            $table->date('publish');
             $table->string('image');
             $table->string('yt');
+            $table->string('status');
             $table->timestamps();
         });
     }

@@ -10,33 +10,25 @@ class PostController extends Controller
 {
     public function store(Request $request)
     {
-       
-        $request->validate([
+    //   dd($request->all());
+        $validate = $request->validate([
             'title'   => 'required|string|max:255',
             'resume'  => 'required',
             'content' => 'required',
-            'publish' => 'required|string',
-            'tanggal' => 'required|date',
+            // 'publish' => 'required|string',
+            'created_at' => 'required|date',
             'image'   => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
             'yt'      => 'nullable|string',
             'id_category' => 'required',
         ]);
+        $validate['publish'] = $request->input('publish', 'yes');
 
-        $imagePath = null;
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('uploads/posts', 'public');
+       
+        if($request->file('image')){
+            $validate['image'] = $request->file('image')->store('post-image', 'public');
         }
 
-        Post::create([
-            'title'      => $request->title,
-            'resume'     => $request->resume,
-            'content'    => $request->content,
-            'publish'    => 'yes',
-            'created_at' => $request->tanggal,
-            'image'      => $imagePath,
-            'yt'         => $request->yt,
-            'id_category' => $request->id_category, // default category, atau sesuaikan
-        ]);
+      Post::create($validate);
 
         return redirect()->back()->with('success', 'Post berhasil dibuat!');
     }
