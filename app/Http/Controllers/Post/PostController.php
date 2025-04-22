@@ -52,7 +52,7 @@ class PostController extends Controller
         return view('blog_post.post.editPost', compact('post')); 
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
         $post = Post::findOrFail($id);
 

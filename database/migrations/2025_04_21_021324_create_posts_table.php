@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
+     /**
      * Run the migrations.
      */
     public function up(): void
@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_category')->nullable();
-            $table->foreign('id_category')->references('id')->on('faq_categories');
+            $table->foreign('id_category')->references('id')->on('categories');
             $table->string('title');
             $table->text('resume');
             $table->text('content');
@@ -25,6 +25,7 @@ return new class extends Migration
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

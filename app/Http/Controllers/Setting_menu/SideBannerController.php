@@ -1,0 +1,59 @@
+<?php
+
+namespace App\Http\Controllers\Setting_menu;
+
+use App\Models\Side_baner;
+use App\Models\Departement;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+
+class SideBannerController extends Controller
+{
+    public function index()
+    {
+        $sideBanner = Side_baner::first(); 
+        $departements = Departement::all();
+        return view('setting_menu.viewSideBanner', compact('sideBanner', 'departements'));
+    }
+
+    public function update(Request $request)
+{
+    // dd($request->all());
+    $sideBanner = Side_baner::first();
+
+    $validated = $request->validate([
+        'id_departement' => 'nullable|string|max:255',
+        'title' => 'nullable|string|max:255',
+        'description' => 'nullable',
+        'status' => 'nullable',
+        'home' => 'nullable|string',
+        'yt' => 'nullable|string',
+        'image1' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+        'image2' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+    ]);
+
+
+    if ($request->file('image1')) {
+        // Hapus gambar lama jika ada
+        if ($sideBanner->image1 && Storage::disk('public')->exists($sideBanner->image1)) {
+            Storage::disk('public')->delete($sideBanner->image1);
+        }
+        $validated['image1'] = $request->file('image1')->store('sideBanner-image', 'public');
+    }
+    if ($request->file('image2')) {
+        // Hapus gambar lama jika ada
+        if ($sideBanner->image2 && Storage::disk('public')->exists($sideBanner->image2)) {
+            Storage::disk('public')->delete($sideBanner->image2);
+        }
+        $validated['image2'] = $request->file('image2')->store('sideBanner-image', 'public');
+    }
+
+   
+
+    $sideBanner->update($validated);
+
+    return redirect()->back()->with('success', 'Data Side Banner berhasil diperbarui.');
+}       
+
+}

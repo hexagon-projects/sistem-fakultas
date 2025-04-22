@@ -40,9 +40,9 @@ class DatabaseSeeder extends Seeder
             ],
         ]);
        
-        DB::table('faq_categories')->insert([
-            ['id' => 1, 'name' => 'Laravel'],
-            ['id' => 2, 'name' => 'Quill Editor'],
+        DB::table('categories')->insert([
+            ['id' => 1, 'name' => 'Artikel', 'image' => 'images/categories/article.jpg'],
+            ['id' => 2, 'name' => 'Berita', 'image' => 'images/categories/news.jpg'],
         ]);
 
         DB::table('posts')->insert([
@@ -72,5 +72,7 @@ class DatabaseSeeder extends Seeder
             ],
           
         ]);
+
+       
     }
 }

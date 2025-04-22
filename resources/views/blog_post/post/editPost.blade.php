@@ -17,8 +17,8 @@
   class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md h-auto"
 >
 
-@method('PUT')
-  @csrf
+  @method('PUT')
+    @csrf
 
   <label class="block text-sm mt-3">
     <span class="text-gray-700 font-semibold">Title</span>

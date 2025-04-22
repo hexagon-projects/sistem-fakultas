@@ -47,6 +47,7 @@
 
     
     <script src="https://cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
+    {{-- view Post --}}
     <script>
         CKEDITOR.replace('resume', {
           height: 100,
@@ -62,6 +63,46 @@
     <script>
         CKEDITOR.replace('content', {
           height: 150,
+        toolbar: [
+            { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline'] },
+            { name: 'paragraph', items: ['NumberedList', 'BulletedList'] },
+            { name: 'insert', items: ['Image', 'Table'] },
+            { name: 'styles', items: ['Format'] },
+            { name: 'tools', items: ['Maximize'] }
+        ],
+    });
+    </script>   
+
+    {{-- view Identity --}}
+    <script>
+        CKEDITOR.replace('meta', {
+          height: 70,
+        toolbar: [
+            { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline'] },
+            { name: 'paragraph', items: ['NumberedList', 'BulletedList'] },
+            { name: 'insert', items: ['Image', 'Table'] },
+            { name: 'styles', items: ['Format'] },
+            { name: 'tools', items: ['Maximize'] }
+        ],
+    });
+    </script>   
+    <script>
+        CKEDITOR.replace('adress', {
+          height: 70,
+        toolbar: [
+            { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline'] },
+            { name: 'paragraph', items: ['NumberedList', 'BulletedList'] },
+            { name: 'insert', items: ['Image', 'Table'] },
+            { name: 'styles', items: ['Format'] },
+            { name: 'tools', items: ['Maximize'] }
+        ],
+    });
+    </script> 
+
+    {{-- view sideBanner --}}
+      <script>
+        CKEDITOR.replace('description', {
+          height: 70,
         toolbar: [
             { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline'] },
             { name: 'paragraph', items: ['NumberedList', 'BulletedList'] },

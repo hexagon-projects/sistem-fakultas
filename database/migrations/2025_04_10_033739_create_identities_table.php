@@ -17,14 +17,16 @@ return new class extends Migration
             $table->string('meta');
             $table->text('adress');
             $table->text('link_map');
-            $table->integer('phone');
+            $table->string('phone');
             $table->string('email');
             $table->string('fb');
             $table->string('ig');
             $table->string('tiktok');
             $table->string('yt');
-            $table->string('service');
+            $table->string('time_service');
+            $table->string('day_service');
             $table->string('image1');
+            $table->string('image2');
             $table->timestamps();
         });
     }

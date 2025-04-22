@@ -26,7 +26,7 @@ class Post extends Model
     // Relasi ke kategori (jika ada model FaqCategory)
     public function category()
     {
-        return $this->belongsTo(Faq_Category::class, 'id_category');
+        return $this->belongsTo(Category::class, 'id_category');
     }
     
 }
