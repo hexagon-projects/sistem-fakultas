@@ -76,7 +76,7 @@
     {{-- view Identity --}}
     <script>
         CKEDITOR.replace('meta', {
-          height: 70,
+          height: 150,
         toolbar: [
             { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline'] },
             { name: 'paragraph', items: ['NumberedList', 'BulletedList'] },
@@ -98,7 +98,7 @@
         ],
     });
     </script> 
-
+  
     {{-- view sideBanner --}}
       <script>
         CKEDITOR.replace('description', {
@@ -111,7 +111,9 @@
             { name: 'tools', items: ['Maximize'] }
         ],
     });
-    </script>   
+    </script> 
+    
+   
   
   
   </body>

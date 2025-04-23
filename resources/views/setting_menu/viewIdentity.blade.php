@@ -30,7 +30,7 @@
           <label class="block text-sm mt-3">
             <span class="text-gray-700 font-semibold">Meta Description</span>
             <textarea
-              name="adress"
+              name="meta"
                 id="meta"
               class="block w-full mt-1 text-sm border-gray-300 border-2 p-2 rounded-md"
             >{{ old('adress', $identity->meta ) }}</textarea>

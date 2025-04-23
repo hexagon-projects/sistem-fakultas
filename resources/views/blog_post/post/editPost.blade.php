@@ -1,13 +1,13 @@
 <x-layout>
-    <div class="container grid px-6 mx-auto mt-8">
-    <h4
-    class="mb-4 text-lg font-semibold text-gray-600 "
-  >
-    Edit Post
-  </h4>
-    <div    
-    class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md h-auto"
-  >
+  <div class="container px-6 mx-auto mt-8">
+  <h4
+  class="mb-4 text-lg font-semibold text-gray-600 "
+>
+  Edit Post
+</h4>
+  <div    
+  class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md h-auto"
+>
 
 
   <form 
@@ -32,12 +32,12 @@
 
   <label class="block text-sm mt-3">
     <span class="text-gray-700 font-semibold">Resume</span>
-    <textarea name="resume" id="resume" class="block w-full mt-1 text-sm border-gray-300 border-2 p-2 rounded-md">{{ old('title', $post->resume) }}</textarea>
+    <textarea name="resume" id="resume" class="block w-full mt-1 text-sm border-gray-300 border-2 p-2 rounded-md">{{ old('resume', $post->resume) }}</textarea>
   </label>
 
   <label class="block text-sm mt-3">
     <span class="text-gray-700 font-semibold">Content</span>
-    <textarea name="content" id="content" class="block w-full mt-1 text-sm border-gray-300 border-2 p-2 rounded-md">{{ old('title', $post->content) }}</textarea>
+    <textarea name="content" id="content" class="block w-full mt-1 text-sm border-gray-300 border-2 p-2 rounded-md">{{ old('content', $post->content) }}</textarea>
   </label>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
@@ -46,7 +46,7 @@
       <select
         id="id_category"
         name="id_category"
-        value="{{ old('title', $post->id_category) }}"
+        value="{{ old('id_category', $post->id_category) }}"
         class="mt-3 h-10 block w-full border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm"
       >
         <option value="1">Artikel</option>
@@ -59,7 +59,7 @@
         <select
           id="status"
           name="status"
-            value="{{ old('title', $post->status) }}"
+            value="{{ old('status', $post->status) }}"
           class="mt-3 h-10 block w-full border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm"
         >
           <option value="active">Active</option>
@@ -75,7 +75,7 @@
         type="date"
         name="publish"
         id="publish"
-          value="{{ old('title', $post->publish) }}"
+          value="{{ old('publish', $post->publish) }}"
         class="mt-3 h-10 block w-full border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm"
       />
     </div>
@@ -84,10 +84,9 @@
       <label for="yt" class="block text-sm font-medium text-gray-700">YouTube URL</label>
       <input
         type="text"
-      value="{{ old('title', $post->image) }}"
         name="yt"
         id="yt"
-          value="{{ old('title', $post->yt) }}"
+          value="{{ old('yt', $post->yt) }}"
         placeholder="https://youtube.com/..."
         class="mt-3 h-10 block w-full border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm"
       />

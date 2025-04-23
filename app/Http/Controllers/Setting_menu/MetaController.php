@@ -44,10 +44,15 @@ class MetaController extends Controller
         $google = Analytic::first();
     
         $validated = $request->validate([
-            'google' => 'nullable|string|max:255',
+            'google' => 'nullable|string',
         ]);
 
-        $google->update($validated);
+        if (!$google) {
+            // Kalau belum ada data, kamu bisa insert baru
+            Analytic::create($validated);
+        } else {
+            $google->update($validated);
+        }
 
         return redirect()->back()->with('success', 'Data google berhasil diperbarui.');
     }  
@@ -67,7 +72,12 @@ class MetaController extends Controller
             'chat' => 'nullable|string|max:255',
         ]);
 
-        $chat->update($validated);
+        if (!$chat) {
+            // Kalau belum ada data, kamu bisa insert baru
+            Analytic::create($validated);
+        } else {
+            $chat->update($validated);
+        }
 
         return redirect()->back()->with('success', 'Data Welcome Chat berhasil diperbarui.');
     }  
