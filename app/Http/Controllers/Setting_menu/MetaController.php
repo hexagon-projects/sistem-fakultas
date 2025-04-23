@@ -16,17 +16,21 @@ class MetaController extends Controller
 
     public function update(Request $request)
     {
-        // dd($request->all());
-        $meta = Analytic::first();
-    
         $validated = $request->validate([
-            'meta' => 'nullable|string|max:255',
+            'meta' => 'nullable|string',
         ]);
 
-        $meta->update($validated);
+        $meta = Analytic::first();
+
+        if (!$meta) {
+            // Kalau belum ada data, kamu bisa insert baru
+            Analytic::create($validated);
+        } else {
+            $meta->update($validated);
+        }
 
         return redirect()->back()->with('success', 'Data Meta berhasil diperbarui.');
-    }   
+    }
     
     public function google()
     {

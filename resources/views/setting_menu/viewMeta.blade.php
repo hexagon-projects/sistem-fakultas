@@ -16,7 +16,7 @@
         <textarea
           name="meta"
           class="block w-full mt-1 text-sm border-gray-300 border-2 p-2 rounded-md"
-        > {{ old('meta', $analytic->meta) }}</textarea>
+        > {{ old('meta', $analytic->meta ?? '') }}</textarea>
       </label>
     </div>
 

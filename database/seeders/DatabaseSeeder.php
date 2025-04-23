@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
                 'phone' => '08986004677',
                 'role' => 'Super Admin',
                 'email_verified_at' => now(),
-                'password' => Hash::make('password'),
+                'password' => Hash::make('Kk1617102084'),
               
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Regular User',
                 'email' => 'user@example.com',
                 'phone' => '08987654321',
-                'role' => 'user',
+                'role' => 'admin',
                 'email_verified_at' => now(),
                 'password' => Hash::make('password'),
               

@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('analytics', function (Blueprint $table) {
             $table->id();
-            $table->text('google');
-            $table->text('meta');
-            $table->text('chat');
+            $table->text('google')->nullable();
+            $table->text('meta')->nullable();
+            $table->text('chat')->nullable();
             $table->timestamps();
         });
     }
