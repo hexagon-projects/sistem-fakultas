@@ -1,5 +1,6 @@
 <x-layout>
     <div class="container grid px-6 mx-auto mt-8">
+      <div class="h-screen">
     <h4 class="mb-4 text-lg font-semibold text-gray-600">
         Meta
       </h4>
@@ -15,10 +16,11 @@
     <label class="block text-sm mt-3">
         <textarea
           name="meta"
+          id="meta"
           class="block w-full mt-1 text-sm border-gray-300 border-2 p-2 rounded-md"
         > {{ old('meta', $analytic->meta ?? '') }}</textarea>
       </label>
-    </div>
+   
 
     <button
     type="submit"
@@ -28,4 +30,6 @@
   </button>
 
 </form>
+</div>
+</div>
 </x-layout>

@@ -1,10 +1,10 @@
-<div class="flex items-center flex-shrink-0 px-6 text-gray-900 absolute gap-3 z-30 h-[74px] ml-[0.5]">
+<div class="flex items-center flex-shrink-0 px-6 text-gray-900 absolute gap-3 z-30 h-[74px] ml-14 md:ml-0">
     <div>
-      <img src="{{ asset('assets/img/logo.webp') }}" alt="Logo UNPAS" class="h-[50px] mt-2 mx-auto mb-2" />
+      <img src="{{ asset('assets/img/logo.webp') }}" alt="Logo UNPAS" class="md:h-[50px] mt-2 mx-auto mb-2 h-10" />
     </div>    
     <div class="flex flex-col">
-      <p class="text-xl font-bold">Universitas Pasundan</p>
-      <small class="font-semibold"><i>Real Choice for Every Generations</i></small>
+      <p class="md:text-xl font-bold text-lg">Universitas Pasundan</p>
+    <small class="font-semibold "><i>Real Choice for Every Generations</i></small>
     </div>
   </div>
 
@@ -15,7 +15,7 @@
           <ul class="mt-6">
             <li class="relative px-6 py-3">
               <span
-                class="absolute inset-y-0 left-0 w-1 rounded-tr-lg rounded-br-lg"
+                class=" inset-y-0 left-0 w-1 rounded-tr-lg rounded-br-lg"
                 aria-hidden="true"
               ></span>
               <a
