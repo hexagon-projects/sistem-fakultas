@@ -221,7 +221,7 @@
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
                   >
-                    <a class="w-full" href="pages/create-account.html">
+                    <a class="w-full" href="/view_agenda">
                       Agenda
                     </a>
                   </li>
@@ -367,7 +367,7 @@
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
                   >
-                    <a class="w-full" href="pages/login.html">Identity</a>
+                    <a class="w-full" href="{{ route('identity.index') }}">Identity</a>
                   </li>
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
@@ -379,29 +379,29 @@
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
                   >
-                    <a class="w-full" href="pages/forgot-password.html">
+                    <a class="w-full" href="{{ route('sideBanner.index') }}">
                       Side Banner
                     </a>
                   </li>
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
                   >
-                    <a class="w-full" href="pages/404.html">Slider</a>
+                    <a class="w-full" href="{{ route('slider.index') }}">Slider</a>
                   </li>
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
                   >
-                    <a class="w-full" href="pages/blank.html">Meta Pixel</a>
+                    <a class="w-full" href="{{ route('meta.index') }}">Meta Pixel</a>
                   </li>
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
                   >
-                    <a class="w-full" href="pages/blank.html">Google Analytics</a>
+                    <a class="w-full" href="{{ route('google.index') }}">Google Analytics</a>
                   </li>
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
                   >
-                    <a class="w-full" href="pages/blank.html">Welcome Chat</a>
+                    <a class="w-full" href="{{ route('chat.index') }}">Welcome Chat</a>
                   </li>
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"

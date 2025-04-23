@@ -8,6 +8,14 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <style>
+      .cke_notification_warning {
+          display: none !important;
+      }
+   </style>
+
+
+    
     {{-- <link rel="stylesheet" href="./assets/css/tailwind.output.css" /> --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="./assets/js/init-alpine.js"></script>
@@ -35,5 +43,76 @@
       </div>
 
     </div>
+
+
+    
+    <script src="https://cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
+    {{-- view Post --}}
+    <script>
+        CKEDITOR.replace('resume', {
+          height: 100,
+        toolbar: [
+            { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline'] },
+            { name: 'paragraph', items: ['NumberedList', 'BulletedList'] },
+            { name: 'insert', items: ['Image', 'Table'] },
+            { name: 'styles', items: ['Format'] },
+            { name: 'tools', items: ['Maximize'] }
+        ],
+    });
+    </script>   
+    <script>
+        CKEDITOR.replace('content', {
+          height: 150,
+        toolbar: [
+            { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline'] },
+            { name: 'paragraph', items: ['NumberedList', 'BulletedList'] },
+            { name: 'insert', items: ['Image', 'Table'] },
+            { name: 'styles', items: ['Format'] },
+            { name: 'tools', items: ['Maximize'] }
+        ],
+    });
+    </script>   
+
+    {{-- view Identity --}}
+    <script>
+        CKEDITOR.replace('meta', {
+          height: 70,
+        toolbar: [
+            { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline'] },
+            { name: 'paragraph', items: ['NumberedList', 'BulletedList'] },
+            { name: 'insert', items: ['Image', 'Table'] },
+            { name: 'styles', items: ['Format'] },
+            { name: 'tools', items: ['Maximize'] }
+        ],
+    });
+    </script>   
+    <script>
+        CKEDITOR.replace('adress', {
+          height: 70,
+        toolbar: [
+            { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline'] },
+            { name: 'paragraph', items: ['NumberedList', 'BulletedList'] },
+            { name: 'insert', items: ['Image', 'Table'] },
+            { name: 'styles', items: ['Format'] },
+            { name: 'tools', items: ['Maximize'] }
+        ],
+    });
+    </script> 
+
+    {{-- view sideBanner --}}
+      <script>
+        CKEDITOR.replace('description', {
+          height: 70,
+        toolbar: [
+            { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline'] },
+            { name: 'paragraph', items: ['NumberedList', 'BulletedList'] },
+            { name: 'insert', items: ['Image', 'Table'] },
+            { name: 'styles', items: ['Format'] },
+            { name: 'tools', items: ['Maximize'] }
+        ],
+    });
+    </script>   
+  
+  
   </body>
   </html>
