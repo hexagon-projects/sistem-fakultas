@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Ourteam extends Model
+class Partner extends Model
 {
     use HasFactory;
 
-    protected $table = 'ourteams';
+    protected $table = 'partners';
 
     protected $fillable = [
-        'id_departement', 'name', 'title', 'email', 'phone',
-        'ig', 'fb', 'tiktok', 'yt', 'image','home',
+        'id_departement', 'name', 'url', 'description', 'detail',
+        'image', 'status', 'home', 
     ];
 
     public function departement()

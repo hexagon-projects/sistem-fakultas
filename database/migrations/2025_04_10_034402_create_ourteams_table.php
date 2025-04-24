@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('title');
             $table->string('email');
-            $table->integer('phone');
+            $table->string('phone');
             $table->string('ig');
             $table->string('fb');
             $table->string('yt');

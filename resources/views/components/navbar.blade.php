@@ -49,7 +49,7 @@
                 @click="togglePagesService"
                 @click="isPagesServiceOpen = !isPagesServiceOpen"
                 :class="{
-                'bg-[#034833] rounded-lg p-2 text-white': isPagesServiceOpen,
+                'bg-primary rounded-lg p-2 text-white': isPagesServiceOpen,
                 'hover:bg-gray-200 rounded-lg p-2': !isPagesServiceOpen
                 }"
                 aria-haspopup="true"
@@ -167,7 +167,7 @@
                 @click="togglePagesBlog"
                 @click="isPagesBlogOpen = !isPagesBlogOpen"
                 :class="{
-                'bg-[#034833] rounded-lg p-2 text-white': isPagesBlogOpen,
+                'bg-primary rounded-lg p-2 text-white': isPagesBlogOpen,
                 'hover:bg-gray-200 rounded-lg p-2': !isPagesBlogOpen
                 }"
                 aria-haspopup="true"
@@ -234,7 +234,7 @@
                 @click="togglePagesProfil"
                 @click="isPagesProfilOpen = !isPagesProfilOpen"
                 :class="{
-                'bg-[#034833] rounded-lg p-2 text-white': isPagesProfilOpen,
+                'bg-primary rounded-lg p-2 text-white': isPagesProfilOpen,
                 'hover:bg-gray-200 rounded-lg p-2': !isPagesProfilOpen
                 }"
                 aria-haspopup="true"
@@ -283,12 +283,12 @@
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
                   >
-                    <a class="w-full" href="pages/login.html">About Us</a>
+                    <a class="w-full" href="">About Us</a>
                   </li>
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
                   >
-                    <a class="w-full" href="pages/create-account.html">
+                    <a class="w-full" href="{{ route('ourteam.index') }}">
                       Our Teams
                     </a>
                   </li>
@@ -307,7 +307,7 @@
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
                   >
-                    <a class="w-full" href="pages/blank.html">Partners</a>
+                    <a class="w-full" href="{{ route('partner.index') }}">Partners</a>
                   </li>
                 </ul>
               </template>
@@ -318,7 +318,7 @@
                 @click="togglePagesSetting"
                 @click="isPagesSettingOpen = !isPagesSettingOpen"
                 :class="{
-                'bg-[#034833] rounded-lg p-2 text-white': isPagesSettingOpen,
+                'bg-primary rounded-lg p-2 text-white': isPagesSettingOpen,
                 'hover:bg-gray-200 rounded-lg p-2': !isPagesSettingOpen
                 }"
                 aria-haspopup="true"
@@ -425,7 +425,7 @@
         x-transition:leave-end="opacity-0"
         class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"
       ></div>
-      <aside
+<aside
         class="fixed inset-y-0 z-20 flex-shrink-0 w-64 mt-16 overflow-y-auto bg-white md:hidden"
         x-show="isSideMenuOpen"
         x-transition:enter="transition ease-in-out duration-150"
@@ -442,7 +442,7 @@
           <ul class="mt-6">
             <li class="relative px-6 py-3">
               <span
-                class="absolute inset-y-0 left-0 w-1 bg-[#034833] rounded-tr-lg rounded-br-lg"
+                class="absolute inset-y-0 left-0 w-1 bg-primary rounded-tr-lg rounded-br-lg"
                 aria-hidden="true"
               ></span>
               <a
@@ -474,7 +474,7 @@
                 @click="togglePagesService"
                 @click="isPagesServiceOpen = !isPagesServiceOpen"
                 :class="{
-                'bg-[#034833] rounded-lg p-2 text-white': isPagesServiceOpen,
+                'bg-primary rounded-lg p-2 text-white': isPagesServiceOpen,
                 'hover:bg-gray-200 rounded-lg p-2': !isPagesServiceOpen
                 }"
                 aria-haspopup="true"
@@ -592,7 +592,7 @@
                 @click="togglePagesBlog"
                 @click="isPagesBlogOpen = !isPagesBlogOpen"
                 :class="{
-                'bg-[#034833] rounded-lg p-2 text-white': isPagesBlogOpen,
+                'bg-primary rounded-lg p-2 text-white': isPagesBlogOpen,
                 'hover:bg-gray-200 rounded-lg p-2': !isPagesBlogOpen
                 }"
                 aria-haspopup="true"
@@ -659,7 +659,7 @@
                 @click="togglePagesProfil"
                 @click="isPagesProfilOpen = !isPagesProfilOpen"
                 :class="{
-                'bg-[#034833] rounded-lg p-2 text-white': isPagesProfilOpen,
+                'bg-primary rounded-lg p-2 text-white': isPagesProfilOpen,
                 'hover:bg-gray-200 rounded-lg p-2': !isPagesProfilOpen
                 }"
                 aria-haspopup="true"
@@ -743,7 +743,7 @@
                 @click="togglePagesSetting"
                 @click="isPagesSettingOpen = !isPagesSettingOpen"
                 :class="{
-                'bg-[#034833] rounded-lg p-2 text-white': isPagesSettingOpen,
+                'bg-primary rounded-lg p-2 text-white': isPagesSettingOpen,
                 'hover:bg-gray-200 rounded-lg p-2': !isPagesSettingOpen
                 }"
                 aria-haspopup="true"

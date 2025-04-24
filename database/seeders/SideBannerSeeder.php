@@ -14,7 +14,7 @@ class SideBannerSeeder extends Seeder
     public function run(): void
     {
         DB::table('side_baners')->insert([
-                'id_departement' => 2,
+                'id_departement' => 1,
                 'title' => 'Contoh Judul Pertama',
                 'description' => 'Ini adalah deskripsi panjang untuk item pertama. Bisa berisi teks panjang dengan berbagai informasi.',
                 'image1' => 'image1.jpg',

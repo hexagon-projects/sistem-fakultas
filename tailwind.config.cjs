@@ -4,12 +4,17 @@ module.exports = {
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
     "./resources/**/*.vue",
-    './public/**/*.html',        // Tambahkan jika kamu import template HTML langsung
-    './resources/**/*.html' 
+    './public/**/*.html',
+    './resources/**/*.html'
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#5676ff',
+        secondary: '#fde047', // yellow-300 dari Tailwind default
+      }
+    },
   },
   plugins: [],
-  
 }
+
