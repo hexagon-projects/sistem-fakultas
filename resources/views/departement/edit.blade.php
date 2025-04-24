@@ -32,15 +32,16 @@
                 </div>
             </div>
             <hr class="my-5">
-            <form action="{{ route('departement.store') }}" method="post" enctype="multipart/form-data" id="form-departement">
+            <form action="{{ route('departement.update', $departement->id) }}" method="post" enctype="multipart/form-data" id="form-departement">
             @csrf
+            @method('PUT')
             <div class="grid grid-cols-1 md:grid-cols-3 gap-5 items-start">
 
                 <div class="col-span-1 md:col-span-2 gap-5">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
                         <div class="flex flex-col gap-1 mb-5 md:col-span-2">
                             <label for="">Departement Name</label>
-                            <input type="text" name="name" value="{{ old('name') }}"
+                            <input type="text" name="name" value="{{ $departement->name }}"
                                 class="block w-full mt-1 text-sm focus:border-[#5676ff] focus:outline-none focus:shadow-outline-purple form-input border-gray-300 border-2 p-2 rounded-md" />
                             @error('name')
                                 <div>
@@ -50,7 +51,7 @@
                         </div>
                         <div class="flex flex-col gap-1 mb-5">
                             <label for="">Akreditasi</label>
-                            <input type="text" name="akreditasi" value="{{ old('akreditasi') }}"
+                            <input type="text" name="akreditasi" value="{{ $departement->akreditasi }}"
                                 class="block w-full mt-1 text-sm focus:border-[#5676ff] focus:outline-none focus:shadow-outline-purple form-input border-gray-300 border-2 p-2 rounded-md" />
                             @error('akreditasi')
                                 <div>
@@ -61,7 +62,7 @@
                     </div>
                     <div class="flex flex-col gap-1 mb-5">
                         <label for="">Tagline Departement</label>
-                        <input type="text" name="tagline" value="{{ old('tagline') }}"
+                        <input type="text" name="tagline" value="{{ $departement->tagline }}"
                             class="block w-full mt-1 text-sm focus:border-[#5676ff] focus:outline-none focus:shadow-outline-purple form-input border-gray-300 border-2 p-2 rounded-md" />
                         @error('tagline')
                             <div>
@@ -72,7 +73,7 @@
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
                         <div class="flex flex-col gap-1 mb-5">
                             <label for="instagram">Instagram</label>
-                            <input type="text" name="instagram" value="{{ old('instagram') }}"
+                            <input type="text" name="instagram" value="{{ $departement->instagram }}"
                                 class="block w-full mt-1 text-sm focus:border-[#5676ff] focus:outline-none focus:shadow-outline-purple form-input border-gray-300 border-2 p-2 rounded-md" />
                             @error('instagram')
                                 <div>
@@ -82,7 +83,7 @@
                         </div>
                         <div class="flex flex-col gap-1 mb-5">
                             <label for="tiktok">Tiktok</label>
-                            <input type="text" name="tiktok" value="{{ old('tiktok') }}"
+                            <input type="text" name="tiktok" value="{{ $departement->tiktok }}"
                                 class="block w-full mt-1 text-sm focus:border-[#5676ff] focus:outline-none focus:shadow-outline-purple form-input border-gray-300 border-2 p-2 rounded-md" />
                             @error('tiktok')
                                 <div>
@@ -92,7 +93,7 @@
                         </div>
                         <div class="flex flex-col gap-1 mb-5">
                             <label for="facebook">Facebook</label>
-                            <input type="text" name="facebook" value="{{ old('facebook') }}"
+                            <input type="text" name="facebook" value="{{ $departement->facebook }}"
                                 class="block w-full mt-1 text-sm focus:border-[#5676ff] focus:outline-none focus:shadow-outline-purple form-input border-gray-300 border-2 p-2 rounded-md" />
                             @error('facebook')
                                 <div>
@@ -102,7 +103,7 @@
                         </div>
                         <div class="flex flex-col gap-1 mb-5">
                             <label for="youtube">Youtube Chanel</label>
-                            <input type="text" name="youtube" value="{{ old('youtube') }}"
+                            <input type="text" name="youtube" value="{{ $departement->youtube }}"
                                 class="block w-full mt-1 text-sm focus:border-[#5676ff] focus:outline-none focus:shadow-outline-purple form-input border-gray-300 border-2 p-2 rounded-md" />
                             @error('youtube')
                                 <div>
@@ -113,7 +114,7 @@
                     </div>
                     <div class="flex flex-col gap-1 mb-5">
                         <label for="title1">Title</label>
-                        <input type="text" name="title1" value="{{ old('title1') }}"
+                        <input type="text" name="title1" value="{{ $departement->title1 }}"
                             class="block w-full mt-1 text-sm focus:border-[#5676ff] focus:outline-none focus:shadow-outline-purple form-input border-gray-300 border-2 p-2 rounded-md" />
                         @error('title1')
                             <div>
@@ -123,7 +124,7 @@
                     </div>
                     <div class="flex flex-col gap-1 mb-5">
                         <label for="description1">Decription</label>
-                        <textarea name="description1" id="description" class="block w-full mt-1 text-sm border-gray-300 border-2 p-2 rounded-md"></textarea>
+                        <textarea name="description1" id="description" class="block w-full mt-1 text-sm border-gray-300 border-2 p-2 rounded-md">{{ $departement->description1 }}</textarea>
                         @error('description1')
                             <div>
                                 <small class="text-red-500"><i>{{ $message }}</i></small>
@@ -145,7 +146,7 @@
                                         id="color"
                                         type="color"
                                         name="color1"
-                                        value="{{ old('color1', '#4197CB') }}"
+                                        value="{{ $departement->color1 }}"
                                         oninput="document.getElementById('color-preview').textContent = this.value"
                                         class="w-8 cursor-pointer rounded-md focus:outline-none"
                                     />
@@ -168,7 +169,7 @@
                                         id="color"
                                         type="color"
                                         name="color2"
-                                        value="{{ old('color2', '#4197CB') }}"
+                                        value="{{ $departement->color2 }}"
                                         oninput="document.getElementById('color-preview').textContent = this.value"
                                         class="w-8 cursor-pointer rounded-md focus:outline-none"
                                     />
@@ -186,7 +187,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col gap-1 mb-5">
-                        <label for="title1">Image (Max : 1MB)</label>
+                        <label for="title1">Image (Max: 1MB)</label>
                         <div class="relative w-full h-40 border-2 border-dashed rounded-md flex items-center justify-center bg-gray-50 overflow-hidden">
                             <input
                                 type="file"
@@ -198,7 +199,12 @@
                             />
                     
                             <!-- Preview Gambar -->
-                            <img id="image-preview" src="#" alt="Preview" class="absolute inset-0 w-full h-full object-cover hidden z-0 rounded-md" />
+                            <img 
+                                id="image-preview" 
+                                src="{{ old('image1') ? asset('storage/departement-image/' . old('image1')) : (isset($departement) && $departement->image1 ? asset('storage/' . $departement->image1) : '#') }}" 
+                                alt="Preview" 
+                                class="absolute inset-0 w-full h-full object-cover {{ (isset($departement) && $departement->image1) ? '' : 'hidden' }} z-0 rounded-md" 
+                            />
                     
                             <!-- Tombol Hapus -->
                             <button
@@ -211,16 +217,18 @@
                             </button>
                     
                             <!-- Text Default -->
-                            <span id="upload-text" class="text-gray-400 z-0 text-center px-2">Klik untuk pilih gambar</span>
+                            <span id="upload-text" class="text-gray-400 z-0 text-center px-2 {{ (isset($departement) && $departement->image1) ? 'hidden' : '' }}">
+                                Klik untuk pilih gambar
+                            </span>
                         </div>
                     
                         @error('image1')
                             <p class="text-red-500 text-sm mt-2"><i>{{ $message }}</i></p>
                         @enderror
-                    </div>
+                    </div>                    
                     <div class="flex flex-col gap-1 mb-5">
                         <label for="yt_id">ID Youtube Vidio</label>
-                        <input type="text" name="yt_id" value="{{ old('yt_id') }}"
+                        <input type="text" name="yt_id" value="{{ $departement->yt_id }}"
                             class="block w-full mt-1 text-sm focus:border-[#5676ff] focus:outline-none focus:shadow-outline-purple form-input border-gray-300 border-2 p-2 rounded-md" />
                         @error('yt_id')
                             <div>
@@ -272,6 +280,36 @@
             uploadText.classList.remove('hidden');
         }
     </script>
+
+<script>
+    function previewImage(event) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        const imgPreview = document.getElementById('image-preview');
+        const uploadText = document.getElementById('upload-text');
+        const removeBtn = document.getElementById('remove-btn');
+    
+        if (file) {
+            reader.onload = function(e) {
+                imgPreview.src = e.target.result;
+                imgPreview.classList.remove('hidden');
+                uploadText.classList.add('hidden');
+                removeBtn.classList.remove('hidden');
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+    
+    function removeImage() {
+        document.getElementById('image1').value = '';
+        const imgPreview = document.getElementById('image-preview');
+        imgPreview.src = '#';
+        imgPreview.classList.add('hidden');
+        document.getElementById('upload-text').classList.remove('hidden');
+        document.getElementById('remove-btn').classList.add('hidden');
+    }
+    </script>
+    
 
 <script>
     function confirmSubmit() {

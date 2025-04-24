@@ -136,6 +136,9 @@ Route::middleware(['auth'])->group(function () {
         'departement' => DepartementController::class,
     ]);
     Route::get('/departement/step2/{id}', [DepartementController::class, 'step2'])->name('departement.step2');
+    Route::get('/departement/step3/{id}', [DepartementController::class, 'step3'])->name('departement.step3');
+    Route::put('/departement/step2/update/{id}', [DepartementController::class, 'step2Update'])->name('departement.update.step2');
+    Route::put('/departement/step3/update/{id}', [DepartementController::class, 'step3Update'])->name('departement.update.step3');
 
     
     Route::get('/view_agenda', function () {
