@@ -14,7 +14,7 @@ class SliderSeeder extends Seeder
     public function run(): void
     {
         DB::table('sliders')->insert([
-                'id_departement' => 2,
+                'id_departement' => 1,
                 'title' => 'Promo Spesial April',
                 'description' => 'Dapatkan diskon menarik untuk produk unggulan bulan ini!',
                 'image1' => 'images/baner1.jpg',

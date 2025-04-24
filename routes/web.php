@@ -2,17 +2,22 @@
 
 use App\Models\User;
 use App\Models\Slider;
+use App\Models\Ourteam;
 use App\Models\Category;
 use App\Models\Identity;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Post\PostController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Profile\AboutController;
+use App\Http\Controllers\Profile\OurteamController;
+use App\Http\Controllers\Profile\PartnerController;
 use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\Category\CategoryController;
 use App\Http\Controllers\Setting_menu\MetaController;
 use App\Http\Controllers\Setting_menu\SliderController;
 use App\Http\Controllers\Setting_menu\IdentityController;
 use App\Http\Controllers\Setting_menu\SideBannerController;
+use App\Models\Partner;
 
 
 use App\Http\Controllers\UsersController;
@@ -90,6 +95,33 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/view_chat', [MetaController::class, 'chat'])->name('chat.index');
     Route::put('/chat', [MetaController::class, 'chatUpdate'])->name('chat.update');
+
+
+    // Menu Profile
+    // About Us
+    Route::get('/view_ourteam', [OurteamController::class, 'index'])->name('ourteam.index');
+    Route::get('/create_ourteam', [OurteamController::class, 'create'])->name('ourteam.create');
+    Route::post('/upload_ourteam', [OurteamController::class, 'store'])->name('ourteam.store');
+    Route::get('/ourteam/{id}/edit', [OurteamController::class, 'edit'])->name('ourteam.edit');
+    Route::put('/ourteam/{id}', [OurteamController::class, 'update'])->name('ourteam.update');
+    Route::get('/ourteam/{id}/delete', [OurteamController::class, 'destroy'])->name('ourteam.delete');
+
+    // Partners
+    Route::get('/view_partner', [PartnerController::class, 'index'])->name('partner.index');
+    Route::get('/create_partner', [PartnerController::class, 'create'])->name('partner.create');
+    Route::post('/upload_partner', [PartnerController::class, 'store'])->name('partner.store');
+    Route::get('/partner/{id}/edit', [PartnerController::class, 'edit'])->name('partner.edit');
+    Route::put('/partner/{id}', [PartnerController::class, 'update'])->name('partner.update');
+    Route::get('/partner/{id}/delete', [PartnerController::class, 'destroy'])->name('partner.delete');
+
+
+
+
+
+
+
+
+
 
 
 

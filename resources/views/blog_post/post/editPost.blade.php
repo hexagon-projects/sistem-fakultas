@@ -1,4 +1,5 @@
 <x-layout>
+      <div class="flex flex-col flex-1 w-full h-auto">
   <div class="container px-6 mx-auto mt-8">
   <h4
   class="mb-4 text-lg font-semibold text-gray-600 "
@@ -120,6 +121,9 @@
   </button>
 </form>
 
-</div>
+
+
+
 
 </x-layout>
+

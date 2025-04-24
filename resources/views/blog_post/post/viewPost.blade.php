@@ -8,7 +8,7 @@
         </h2>
 
         <div class="flex items-center gap-5 mb-2">
-          <div class="flex gap-2 w-auto px-3 py-[0.4rem] mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-[#034833] border border-transparent rounded-lg active:bg-[#1d3e34] hover:bg-yellow-300 hover:text-red-800 focus:outline-none focus:shadow-outline-purple mb-5">
+          <div class="flex gap-2 w-auto px-3 py-[0.4rem] mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-primary border border-transparent rounded-lg active:bg-primary hover:bg-yellow-300 hover:text-red-800 focus:outline-none focus:shadow-outline-purple mb-5">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z"/>
               <polyline points="14 2 14 8 20 8"/>
@@ -22,7 +22,7 @@
           </div>
          
           <a
-          class="block w-auto px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-[#034833] border border-transparent rounded-lg active:bg-[#034833] hover:bg-yellow-300 hover:text-red-800  focus:outline-none focus:shadow-outline-purple mb-5"
+          class="block w-auto px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-primary border border-transparent rounded-lg active:bg-primary hover:bg-yellow-300 hover:text-red-800  focus:outline-none focus:shadow-outline-purple mb-5"
          href="/view_category"
         >
           Categories
@@ -71,7 +71,7 @@
 
                         <div class="flex items-center space-x-4 text-sm mt-7">
                           <a
-                            class="flex hover:bg-yellow-400 items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-[#034833] rounded-lg focus:outline-none focus:shadow-outline-gray" href="/post/{{ $post->id }}/edit"
+                            class="flex hover:bg-yellow-400 items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-primary rounded-lg focus:outline-none focus:shadow-outline-gray" href="/post/{{ $post->id }}/edit"
                             aria-label="Edit"
                           >
                             <svg
@@ -86,7 +86,7 @@
                             </svg>
                           </a>
                           <a
-                          class="flex hover:bg-yellow-400  items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-[#034833] rounded-lg focus:outline-none focus:shadow-outline-gray"
+                          class="flex hover:bg-yellow-400  items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-primary rounded-lg focus:outline-none focus:shadow-outline-gray"
                           href="/post/{{ $post->id }}/delete"
                           aria-label="Delete"
                           onclick="return confirm('Yakin ingin menghapus post ini?')"
@@ -171,7 +171,7 @@
                   </li>
                   <li>
                     <button
-                      class="px-3 py-1 text-white transition-colors duration-150 bg-[#034833] border border-r-0 border-[#034833] rounded-md focus:outline-none focus:shadow-outline-purple"
+                      class="px-3 py-1 text-white transition-colors duration-150 bg-primary border border-r-0 border-primary rounded-md focus:outline-none focus:shadow-outline-purple"
                     >
                       3
                     </button>

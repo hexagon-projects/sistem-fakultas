@@ -29,7 +29,7 @@
             <li class="relative px-6 py-3">
                 <button
                     class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black \"
-                @click="togglePagesService"
+                    @click="togglePagesService"
                     @click="isPagesServiceOpen = !isPagesServiceOpen"
                     :class="{
                         'bg-[#034833] rounded-lg p-2 text-white': isPagesServiceOpen,
@@ -43,7 +43,6 @@
                             <path d="M21 9v9a1.5 1.5 0 01-1.5 1.5h-15A1.5 1.5 0 013 18V9" />
                             <path d="M9 13.5h6" />
                         </svg>
-
 
 
                         </svg>
@@ -127,7 +126,7 @@
             <li class="relative px-6 py-3">
                 <button
                     class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black \"
-                @click="togglePagesBlog"
+                    @click="togglePagesBlog"
                     @click="isPagesBlogOpen = !isPagesBlogOpen"
                     :class="{
                         'bg-[#034833] rounded-lg p-2 text-white': isPagesBlogOpen,
@@ -174,7 +173,7 @@
             <li class="relative px-6 py-3">
                 <button
                     class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black \"
-                @click="togglePagesProfil"
+                    @click="togglePagesProfil"
                     @click="isPagesProfilOpen = !isPagesProfilOpen"
                     :class="{
                         'bg-[#034833] rounded-lg p-2 text-white': isPagesProfilOpen,
@@ -328,7 +327,6 @@
                     </form>
                 </div>
             </li>
-
         </ul>
     </div>
 </aside>
@@ -367,7 +365,7 @@
             <li class="relative px-6 py-3">
                 <button
                     class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black \"
-                @click="togglePagesService"
+                    @click="togglePagesService"
                     @click="isPagesServiceOpen = !isPagesServiceOpen"
                     :class="{
                         'bg-[#034833] rounded-lg p-2 text-white': isPagesServiceOpen,
@@ -382,9 +380,6 @@
                             <path d="M21 9v9a1.5 1.5 0 01-1.5 1.5h-15A1.5 1.5 0 013 18V9" />
                             <path d="M9 13.5h6" />
                         </svg>
-
-
-
                         </svg>
                         <span class="ml-4">Service</span>
                     </span>
@@ -480,7 +475,6 @@
                             <path d="M7 8h10M7 12h6m-6 4h10" />
                             <path d="M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6z" />
                         </svg>
-
                         <span class="ml-4">Blog & Agenda</span>
                     </span>
                     <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">

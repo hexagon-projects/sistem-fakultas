@@ -21,7 +21,7 @@
           <label class="block text-sm">
             <span class="text-gray-700 font-semibold">Departement</span>
             <select name="id_departement" class="block w-full mt-1 text-sm border-gray-300 border-2 p-2 rounded-md">
-              <option value="">-- Pilih Departemen --</option>
+              <option value="">-- Pilih Departement --</option>
               @foreach ($departements as $dept)
                 <option value="{{ $dept->id }}" {{ (old('id_departement', $slider->id_departement ) == $dept->id) ? 'selected' : '' }}>
                   {{ $dept->name }}

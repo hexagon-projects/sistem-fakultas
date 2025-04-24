@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('parties', function (Blueprint $table) {
+        Schema::create('partners', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_departement')->nullable();
             $table->foreign('id_departement')->references('id')->on('departements');
             $table->string('name');
-            $table->string('varchar');
+            $table->string('url');
             $table->text('description');
             $table->text('detail');
             $table->string('image');

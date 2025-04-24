@@ -4,10 +4,10 @@
           <h2
             class="my-6 text-2xl font-semibold text-gray-700"
           >
-            Category
+            Our Team
           </h2>
   
-            <div class="flex gap-2 w-40 px-3 py-[0.4rem] mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-primary border border-transparent rounded-lg active:bg-primary hover:bg-yellow-300 hover:text-red-800   focus:outline-none focus:shadow-outline-purple mb-5">
+            <div class="flex gap-2 w-40 px-3 py-[0.4rem] mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-[#034833] border border-transparent rounded-lg active:bg-[#1d3e34] hover:bg-yellow-300 hover:text-red-800   focus:outline-none focus:shadow-outline-purple mb-5">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z"/>
                 <polyline points="14 2 14 8 20 8"/>
@@ -15,8 +15,8 @@
                 <line x1="9" y1="14" x2="15" y2="14"/>
               </svg>
               
-              <a href="/create_category">
-              Add Category
+              <a href="/create_ourteam">
+              Add ourteam
             </a>
             </div>
            
@@ -45,7 +45,7 @@
                 <tbody
                   class="bg-white divide-y "
                 >
-                @foreach ($categories as $category)
+                @foreach ($ourteams as $ourteam)
                   <tr class="text-gray-700">
                    
                     <td class="px-4 py-3 text-sm">
@@ -56,12 +56,13 @@
                         <!-- Avatar with inset shadow -->
                        
                         <div>
-                          <p class="font-semibold">{{ $category->name }}</p>
+                          <h1 class="font-semibold">{{ $ourteam->name }} | {{ $ourteam->title }}</h1>
+                          <p>{{ $ourteam->phone }}</p>
                          
   
                           <div class="flex items-center space-x-4 text-sm mt-7">
                             <a
-                              class="flex hover:bg-yellow-400 items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-primary rounded-lg focus:outline-none focus:shadow-outline-gray" href="/category/{{ $category->id }}/edit"
+                              class="flex hover:bg-yellow-400 items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-[#034833] rounded-lg" href="/ourteam/{{ $ourteam->id }}/edit"
                               aria-label="Edit"
                             >
                               <svg
@@ -76,10 +77,10 @@
                               </svg>
                             </a>
                             <a
-                            class="flex hover:bg-yellow-400  items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-primary rounded-lg focus:outline-none focus:shadow-outline-gray"
-                            href="/category/{{ $category->id }}/delete"
+                            class="flex hover:bg-yellow-400  items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-[#034833] rounded-lg focus:outline-none focus:shadow-outline-gray"
+                            href="/ourteam/{{ $ourteam->id }}/delete"
                             aria-label="Delete"
-                            onclick="return confirm('Yakin ingin menghapus category ini?')"
+                            onclick="return confirm('Yakin ingin menghapus ourteam ini?')"
                             >
                               <svg
                                 class="w-5 h-5"
@@ -105,7 +106,7 @@
                     >
                       <img
                         class="object-cover w-36 h-36 rounded-lg "
-                        src="{{ asset('storage/' . $category->image) }}"
+                        src="{{ asset('storage/' . $ourteam->image) }}"
                         alt=""
                         loading="lazy"
                       />
@@ -163,7 +164,7 @@
                     </li>
                     <li>
                       <button
-                        class="px-3 py-1 text-white transition-colors duration-150 bg-primary border border-r-0 border-primary rounded-md focus:outline-none focus:shadow-outline-purple"
+                        class="px-3 py-1 text-white transition-colors duration-150 bg-[#034833] border border-r-0 border-[#034833] rounded-md focus:outline-none focus:shadow-outline-purple"
                       >
                         3
                       </button>

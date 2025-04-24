@@ -113,8 +113,21 @@
             { name: 'tools', items: ['Maximize'] }
         ],
     });
-    </script> 
+    </script>
     
+    {{-- view partner --}}
+    <script>
+      CKEDITOR.replace('detail', {
+        height: 70,
+      toolbar: [
+          { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline'] },
+          { name: 'paragraph', items: ['NumberedList', 'BulletedList'] },
+          { name: 'insert', items: ['Image', 'Table'] },
+          { name: 'styles', items: ['Format'] },
+          { name: 'tools', items: ['Maximize'] }
+      ],
+  });
+  </script>
    
   
   
