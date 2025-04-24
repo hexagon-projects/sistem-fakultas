@@ -19,6 +19,10 @@ use App\Http\Controllers\Setting_menu\IdentityController;
 use App\Http\Controllers\Setting_menu\SideBannerController;
 use App\Models\Partner;
 
+
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\DepartementController;
+
 Route::get('/login', function () {
     return view('/auth/login');
 })->name('login');
@@ -122,11 +126,18 @@ Route::middleware(['auth'])->group(function () {
 
 
 
+    // Users
+    Route::resources([
+        'users' => UsersController::class,
+    ]);
     
+    // Departement
+    Route::resources([
+        'departement' => DepartementController::class,
+    ]);
+    Route::get('/departement/step2/{id}', [DepartementController::class, 'step2'])->name('departement.step2');
 
-
-
-
+    
     Route::get('/view_agenda', function () {
         return view('blog_post/agenda/viewAgenda');
     });
