@@ -28,7 +28,7 @@
         >     
         </div>
       </div>
-      <ul class="flex items-center flex-shrink-0 space-x-6">
+      <ul class="hidden md:flex items-center flex-shrink-0 space-x-6">
         <!-- Profile menu -->
         <li class="relative">
           <button
@@ -38,12 +38,13 @@
             aria-label="Account"
             aria-haspopup="true"
           >
-            <img
-              class="object-cover w-8 h-8 rounded-full"
-              src="https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82"
-              alt=""
-              aria-hidden="true"
-            />
+          <div class="flex gap-2 items-center">
+            <div class="flex flex-col items-end">
+              <span class="text-xs font-bold">{{ auth()->user()->name }}</span>
+              <small class="text-xs">{{ auth()->user()->email }}</small>
+            </div>
+            <img src="https://ui-avatars.com/api/?name={{ urlencode(auth()->user()->name) }}" alt="Profile" class="w-10 h-10 rounded-full">
+          </div>
           </button>
           <template x-if="isButtonProfil">
             <ul
