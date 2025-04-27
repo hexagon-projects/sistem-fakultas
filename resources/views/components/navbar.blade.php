@@ -158,7 +158,7 @@
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
                   >
                     <a class="w-full"
-                            href="/view_post">Post</a>
+                            href="{{ route('posts.index') }}">Post</a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
                   >
@@ -211,26 +211,26 @@
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
                   >
                     <a class="w-full"
-                            href="pages/create-account.html">
+                            href="{{ route('ourteam.index') }}">
                             Our Teams
                             </a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
                   >
                     <a class="w-full"
-                            href="pages/forgot-password.html">
+                            href="{{ route('dataValue.index') }}">
                             Data
                             </a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
                   >
                     <a class="w-full"
-                            href="pages/404.html">Legals Document</a>
+                            href="{{ route('legalDocument.index') }}">Legals Document</a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
                   >
                     <a class="w-full"
-                            href="pages/blank.html">Partners</a>
+                            href="{{ route('partner.index') }}">Partners</a>
                         </li>
                     </ul>
                 </template>

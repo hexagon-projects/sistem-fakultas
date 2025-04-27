@@ -79,52 +79,101 @@
           </label>
   
           <div class="mt-4">
-            <label for="image1" class="block text-sm font-medium text-gray-700">Upload Gambar 1</label>
-            <input
-              type="file"
-              name="image1"
-              id="image1"
-              class="mt-3 h-10 block w-full border-2 border-gray-300 rounded-md shadow-sm text-sm
-                file:mr-4 file:py-2 file:px-4
-                file:rounded-md file:border-0
-                file:text-sm file:font-semibold
-                file:bg-indigo-50 file:text-indigo-700
-                hover:file:bg-indigo-100"
-            />
-              <div class="mt-2">
-                <img src="{{ asset('storage/' . $sideBanner->image1) }}" alt="Preview" class="w-1/2 h-1/2 rounded-md shadow">
+            <!-- Gambar yang sudah tersimpan di database -->
+            <div class="mt-2 mb-4">
+              <img src="{{ asset('storage/' . $sideBanner->image1) }}" alt="Preview" class="w-1/2 h-auto rounded-md shadow">
+            </div>
+          
+            <!-- Label -->
+            <label for="image1" class="block text-sm font-medium text-gray-700 mb-2">Upload Gambar 1</label>
+          
+            <!-- Dropzone -->
+            <label for="image1"
+              class="relative flex flex-col items-center justify-center w-1/2 h-44 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer bg-white hover:bg-gray-50 transition">
+          
+              <!-- Default Content -->
+              <div id="image1-default" class="flex flex-col items-center justify-center pt-5 pb-6">
+                <svg aria-hidden="true" class="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M7 16v-4m0 0l-3 3m3-3l3 3m0-6a4 4 0 014 4v1h2a2 2 0 012 2v3a2 2 0 01-2 2H5a2 2 0 01-2-2v-3a2 2 0 012-2h2v-1a4 4 0 014-4z" />
+                </svg>
+                <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Drag and drop</span> or click to upload</p>
+                <p class="text-xs text-gray-500">PNG, JPG, or GIF (Max 750KB)</p>
               </div>
+          
+              <!-- Preview setelah user upload -->
+              <img id="preview-image1" src="#" alt="Preview" class="absolute inset-0 w-full h-full object-cover rounded-lg hidden z-10" />
+          
+              <!-- File input -->
+              <input id="image1" name="image1" type="file" class="hidden" accept="image/*" onchange="previewImage(event, 'preview-image1', 'image1-default')" />
+            </label>
           </div>
 
           <div class="mt-4">
-            <label for="image2" class="block text-sm font-medium text-gray-700">Upload Gambar 2</label>
-            <input
-              type="file"
-              name="image2"
-              id="image2"
-              class="mt-3 h-10 block w-full border-2 border-gray-300 rounded-md shadow-sm text-sm
-                file:mr-4 file:py-2 file:px-4
-                file:rounded-md file:border-0
-                file:text-sm file:font-semibold
-                file:bg-indigo-50 file:text-indigo-700
-                hover:file:bg-indigo-100"
-            />
-              <div class="mt-2">
-                <img src="{{ asset('storage/' . $sideBanner->image2) }}" alt="Preview" class="w-1/2 h-1/2 rounded-md shadow">
+            <!-- Gambar yang sudah tersimpan di database -->
+            <div class="mt-2 mb-4">
+              <img src="{{ asset('storage/' . $sideBanner->image2) }}" alt="Preview" class="w-1/2 h-auto rounded-md shadow">
+            </div>
+          
+            <!-- Label -->
+            <label for="image2" class="block text-sm font-medium text-gray-700 mb-2">Upload Gambar 2</label>
+          
+            <!-- Dropzone -->
+            <label for="image2"
+              class="relative flex flex-col items-center justify-center w-1/2 h-44 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer bg-white hover:bg-gray-50 transition">
+          
+              <!-- Default Content -->
+              <div id="image2-default" class="flex flex-col items-center justify-center pt-5 pb-6">
+                <svg aria-hidden="true" class="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M7 16v-4m0 0l-3 3m3-3l3 3m0-6a4 4 0 014 4v1h2a2 2 0 012 2v3a2 2 0 01-2 2H5a2 2 0 01-2-2v-3a2 2 0 012-2h2v-1a4 4 0 014-4z" />
+                </svg>
+                <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Drag and drop</span> or click to upload</p>
+                <p class="text-xs text-gray-500">PNG, JPG, or GIF (Max 750KB)</p>
               </div>
+          
+              <!-- Preview setelah user upload -->
+              <img id="preview-image2" src="#" alt="Preview" class="absolute inset-0 w-full h-full object-cover rounded-lg hidden z-10" />
+          
+              <!-- File input -->
+              <input id="image2" name="image2" type="file" class="hidden" accept="image/*" onchange="previewImage(event, 'preview-image2', 'image1-default')" />
+            </label>
           </div>
   
           {{-- Submit --}}
           <button
             type="submit"
-            class="block w-auto px-4 py-2 mt-6 text-sm font-medium text-white bg-yellow-500 rounded-lg hover:bg-[#034833] transition-colors"
+            class="block w-auto px-4 py-2 mt-6 text-sm font-medium text-white bg-primary rounded-lg hover:bg-gray-900 transition-colors"
           >
-            Simpan
+            Save
           </button>
         </form>
       </div>
     </div>
 
+    <script>
+      function previewImage(event, previewId, defaultId, oldImageId) {
+        const input = event.target;
+        const preview = document.getElementById(previewId);
+        const defaultContent = document.getElementById(defaultId);
+        const oldImage = document.getElementById(oldImageId);
+    
+        if (input.files && input.files[0]) {
+          const reader = new FileReader();
+    
+          reader.onload = function (e) {
+            preview.src = e.target.result;
+            preview.classList.remove('hidden');
+            defaultContent.classList.add('hidden');
+            if (oldImage) {
+              oldImage.classList.add('hidden'); // Sembunyikan gambar lama
+            }
+          };
+    
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+    </script>
     
   </x-layout>
   

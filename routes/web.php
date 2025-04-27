@@ -3,25 +3,27 @@
 use App\Models\User;
 use App\Models\Slider;
 use App\Models\Ourteam;
+use App\Models\Partner;
 use App\Models\Category;
 use App\Models\Identity;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\Post\PostController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\DepartementController;
 use App\Http\Controllers\Profile\AboutController;
 use App\Http\Controllers\Profile\OurteamController;
 use App\Http\Controllers\Profile\PartnerController;
 use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\Category\CategoryController;
+use App\Http\Controllers\Profile\DataValueController;
+
+
 use App\Http\Controllers\Setting_menu\MetaController;
 use App\Http\Controllers\Setting_menu\SliderController;
+use App\Http\Controllers\Profile\LegalDocumentController;
 use App\Http\Controllers\Setting_menu\IdentityController;
 use App\Http\Controllers\Setting_menu\SideBannerController;
-use App\Models\Partner;
-
-
-use App\Http\Controllers\UsersController;
-use App\Http\Controllers\DepartementController;
 
 Route::get('/login', function () {
     return view('/auth/login');
@@ -46,9 +48,8 @@ Route::middleware(['auth'])->group(function () {
     
     Route::get('/view_post', [PostController::class, 'index'])->name('posts.index');
       
-    Route::get('/create_post', function () {
-        return view('blog_post/post/createPost');
-    });
+    Route::get('/create_post', [PostController::class, 'create'])->name('posts.create');
+
     Route::post('/upload_post', [PostController::class, 'store'])->name('posts.store');
     
     Route::get('/post/{id}/edit', [PostController::class, 'edit'])->name('post.edit');
@@ -57,9 +58,8 @@ Route::middleware(['auth'])->group(function () {
 
     // Categories
     Route::get('/view_category', [CategoryController::class, 'index'])->name('category.index');
-    Route::get('/create_category', function () {
-        return view('blog_post/category/createCategory');
-    });
+    Route::get('/create_category', [CategoryController::class, 'create'])->name('category.create');
+
     Route::post('/upload_category', [CategoryController::class, 'store'])->name('category.store');
     Route::get('/category/{id}/edit', [CategoryController::class, 'edit'])->name('category.edit');
     Route::put('/category/{id}', [CategoryController::class, 'update'])->name('category.update');
@@ -115,6 +115,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/partner/{id}/delete', [PartnerController::class, 'destroy'])->name('partner.delete');
 
 
+    // Legal Documents
+    Route::get('/view_document', [LegalDocumentController::class, 'index'])->name('legalDocument.index');
+
+
+    // Data Value
+    Route::get('/data_value', [DataValueController::class, 'index'])->name('dataValue.index');
+    Route::put('/data_value', [DataValueController::class, 'update'])->name('dataValue.update');
 
 
 

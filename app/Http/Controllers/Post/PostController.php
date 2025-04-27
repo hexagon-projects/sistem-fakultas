@@ -10,16 +10,27 @@ use Illuminate\Support\Facades\Storage;
 class PostController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-  
+           $search = $request->input('search');
+     
+           $posts = Post::query()
+           ->when($search, function ($query, $search) {
+               $query->where('title', 'like', "%{$search}%")
+                   ->orWhere('resume', 'like', "%{$search}%");
+           })
+           ->paginate(2)
+           ->withQueryString(); // biar query search tetap ada saat ganti halaman
 
+       return view('blog_post.post.viewPost', compact('posts', 'search'));
+    }
+
+    public function create()
+    {
         // Pass the user data to the view
-        return view('blog_post.post.viewPost', [
-            'posts' => Post::with('category')->get()
-            
-        ]);
-}
+        return view('blog_post.post.createPost');
+    }
+
     public function store(Request $request)
     {
     //   dd($request->all());

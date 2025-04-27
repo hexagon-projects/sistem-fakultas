@@ -10,12 +10,19 @@ use Illuminate\Support\Facades\Storage;
 
 class OurteamController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // Pass the user data to the view
-        return view('our_team.viewOurteam', [
-            'ourteams' => Ourteam::all()
-        ]);
+           $search = $request->input('search');
+     
+           $ourteams = Ourteam::query()
+           ->when($search, function ($query, $search) {
+               $query->where('name', 'like', "%{$search}%")
+                   ->orWhere('title', 'like', "%{$search}%");
+           })
+           ->paginate(2)
+           ->withQueryString(); // biar query search tetap ada saat ganti halaman
+
+       return view('our_team.viewOurteam', compact('ourteams', 'search'));
     }
 
     public function create()

@@ -10,13 +10,26 @@ use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
-    public function index()
+    public function index(Request $request)
+    {
+           $search = $request->input('search');
+     
+           $categories = Category::query()
+           ->when($search, function ($query, $search) {
+               $query->where('name', 'like', "%{$search}%")
+                   ;
+           })
+           ->paginate(2)
+           ->withQueryString(); // biar query search tetap ada saat ganti halaman
+
+       return view('blog_post.category.viewCategory', compact('categories', 'search'));
+    }
+
+    public function create()
     {
         // Pass the user data to the view
-        return view('blog_post.category.viewCategory', [
-            'categories' => Category::all(),
-        ]);
-    } 
+        return view('blog_post.category.createCategory');
+    }
 
     public function store(Request $request)
     {

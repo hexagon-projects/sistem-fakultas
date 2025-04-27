@@ -10,12 +10,19 @@ use Illuminate\Support\Facades\Storage;
 
 class PartnerController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // Pass the user data to the view
-        return view('partners.viewPartner', [
-            'partners' => Partner::all()
-        ]);
+        $search = $request->input('search');
+     
+        $partners = Partner::query()
+        ->when($search, function ($query, $search) {
+            $query->where('name', 'like', "%{$search}%")
+                ;
+        })
+        ->paginate(2)
+        ->withQueryString(); // biar query search tetap ada saat ganti halaman
+
+    return view('partners.viewPartner', compact('partners', 'search'));
     }
 
     public function create()

@@ -1,69 +1,61 @@
 <x-layout>
-    <div class="container grid px-6 mx-auto mt-8">
-    <h4
-    class="mb-4 text-lg font-semibold text-gray-600 "
-  >
-    Edit Post
-  </h4>
-    <div    
-    class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md h-auto"
-  >
+  <div class="container grid px-6 mx-auto mt-8">
+    <h4 class="mb-4 text-lg font-semibold text-gray-600">Edit Category</h4>
 
+    <div class="px-6 py-6 bg-white rounded-lg shadow-md">
+      <form 
+        action="{{ route('category.update', $category->id) }}" 
+        method="POST" 
+        enctype="multipart/form-data"
+      >
+        @csrf
+        @method('PUT')
 
-  <form 
-  action="{{ route('category.update', $category->id) }}" 
-  method="POST"     
-  enctype="multipart/form-data" 
-  class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md h-auto"
->
+        {{-- Input Title --}}
+        <label class="block text-sm font-medium text-gray-700 mb-2">Title</label>
+        <input
+          type="text"
+          name="name"
+          value="{{ old('name', $category->name) }}"
+          class="w-full text-sm border-2 border-gray-300 rounded-md p-2 focus:border-[#034833] focus:outline-none mb-6"
+        />
 
-@method('PUT')
-  @csrf
+        {{-- Upload Gambar & Preview - Berdampingan --}}
+        <div class="flex flex-col md:flex-row gap-6 items-start">
 
-  <label class="block text-sm mt-3">
-    <span class="text-gray-700 font-semibold">Title</span>
-    <input
-      name="name"
-      type="text"
-      class="block w-full mt-1 text-sm focus:border-[#034833] focus:outline-none focus:shadow-outline-purple form-input border-gray-300 border-2 p-2 rounded-md"
-      value="{{ old('title', $category->name) }}"
-    />
-  </label>  
+          {{-- Input File --}}
+          <label for="dropzone-file"
+          class="flex flex-col items-center justify-center w-1/2 h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-white hover:bg-gray-50 transition">
+          <div class="flex flex-col items-center justify-center pt-5 pb-6">
+            <svg aria-hidden="true" class="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M7 16v-4m0 0l-3 3m3-3l3 3m0-6a4 4 0 014 4v1h2a2 2 0 012 2v3a2 2 0 01-2 2H5a2 2 0 01-2-2v-3a2 2 0 012-2h2v-1a4 4 0 014-4z"/>
+            </svg>
+            <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Drag and drop</span> a file here or click</p>
+            <p class="text-xs text-gray-500">SVG, PNG, JPG or GIF (MAX. 750kb)</p>
+          </div>
+          <input id="dropzone-file" type="file" class="hidden" name="image" />
+        </label>
 
- 
-  <div class="mb-4">
-    <label for="image" class="block text-sm font-medium text-gray-700">Upload Gambar</label>
-    <input
-      type="file"
-      name="image"
-      id="image"
-      class="mt-3 h-10 block w-full border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm
-             file:mr-4 file:py-2 file:px-4
-             file:rounded-md file:border-0
-             file:text-sm file:font-semibold
-             file:bg-indigo-50 file:text-indigo-700
-             hover:file:bg-indigo-100"
-    />
-    @if ($category->image)
-    <div class="mt-4">
-        {{-- <p class="text-sm text-gray-600 mb-2">Gambar saat ini:</p> --}}
-        <img src="{{ asset('storage/' . $category->image) }}" alt="Gambar Category" class="w-1/2 h-1/2 rounded-md shadow-md mb-3">
+          {{-- Preview --}}
+          @if ($category->image)
+            <div class="md:w-1/2 w-full mt-4 md:mt-0">
+              <label class="block text-sm font-medium text-gray-700 mb-2">Preview Gambar</label>
+              <img src="{{ asset('storage/' . $category->image) }}" 
+                   alt="Gambar Category" 
+                   class="w-full h-auto max-h-64 rounded-md shadow-md object-cover">
+            </div>
+          @endif
+        </div>
+
+        {{-- Tombol Submit --}}
+        <button
+          type="submit"
+          class="mt-6 px-5 py-2 text-sm font-medium text-white rounded-md hover:bg-gray-900  bg-primary transition duration-150"
+        >
+          Save
+        </button>
+      </form>
     </div>
-    @endif
-
-    
   </div>
-
- 
-
-  <button
-    type="submit"
-    class="block w-auto px-4 py-2 mt-4 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-yellow-500 border border-transparent rounded-lg active:bg-[#034833] hover:bg-[#034833] focus:outline-none focus:shadow-outline-purple mb-5"
-  >
-    Save 
-  </button>
-</form>
-
-</div>
-
 </x-layout>

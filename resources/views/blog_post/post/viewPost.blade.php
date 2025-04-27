@@ -7,27 +7,40 @@
           Post
         </h2>
 
-        <div class="flex items-center gap-5 mb-2">
-          <div class="flex gap-2 w-auto px-3 py-[0.4rem] mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-primary border border-transparent rounded-lg active:bg-primary hover:bg-yellow-300 hover:text-red-800 focus:outline-none focus:shadow-outline-purple mb-5">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <polyline points="14 2 14 8 20 8"/>
-              <line x1="12" y1="11" x2="12" y2="17"/>
-              <line x1="9" y1="14" x2="15" y2="14"/>
-            </svg>
-            
-            <a href="/create_post">
-            Add Post
-          </a>
+
+
+        <div class="flex items-center justify-between mb-2">
+          <div class="flex items-center gap-4 mb-6">
+            {{-- Tombol Add Post --}}
+            <a href="{{ route('posts.create') }}"
+               class="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white bg-primary rounded-full hover:bg-gray-900 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 h-4" viewBox="0 0 16 16">
+                <path d="m.5 3 .04.87a2 2 0 0 0-.342 1.311l.637 7A2 2 0 0 0 2.826 14H9v-1H2.826a1 1 0 0 1-.995-.91l-.637-7A1 1 0 0 1 2.19 4h11.62a1 1 0 0 1 .996 1.09L14.54 8h1.005l.256-2.819A2 2 0 0 0 13.81 3H9.828a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 6.172 1H2.5a2 2 0 0 0-2 2m5.672-1a1 1 0 0 1 .707.293L7.586 3H2.19q-.362.002-.683.12L1.5 2.98a1 1 0 0 1 1-.98z"/>
+                <path d="M13.5 9a.5.5 0 0 1 .5.5V11h1.5a.5.5 0 1 1 0 1H14v1.5a.5.5 0 1 1-1 0V12h-1.5a.5.5 0 0 1 0-1H13V9.5a.5.5 0 0 1 .5-.5"/>
+              </svg>
+              <span>Add Post</span>
+            </a>
+          
+            {{-- Tombol Categories --}}
+            <a href="{{ route('category.index') }}"
+               class="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white bg-primary rounded-full hover:bg-gray-900 transition">
+              Categories
+            </a>
           </div>
-         
-          <a
-          class="block w-auto px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-primary border border-transparent rounded-lg active:bg-primary hover:bg-yellow-300 hover:text-red-800  focus:outline-none focus:shadow-outline-purple mb-5"
-         href="/view_category"
-        >
-          Categories
-        </a>
-        </div>
+          
+
+          <form action="{{ route('posts.index') }}" method="GET" class="mb-4 flex items-center gap-2">
+              <input type="text" name="search" placeholder="Cari Data" value="{{ request('search') }}"
+                  class="py-2 px-3 text-xs rounded-full" />
+                  <div class="flex gap-1">
+                      <button type="submit" class="py-2 px-3 text-xs rounded-full bg-primary text-white">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-search w-3" viewBox="0 0 16 16">
+                              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                            </svg>
+                      </button>
+                  </div>
+          </form>
+      </div>
 
 
         <!-- With avatar -->
@@ -126,103 +139,17 @@
               </tbody>
             </table>
           </div>
-          <div
-            class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t  bg-gray-50 sm:grid-cols-9 "
+            <div
+            class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t bg-gray-50 sm:grid-cols-9"
           >
-            <span class="flex items-center col-span-3">
-              Showing 21-30 of 100
-            </span>
-            <span class="col-span-2"></span>
-            <!-- Pagination -->
-            <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
-              <nav aria-label="Table navigation">
-                <ul class="inline-flex items-center">
-                  <li>
-                    <button
-                      class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple"
-                      aria-label="Previous"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="w-4 h-4 fill-current"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                          clip-rule="evenodd"
-                          fill-rule="evenodd"
-                        ></path>
-                      </svg>
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
-                    >
-                      1
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
-                    >
-                      2
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      class="px-3 py-1 text-white transition-colors duration-150 bg-primary border border-r-0 border-primary rounded-md focus:outline-none focus:shadow-outline-purple"
-                    >
-                      3
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
-                    >
-                      4
-                    </button>
-                  </li>
-                  <li>
-                    <span class="px-3 py-1">...</span>
-                  </li>
-                  <li>
-                    <button
-                      class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
-                    >
-                      8
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
-                    >
-                      9
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple"
-                      aria-label="Next"
-                    >
-                      <svg
-                        class="w-4 h-4 fill-current"
-                        aria-hidden="true"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                          clip-rule="evenodd"
-                          fill-rule="evenodd"
-                        ></path>
-                      </svg>
-                    </button>
-                  </li>
-                </ul>
-              </nav>
-            </span>
           </div>
+        <div class="py-5">
+          {{ $posts->links() }}
+        </div>
+         
+
         </div>
       </div>
+
     </main>
 </x-layout>
