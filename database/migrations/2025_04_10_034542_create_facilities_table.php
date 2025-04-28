@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('subtitle');
             $table->text('description');
-            $table->string('home');
+            $table->string('home')->nullable();
             $table->string('image');
             $table->string('yt');
             $table->timestamps();

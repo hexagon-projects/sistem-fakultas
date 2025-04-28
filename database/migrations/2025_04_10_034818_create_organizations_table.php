@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreign('id_departement')->references('id')->on('departements');
             $table->string('name');
             $table->text('description');
-            $table->string('home');
+            $table->string('home')->nullable();
             $table->string('image');
             $table->timestamps();
         });

@@ -39,7 +39,7 @@ return new class extends Migration
             $table->text('image4')->nullable();
             $table->string('color1')->nullable();
             $table->string('color2')->nullable();
-            $table->text('Address')->nullable();
+            $table->text('address')->nullable();
             $table->text('map')->nullable();
             $table->text('link1')->nullable();
             $table->text('link2')->nullable();

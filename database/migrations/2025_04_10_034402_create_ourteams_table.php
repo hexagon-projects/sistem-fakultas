@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('yt');
             $table->string('tiktok');
             $table->string('image');
-            $table->string('home');
+            $table->string('home')->nullable();
             $table->timestamps();
         });
     }

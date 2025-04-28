@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('winner_name');
             $table->text('description');
-            $table->string('home');
+            $table->string('home')->nullable();
             $table->string('image');
             $table->timestamps();
         });

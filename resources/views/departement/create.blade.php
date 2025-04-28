@@ -9,7 +9,7 @@
                     <div class="flex flex-col items-center text-center w-1/3">
                         <div class="w-10 h-10 rounded-full bg-[#5676ff] text-white flex items-center justify-center">1
                         </div>
-                        <p class="mt-2 text-sm font-medium text-blue-600">Informasi Departement</p>
+                        <p class="mt-2 text-sm font-medium text-[#5676ff]">Informasi Departement</p>
                     </div>
 
                     <div class="flex-1 h-1 bg-[#5676ff] mx-2"></div>

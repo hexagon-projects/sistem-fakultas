@@ -28,7 +28,7 @@
         <ul>
             <li class="relative px-6 py-3">
                 <button
-                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black \"
+                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black"
                     @click="togglePagesService"
                     @click="isPagesServiceOpen = !isPagesServiceOpen"
                     :class="{
@@ -61,71 +61,71 @@
                         x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
                         class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
                         aria-label="submenu">
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/login.html">Faculties</a>
+                            href="{{ route('faculty.index') }}">Faculties</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="{{ route('departement.index') }}">
                             Departments
                             </a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
-                    <a class="w-full"
+                    {{-- <a class="w-full"
                             href="pages/forgot-password.html">
                             Registration
                             </a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
-                  >
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
+                  > --}}
                     <a class="w-full"
-                            href="pages/404.html">USP</a>
+                            href="{{ route('unggulan.index') }}">USP</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/blank.html">Facilities</a>
+                            href="{{ route('fasilitas.index') }}">Facilities</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/blank.html">Achievement</a>
+                            href="{{ route('achievement.index') }}">Achievement</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/blank.html">Student Activities</a>
+                            href="{{ route('organization.index') }}">Student Activities</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/blank.html">Testimonies</a>
+                            href="{{ route('testimoni.index') }}">Testimonies</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/blank.html">Portofolios</a>
+                            href="{{ route('portofolio.index') }}">Portofolios</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/blank.html">Supports</a>
+                            href="{{ route('suport.index') }}">Supports</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/blank.html">FAQs</a>
+                            href="{{ route('faq.index') }}">FAQs</a>
                         </li>
                     </ul>
                 </template>
             </li>
             <li class="relative px-6 py-3">
                 <button
-                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black \"
+                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black"
                     @click="togglePagesBlog"
                     @click="isPagesBlogOpen = !isPagesBlogOpen"
                     :class="{
@@ -155,12 +155,12 @@
                         x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
                         class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
                         aria-label="submenu">
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="{{ route('posts.index') }}">Post</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="/view_agenda">
@@ -172,7 +172,7 @@
             </li>
             <li class="relative px-6 py-3">
                 <button
-                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black \"
+                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black"
                     @click="togglePagesProfil"
                     @click="isPagesProfilOpen = !isPagesProfilOpen"
                     :class="{
@@ -211,19 +211,19 @@
                             Our Teams
                             </a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="{{ route('dataValue.index') }}">
                             Data
                             </a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="{{ route('legalDocument.index') }}">Legals Document</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="{{ route('partner.index') }}">Partners</a>
@@ -233,7 +233,7 @@
             </li>
             <li class="relative px-6 py-3">
                 <button
-                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black \ "
+                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black "
                     @click="togglePagesSetting" @click="isPagesSettingOpen = !isPagesSettingOpen"
                     :class="{
                         'bg-[#034833] rounded-lg p-2 text-white': isPagesSettingOpen,
@@ -262,46 +262,46 @@
                         x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
                         class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
                         aria-label="submenu">
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="{{ route('identity.index') }}">Identity</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/create-account.html">
                             Header
                             </a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="{{ route('sideBanner.index') }}">
                             Side Banner
                             </a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="{{ route('slider.index') }}">Slider</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="{{ route('meta.index') }}">Meta Pixel</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="{{ route('google.index') }}">Google Analytics</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="{{ route('chat.index') }}">Welcome Chat</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="{{ route('users.index') }}">User</a>
@@ -332,7 +332,7 @@
     x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100"
     x-transition:leave-end="opacity-0"
     class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"></div>
-    
+
 <aside class="fixed inset-y-0 z-30 flex-shrink-0 w-64 mt-16 overflow-y-auto bg-white md:hidden"
     x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150"
     x-transition:enter-start="opacity-0 transform -translate-x-20" x-transition:enter-end="opacity-100"
@@ -360,7 +360,7 @@
         <ul>
             <li class="relative px-6 py-3">
                 <button
-                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black \"
+                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black"
                     @click="togglePagesService"
                     @click="isPagesServiceOpen = !isPagesServiceOpen"
                     :class="{
@@ -392,61 +392,61 @@
                         x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
                         class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
                         aria-label="submenu">
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/login.html">Faculties</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/create-account.html">
                             Departments
                             </a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/forgot-password.html">
                             Registration
                             </a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/404.html">USP</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/blank.html">Facilities</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/blank.html">Achievement</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/blank.html">Student Activities</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/blank.html">Testimonies</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/blank.html">Portofolios</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/blank.html">Supports</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/blank.html">FAQs</a>
@@ -456,7 +456,7 @@
             </li>
             <li class="relative px-6 py-3">
                 <button
-                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black \"
+                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black"
                 @click="togglePagesBlog"
                     @click="isPagesBlogOpen = !isPagesBlogOpen"
                     :class="{
@@ -486,12 +486,12 @@
                         x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
                         class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
                         aria-label="submenu">
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/login.html">Post</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/create-account.html">
@@ -503,7 +503,7 @@
             </li>
             <li class="relative px-6 py-3">
                 <button
-                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black \"
+                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black"
                 @click="togglePagesProfil"
                     @click="isPagesProfilOpen = !isPagesProfilOpen"
                     :class="{
@@ -534,31 +534,31 @@
                         x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
                         class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
                         aria-label="submenu">
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/login.html">About Us</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/create-account.html">
                             Our Teams
                             </a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/forgot-password.html">
                             Data
                             </a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/404.html">Legals Document</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/blank.html">Partners</a>
@@ -568,7 +568,7 @@
             </li>
             <li class="relative px-6 py-3">
                 <button
-                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black \ "
+                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black "
                     @click="togglePagesSetting" @click="isPagesSettingOpen = !isPagesSettingOpen"
                     :class="{
                         'bg-[#034833] rounded-lg p-2 text-white': isPagesSettingOpen,
@@ -597,46 +597,46 @@
                         x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
                         class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
                         aria-label="submenu">
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/login.html">Identity</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/create-account.html">
                             Header
                             </a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/forgot-password.html">
                             Side Banner
                             </a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/404.html">Slider</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/blank.html">Meta Pixel</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/blank.html">Google Analytics</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/blank.html">Welcome Chat</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/blank.html">User</a>

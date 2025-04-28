@@ -16,6 +16,7 @@ use Illuminate\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
+
 class FortifyServiceProvider extends ServiceProvider
 {
     /**

@@ -23,7 +23,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
-   
     <div
     class="flex bg-slate-200 relative  "
     :class="{ 'overflow-hidden': isSideMenuOpen }"
@@ -125,7 +124,6 @@
   });
   </script>
    
-   <!-- Menampilkan SweetAlert jika ada session 'success' -->
    @if (session('success'))
    <script>
        Swal.fire({
@@ -139,7 +137,7 @@
        buttonsStyling: false // penting agar Tailwind tidak tertimpa
    });
    </script>
-       @endif
+    @endif
    <!-- Menampilkan SweetAlert jika ada session 'success' -->
    @if (session('error'))
    <script>
@@ -154,8 +152,7 @@
        buttonsStyling: false // penting agar Tailwind tidak tertimpa
    });
    </script>
-    @endif
-  
+   @endif
   
   </body>
   </html>

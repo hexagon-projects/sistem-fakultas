@@ -26,6 +26,21 @@ use App\Http\Controllers\Profile\LegalDocumentController;
 use App\Http\Controllers\Setting_menu\IdentityController;
 use App\Http\Controllers\Setting_menu\SideBannerController;
 use App\Models\Agenda;
+use App\Models\Partner;
+
+
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\DepartementController;
+use App\Http\Controllers\UnggulanController;
+use App\Http\Controllers\FacilityController;
+use App\Http\Controllers\ArchievementController;
+use App\Http\Controllers\StudentActivitiesController;
+use App\Http\Controllers\TestimoniesController;
+use App\Http\Controllers\SupportController;
+use App\Http\Controllers\FaqsController;
+use App\Http\Controllers\FaqCategoriesController;
+use App\Http\Controllers\FacultyController;
+use App\Http\Controllers\PortofolioController;
 
 Route::get('/login', function () {
     return view('/auth/login');
@@ -125,25 +140,6 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/document/{id}', [LegalDocumentController::class, 'update'])->name('legalDocument.update');
     Route::get('/document/{id}/delete', [LegalDocumentController::class, 'destroy'])->name('legalDocument.delete');
 
-
-
-
-
-
-    // Data Value
-    Route::get('/data_value', [DataValueController::class, 'index'])->name('dataValue.index');
-    Route::put('/data_value', [DataValueController::class, 'update'])->name('dataValue.update');
-
-
-
-
-
-
-
-
-
-
-
     // Users
     Route::resources([
         'users' => UsersController::class,
@@ -154,7 +150,63 @@ Route::middleware(['auth'])->group(function () {
         'departement' => DepartementController::class,
     ]);
     Route::get('/departement/step2/{id}', [DepartementController::class, 'step2'])->name('departement.step2');
-
+    Route::get('/departement/step3/{id}', [DepartementController::class, 'step3'])->name('departement.step3');
+    Route::put('/departement/step2/update/{id}', [DepartementController::class, 'step2Update'])->name('departement.update.step2');
+    Route::put('/departement/step3/update/{id}', [DepartementController::class, 'step3Update'])->name('departement.update.step3');
+    
+    // USP
+    Route::resources([
+        'unggulan' => UnggulanController::class,
+    ]);
+    
+    // Fasilitas
+    Route::resources([
+        'fasilitas' => FacilityController::class,
+    ]);
+    
+    // achievement
+    Route::resources([
+        'achievement' => ArchievementController::class,
+    ]);
+    
+    // achievement
+    Route::resources([
+        'organization' => StudentActivitiesController::class,
+    ]);
+    
+    // achievement
+    Route::resources([
+        'testimoni' => TestimoniesController::class,
+    ]);
+    
+    // suport
+    Route::resources([
+        'suport' => SupportController::class,
+    ]);
+    
+    // suport
+    Route::resources([
+        'portofolio' => PortofolioController::class,
+    ]);
+    
+    // FAQs
+    Route::resources([
+        'faq' => FaqsController::class,
+    ]);
+    
+    // FAQ Categories
+    Route::resources([
+        'faqcategories' => FaqCategoriesController::class,
+    ]);
+    
+    // Faculty
+    Route::resources([
+        'faculty' => FacultyController::class,
+    ]);
+    Route::get('/faculty/step2/{id}', [FacultyController::class, 'step2'])->name('faculty.step2');
+    Route::get('/faculty/step3/{id}', [FacultyController::class, 'step3'])->name('faculty.step3');
+    Route::put('/faculty/step2/update/{id}', [FacultyController::class, 'step2Update'])->name('faculty.update.step2');
+    Route::put('/faculty/step3/update/{id}', [FacultyController::class, 'step3Update'])->name('faculty.update.step3');
     
     Route::get('/view_agenda', [AgendaController::class, 'index'])->name('agenda.index');
     Route::get('/create_agenda', [AgendaController::class, 'create'])->name('agenda.create');
