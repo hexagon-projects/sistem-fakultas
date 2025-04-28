@@ -69,7 +69,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/post/{id}/edit', [PostController::class, 'edit'])->name('post.edit');
     Route::put('/post/{id}', [PostController::class, 'update'])->name('post.update');
-    Route::get('/post/{id}/delete', [PostController::class, 'destroy'])->name('post.delete');
+    Route::delete('/post/{id}/delete', [PostController::class, 'destroy'])->name('post.delete');
 
     // Categories
     Route::get('/view_category', [CategoryController::class, 'index'])->name('category.index');
@@ -78,7 +78,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/upload_category', [CategoryController::class, 'store'])->name('category.store');
     Route::get('/category/{id}/edit', [CategoryController::class, 'edit'])->name('category.edit');
     Route::put('/category/{id}', [CategoryController::class, 'update'])->name('category.update');
-    Route::get('/category/{id}/delete', [CategoryController::class, 'destroy'])->name('category.delete');
+    Route::delete('/category/{id}/delete', [CategoryController::class, 'destroy'])->name('category.delete');
 
 
 
@@ -86,11 +86,13 @@ Route::middleware(['auth'])->group(function () {
     // Menu Setting
     // Identity
     Route::get('/identity', [IdentityController::class, 'index'])->name('identity.index');
-    Route::put('/identity', [IdentityController::class, 'update'])->name('identity.update');
+    Route::post('/identityStore', [IdentityController::class, 'store'])->name('identity.store');
+    Route::put('/identityUpdate', [IdentityController::class, 'update'])->name('identity.update');
 
     // Side Banner 
     Route::get('/side_banner', [SideBannerController::class, 'index'])->name('sideBanner.index');
-    Route::put('/side_banner', [SideBannerController::class, 'update'])->name('sideBanner.update');
+    Route::post('/side_bannerStore', [SideBannerController::class, 'store'])->name('sideBanner.store');
+    Route::put('/side_bannerUpdate', [SideBannerController::class, 'update'])->name('sideBanner.update');
 
     // Sliders
     Route::get('/view_slider', [SliderController::class, 'index'])->name('slider.index');
@@ -98,7 +100,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/upload_slider', [SliderController::class, 'store'])->name('slider.store');
     Route::get('/slider/{id}/edit', [SliderController::class, 'edit'])->name('slider.edit');
     Route::put('/slider/{id}', [SliderController::class, 'update'])->name('slider.update');
-    Route::get('/slider/{id}/delete', [SliderController::class, 'destroy'])->name('slider.delete');
+    Route::delete('/slider/{id}/delete', [SliderController::class, 'destroy'])->name('slider.delete');
 
 
     // Meta
@@ -119,7 +121,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/upload_ourteam', [OurteamController::class, 'store'])->name('ourteam.store');
     Route::get('/ourteam/{id}/edit', [OurteamController::class, 'edit'])->name('ourteam.edit');
     Route::put('/ourteam/{id}', [OurteamController::class, 'update'])->name('ourteam.update');
-    Route::get('/ourteam/{id}/delete', [OurteamController::class, 'destroy'])->name('ourteam.delete');
+    Route::delete('/ourteam/{id}/delete', [OurteamController::class, 'destroy'])->name('ourteam.delete');
 
     // Partners
     Route::get('/view_partner', [PartnerController::class, 'index'])->name('partner.index');
@@ -127,7 +129,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/upload_partner', [PartnerController::class, 'store'])->name('partner.store');
     Route::get('/partner/{id}/edit', [PartnerController::class, 'edit'])->name('partner.edit');
     Route::put('/partner/{id}', [PartnerController::class, 'update'])->name('partner.update');
-    Route::get('/partner/{id}/delete', [PartnerController::class, 'destroy'])->name('partner.delete');
+    Route::delete('/partner/{id}/delete', [PartnerController::class, 'destroy'])->name('partner.delete');
 
 
     // Legal Documents
@@ -136,7 +138,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/upload_document', [LegalDocumentController::class, 'store'])->name('legalDocument.store');
     Route::get('/document/{id}/edit', [LegalDocumentController::class, 'edit'])->name('legalDocument.edit');
     Route::put('/document/{id}', [LegalDocumentController::class, 'update'])->name('legalDocument.update');
-    Route::get('/document/{id}/delete', [LegalDocumentController::class, 'destroy'])->name('legalDocument.delete');
+    Route::delete('/document/{id}/delete', [LegalDocumentController::class, 'destroy'])->name('legalDocument.delete');
 
     // Users
     Route::resources([
@@ -211,5 +213,5 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/upload_agenda', [AgendaController::class, 'store'])->name('agenda.store');
     Route::get('/agenda/{id}/edit', [AgendaController::class, 'edit'])->name('agenda.edit');
     Route::put('/agenda/{id}', [AgendaController::class, 'update'])->name('agenda.update');
-    Route::get('/agenda/{id}/delete', [AgendaController::class, 'destroy'])->name('agenda.delete');
+    Route::delete('/agenda/{id}/delete', [AgendaController::class, 'destroy'])->name('agenda.delete');
 });

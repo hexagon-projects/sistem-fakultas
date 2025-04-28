@@ -131,7 +131,7 @@
           {{-- Submit Button --}}
           <button
             type="submit"
-            class="px-6 py-2 bg-[#034833] text-white rounded-md hover:bg-[#022d23] transition"
+            class="px-6 py-2 bg-primary text-white rounded-md hover:bg-[#022d23] transition"
           >
             Save
           </button>
