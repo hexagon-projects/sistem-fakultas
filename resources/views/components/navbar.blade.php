@@ -158,7 +158,7 @@
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="/view_post">Post</a>
+                            href="{{ route('posts.index') }}">Post</a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
@@ -203,34 +203,30 @@
                         x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
                         class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
                         aria-label="submenu">
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
+                       
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
                   >
                     <a class="w-full"
-                            href="pages/login.html">About Us</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="pages/create-account.html">
+                            href="{{ route('ourteam.index') }}">
                             Our Teams
                             </a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/forgot-password.html">
+                            href="{{ route('dataValue.index') }}">
                             Data
                             </a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/404.html">Legals Document</a>
+                            href="{{ route('legalDocument.index') }}">Legals Document</a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/blank.html">Partners</a>
+                            href="{{ route('partner.index') }}">Partners</a>
                         </li>
                     </ul>
                 </template>

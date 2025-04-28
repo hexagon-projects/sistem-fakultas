@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="container grid px-6 mx-auto mt-8">
+    <div class="container grid px-6 mx-auto mt-8 mb-12">
       <h4 class="mb-4 text-lg font-semibold text-gray-600">Partners</h4>
   
       <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md">
@@ -18,7 +18,7 @@
                     <input 
                       type="checkbox" 
                       name="home" 
-                      value="ya" 
+                      value="1" 
                       class="form-checkbox h-5 w-5 text-green-600"
                       {{ old('home', $partner->home) == '1' ? 'checked' : '' }}
                     >
@@ -114,9 +114,9 @@
   
           <button
             type="submit"
-            class="block w-auto px-4 py-2 mt-6 text-sm font-medium text-white bg-yellow-500 rounded-lg hover:bg-[#034833] transition-colors"
+            class="block mb-5 w-auto px-4 py-2 mt-6 text-sm font-medium text-white bg-primary hover:bg-gray-900 rounded-lg transition-colors"
           >
-            Simpan
+            Save
           </button>
         </form>
       </div>

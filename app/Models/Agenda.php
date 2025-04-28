@@ -3,8 +3,25 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Agenda extends Model
 {
-    //
+    use HasFactory;
+
+    protected $table = 'agendas';
+
+
+    protected $fillable = [
+        'title',
+        'start_date',
+        'end_date',
+        'description',
+        'event',
+        'location',
+        'yt',
+        'register_link',
+        'contact',
+        'image',
+    ];
 }

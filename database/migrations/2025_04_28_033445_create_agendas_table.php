@@ -13,14 +13,15 @@ return new class extends Migration
     {
         Schema::create('agendas', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->text('description');
             $table->string('event');
             $table->string('location');
             $table->string('yt');
-            $table->string('region_link');
-            $table->integer('contact');
+            $table->string('register_link');
+            $table->string('contact');
             $table->string('image');
             $table->timestamps();
         });

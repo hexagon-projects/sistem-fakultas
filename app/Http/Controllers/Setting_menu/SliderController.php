@@ -10,12 +10,20 @@ use Illuminate\Support\Facades\Storage;
 
 class SliderController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // Pass the user data to the view
-        return view('setting_menu.sliders.viewSlider', [
-            'sliders' => Slider::all(),
-        ]);
+        $search = $request->input('search');
+     
+        $sliders = Slider::query()
+        ->when($search, function ($query, $search) {
+            $query->where('name', 'like', "%{$search}%")
+                ->orWhere('title', 'like', "%{$search}%")
+                ;
+        })
+        ->paginate(2)
+        ->withQueryString(); // biar query search tetap ada saat ganti halaman
+
+    return view('setting_menu.sliders.viewSlider', compact('sliders', 'search'));
     }
 
     public function create()

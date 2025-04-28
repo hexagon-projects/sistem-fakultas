@@ -23,7 +23,7 @@
 
     <button
     type="submit"
-    class="block ml-5 w-auto px-4 py-2 mt-6 text-sm font-medium text-white transition-colors duration-150 bg-yellow-500 border border-transparent rounded-lg active:bg-[#034833] hover:bg-[#034833] focus:outline-none focus:shadow-outline-purple"
+    class="block ml-5 w-auto px-4 py-2 mt-6 text-sm font-medium text-white transition-colors duration-150 bg-primary border border-transparent rounded-lg active:bg-[#034833] hover:bg-gray-900 focus:outline-none focus:shadow-outline-purple"
   >
     Save
   </button>

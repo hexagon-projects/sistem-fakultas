@@ -124,52 +124,72 @@
             />
           </label>
   
-          {{-- Upload Image --}}
-          <div class="mt-4">
-            <label for="image1" class="block text-sm font-medium text-gray-700">Upload Gambar 1</label>
-            <input
-              type="file"
-              name="image1"
-              id="image1"
-              class="mt-3 h-10 block w-full border-2 border-gray-300 rounded-md shadow-sm text-sm
-                file:mr-4 file:py-2 file:px-4
-                file:rounded-md file:border-0
-                file:text-sm file:font-semibold
-                file:bg-indigo-50 file:text-indigo-700
-                hover:file:bg-indigo-100"
-            />
-              <div class="mt-2">
-                <img src="{{ asset('storage/' . $identity->image1) }}" alt="Preview" class="w-32 rounded-md shadow">
-              </div>
-          </div>
 
-          <div class="mt-4">
-            <label for="image2" class="block text-sm font-medium text-gray-700">Upload Gambar 2</label>
-            <input
-              type="file"
-              name="image2"
-              id="image2"
-              class="mt-3 h-10 block w-full border-2 border-gray-300 rounded-md shadow-sm text-sm
-                file:mr-4 file:py-2 file:px-4
-                file:rounded-md file:border-0
-                file:text-sm file:font-semibold
-                file:bg-indigo-50 file:text-indigo-700
-                hover:file:bg-indigo-100"
-            />
+          <div class="flex flex-row gap-4 mt-6">
+            {{-- Upload Image 1 --}}
+            <div class="mt-4 w-full">
               <div class="mt-2">
-                <img src="{{ asset('storage/' . $identity->image2) }}" alt="Preview" class="w-32 rounded-md shadow">
+                <img id="preview-image1" src="{{ asset('storage/' . $identity->image1) }}" alt="Preview" class="w-[600px] h-[500px] rounded-md shadow object-cover ">
               </div>
+              <label for="dropzone-file1"
+                class="dropzone-label flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-white hover:bg-gray-50 transition mt-4">
+                <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                  <svg aria-hidden="true" class="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M7 16v-4m0 0l-3 3m3-3l3 3m0-6a4 4 0 014 4v1h2a2 2 0 012 2v3a2 2 0 01-2 2H5a2 2 0 01-2-2v-3a2 2 0 012-2h2v-1a4 4 0 014-4z" />
+                  </svg>
+                  <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Drag and drop</span> or click to upload</p>
+                  <p class="text-xs text-gray-500">SVG, PNG, JPG or GIF (MAX. 750kb)</p>
+                </div>
+                <input id="dropzone-file1" type="file" class="hidden" name="image1" accept="image/*" onchange="previewImage(event, 'preview-image1')" />
+              </label>
+            </div>
+          
+            {{-- Upload Image 2 --}}
+            <div class="mt-4 w-full">
+              <div class="mt-2">
+                <img id="preview-image2" src="{{ asset('storage/' . $identity->image2) }}" alt="Preview" class="w-52 h-52 rounded-md shadow object-cover">
+              </div>
+              <label for="dropzone-file2"
+                class="dropzone-label flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-white hover:bg-gray-50 transition mt-4">
+                <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                  <svg aria-hidden="true" class="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M7 16v-4m0 0l-3 3m3-3l3 3m0-6a4 4 0 014 4v1h2a2 2 0 012 2v3a2 2 0 01-2 2H5a2 2 0 01-2-2v-3a2 2 0 012-2h2v-1a4 4 0 014-4z" />
+                  </svg>
+                  <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Drag and drop</span> or click to upload</p>
+                  <p class="text-xs text-gray-500">SVG, PNG, JPG or GIF (MAX. 750kb)</p>
+                </div>
+                <input id="dropzone-file2" type="file" class="hidden" name="image2" accept="image/*" onchange="previewImage(event, 'preview-image2')" />
+              </label>
+            </div>
           </div>
   
           {{-- Button --}}
           <button
             type="submit"
-            class="block w-auto px-4 py-2 mt-6 text-sm font-medium text-white transition-colors duration-150 bg-yellow-500 border border-transparent rounded-lg active:bg-[#034833] hover:bg-[#034833] focus:outline-none focus:shadow-outline-purple"
+            class="block w-auto px-4 py-2 mt-6 text-sm font-medium text-white transition-colors duration-150 bg-primary border border-transparent rounded-lg active:bg-[#034833] hover:bg-gray-900 focus:outline-none focus:shadow-outline-purple"
           >
             Save
           </button>
         </form>
       </div>
     </div>
+
+    
+    <script>
+      function previewImage(event, targetId) {
+        const reader = new FileReader();
+        const image = document.getElementById(targetId);
+        const file = event.target.files[0];
+    
+        if (file) {
+          reader.onload = function(e) {
+            image.src = e.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      }
+    </script>
   </x-layout>
   

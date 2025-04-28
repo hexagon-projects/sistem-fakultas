@@ -4,16 +4,16 @@
           <h2
             class="my-6 text-2xl font-semibold text-gray-700"
           >
-            Partners
+            Legal Documents
           </h2>
   
           <div class="flex items-center justify-between mb-2">
-            <a href="{{ route('partner.create') }}" class="py-2 px-3 bg-primary rounded-full flex items-center hover:bg-gray-900 text-white gap-3 text-xs">
+            <a href="{{ route('legalDocument.create') }}" class="py-2 px-3 bg-primary rounded-full flex items-center hover:bg-gray-900 text-white gap-3 text-xs">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-folder-plus w-4" viewBox="0 0 16 16">
                     <path d="m.5 3 .04.87a2 2 0 0 0-.342 1.311l.637 7A2 2 0 0 0 2.826 14H9v-1H2.826a1 1 0 0 1-.995-.91l-.637-7A1 1 0 0 1 2.19 4h11.62a1 1 0 0 1 .996 1.09L14.54 8h1.005l.256-2.819A2 2 0 0 0 13.81 3H9.828a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 6.172 1H2.5a2 2 0 0 0-2 2m5.672-1a1 1 0 0 1 .707.293L7.586 3H2.19q-.362.002-.683.12L1.5 2.98a1 1 0 0 1 1-.98z"/>
                     <path d="M13.5 9a.5.5 0 0 1 .5.5V11h1.5a.5.5 0 1 1 0 1H14v1.5a.5.5 0 1 1-1 0V12h-1.5a.5.5 0 0 1 0-1H13V9.5a.5.5 0 0 1 .5-.5"/>
                   </svg>
-                <span>Add Partner</span>
+                <span>Add Legal Documents</span>
             </a>
             <form action="" method="GET" class="mb-4 flex items-center gap-2">
                 <input type="text" name="search" placeholder="Cari Data" value="{{ request('search') }}"
@@ -53,7 +53,7 @@
                 <tbody
                   class="bg-white divide-y "
                 >
-                @foreach ($partners as $partner)
+                @foreach ($legalDocuments as $legalDocument)
                   <tr class="text-gray-700">
                    
                     <td class="px-4 py-3 text-sm">
@@ -64,13 +64,12 @@
                         <!-- Avatar with inset shadow -->
                        
                         <div>
-                          <h1 class="font-semibold">{{ $partner->name }} | {{ $partner->title }}</h1>
-                          <p>{{ $partner->phone }}</p>
+                          <p class="font-semibold">{{ $legalDocument->title }}</p>
                          
   
                           <div class="flex items-center space-x-4 text-sm mt-7">
                             <a
-                              class="flex hover:bg-yellow-400 items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-primary rounded-lg" href="/partner/{{ $partner->id }}/edit"
+                              class="flex hover:bg-yellow-400 items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-primary rounded-lg focus:outline-none focus:shadow-outline-gray" href="/document/{{ $legalDocument->id }}/edit"
                               aria-label="Edit"
                             >
                               <svg
@@ -86,9 +85,9 @@
                             </a>
                             <a
                             class="flex hover:bg-yellow-400  items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-primary rounded-lg focus:outline-none focus:shadow-outline-gray"
-                            href="/partner/{{ $partner->id }}/delete"
+                            href="/document/{{ $legalDocument->id }}/delete"
                             aria-label="Delete"
-                            onclick="return confirm('Yakin ingin menghapus partner ini?')"
+                            onclick="return confirm('Yakin ingin menghapus legalDocument ini?')"
                             >
                               <svg
                                 class="w-5 h-5"
@@ -114,7 +113,7 @@
                     >
                       <img
                         class="object-cover w-36 h-36 rounded-lg "
-                        src="{{ asset('storage/' . $partner->image) }}"
+                        src="{{ asset('storage/' . $legalDocument->image) }}"
                         alt=""
                         loading="lazy"
                       />
@@ -132,8 +131,9 @@
           >
           </div>
         <div class="py-5">
-          {{ $partners->links() }}
+          {{ $legalDocuments->links() }}
         </div>
+             
           </div>
         </div>
       </main>
