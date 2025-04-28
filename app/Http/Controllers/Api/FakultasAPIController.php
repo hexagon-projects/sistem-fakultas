@@ -26,7 +26,8 @@ use App\Models\Analytic;
 /**
  * @OA\Info(
  *     title="Fakultas",
- *     version="0.1"
+ *     version="0.1",
+ *     description="Dokumentasi API PMB Universitas Pasundan",
  * )
  */
 
@@ -36,6 +37,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/fakultas",
+     *     tags={"Fakultas"},
      *     @OA\Response(
      *         response="200",
      *         description="The data"
@@ -51,6 +53,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/departement",
+     *     tags={"Departement"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Departement"
@@ -66,6 +69,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/departement/{slug}",
+     *     tags={"Departement"},
      *     @OA\Response(
      *         response="200",
      *         description="Get One Data Departement by Slug"
@@ -88,6 +92,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/unggulan",
+     *     tags={"USP"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Unggulan"
@@ -108,6 +113,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/unggulan-home",
+     *     tags={"USP"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Unggulan By Home"
@@ -128,6 +134,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/unggulan/{id}",
+     *     tags={"USP"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All By Departement ID"
@@ -148,6 +155,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/fasilitas",
+     *     tags={"Fasilitas"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Fasilitas"
@@ -168,6 +176,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/fasilitas-home",
+     *     tags={"Fasilitas"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Fasilitas by Home"
@@ -188,6 +197,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/fasilitas/{id}",
+     *     tags={"Fasilitas"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Fasilitas By Id Departmenet"
@@ -208,6 +218,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/prestasi",
+     *     tags={"Prestasi"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Prestasi"
@@ -229,6 +240,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/prestasi-home",
+     *     tags={"Prestasi"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Prestasi By Home"
@@ -250,6 +262,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/prestasi/{id}",
+     *     tags={"Prestasi"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Prestasi By Id Departement"
@@ -270,6 +283,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/organisasi",
+     *     tags={"Organisasi"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Organisasi"
@@ -291,6 +305,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/organisasi-home",
+     *     tags={"Organisasi"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Organisasi By Home"
@@ -312,6 +327,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/organisasi/{id}",
+     *     tags={"Organisasi"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Organisasi By Id Departement"
@@ -332,6 +348,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/testimoni",
+     *     tags={"Testimoni"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Testimoni"
@@ -352,6 +369,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/testimoni-home",
+     *     tags={"Testimoni"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Testimoni By Home"
@@ -373,6 +391,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/testimoni/{id}",
+     *     tags={"Testimoni"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Testimoni By Id Departement"
@@ -393,6 +412,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/portofolio",
+     *     tags={"Portofolio"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Portofolio"
@@ -413,6 +433,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/portofolio-home",
+     *     tags={"Portofolio"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Portofolio By Home"
@@ -434,6 +455,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/portofolio/{id}",
+     *     tags={"Portofolio"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Portofolio By Id Departement"
@@ -454,6 +476,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/suport",
+     *     tags={"Sopport"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Suport"
@@ -474,6 +497,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/suport-home",
+     *     tags={"Sopport"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Suport By Home"
@@ -495,6 +519,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/suport/{id}",
+     *     tags={"Sopport"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Suport By Id Departement"
@@ -515,6 +540,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/faqs",
+     *     tags={"Faqs"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Faqs"
@@ -540,6 +566,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/post",
+     *     tags={"Post"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Post"
@@ -560,6 +587,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/post/{slug}",
+     *     tags={"Post"},
      *     @OA\Response(
      *         response="200",
      *         description="Get One Data POST by Slug"
@@ -582,6 +610,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/agenda",
+     *     tags={"Agenda"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Agenda"
@@ -602,6 +631,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/agenda/{slug}",
+     *     tags={"Agenda"},
      *     @OA\Response(
      *         response="200",
      *         description="Get One Data AGENDA by Slug"
@@ -624,6 +654,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/team",
+     *     tags={"Our Team"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Ourteam"
@@ -644,6 +675,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/team-home",
+     *     tags={"Our Team"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Ourteam By Home"
@@ -665,6 +697,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/team/{id}",
+     *     tags={"Our Team"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Ourteam By Id Departement"
@@ -685,6 +718,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/legalitas",
+     *     tags={"Legalitas"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Legalitas Dokumen"
@@ -705,6 +739,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/legalitas-home",
+     *     tags={"Legalitas"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Legalitas By Home"
@@ -726,6 +761,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/legalitas/{id}",
+     *     tags={"Legalitas"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Legalitas By Id Departement"
@@ -746,6 +782,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/partner",
+     *     tags={"Partners"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data partner Dokumen"
@@ -766,6 +803,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/partner-home",
+     *     tags={"Partners"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data partner By Home"
@@ -787,6 +825,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/partner/{id}",
+     *     tags={"Partners"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data partner By Id Departement"
@@ -807,6 +846,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/indentity/{id}",
+     *     tags={"Identity"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data indentity one"
@@ -827,6 +867,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/slider",
+     *     tags={"Sliders"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data slider Dokumen"
@@ -847,6 +888,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/slider-home",
+     *     tags={"Sliders"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data slider By Home"
@@ -868,6 +910,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/slider/{id}",
+     *     tags={"Sliders"},
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data slider By Id Departement"
@@ -888,6 +931,7 @@ class FakultasAPIController extends Controller
     /**
      * @OA\Get(
      *     path="/api/analytics",
+     *     tags={"Analytics"},
      *     @OA\Response(
      *         response="200",
      *         description="Get analytics"

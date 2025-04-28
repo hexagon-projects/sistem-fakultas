@@ -2,11 +2,15 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Fakultas",
+        "description": "Dokumentasi API PMB Universitas Pasundan",
         "version": "0.1"
     },
     "paths": {
         "/api/fakultas": {
             "get": {
+                "tags": [
+                    "Fakultas"
+                ],
                 "operationId": "61e244185641bbfd4b561f3cacfe92b3",
                 "responses": {
                     "200": {
@@ -17,6 +21,9 @@
         },
         "/api/departement": {
             "get": {
+                "tags": [
+                    "Departement"
+                ],
                 "operationId": "d748fecde96ceb8c4948194622d40a25",
                 "responses": {
                     "200": {
@@ -27,6 +34,9 @@
         },
         "/api/departement/{slug}": {
             "get": {
+                "tags": [
+                    "Departement"
+                ],
                 "operationId": "26d5f56b6b2d6816b878e8c65437f8a9",
                 "responses": {
                     "200": {
@@ -37,6 +47,9 @@
         },
         "/api/unggulan": {
             "get": {
+                "tags": [
+                    "USP"
+                ],
                 "operationId": "28c8aa4007fb93a09ac217bdf9112c09",
                 "responses": {
                     "200": {
@@ -47,6 +60,9 @@
         },
         "/api/unggulan-home": {
             "get": {
+                "tags": [
+                    "USP"
+                ],
                 "operationId": "41ba03552d9657685662a9690f35b295",
                 "responses": {
                     "200": {
@@ -57,6 +73,9 @@
         },
         "/api/unggulan/{id}": {
             "get": {
+                "tags": [
+                    "USP"
+                ],
                 "operationId": "a64e33def61ba28c27cb1078b948774c",
                 "responses": {
                     "200": {
@@ -67,6 +86,9 @@
         },
         "/api/fasilitas": {
             "get": {
+                "tags": [
+                    "Fasilitas"
+                ],
                 "operationId": "2c3fd56dae7c128a897c41f61fef0785",
                 "responses": {
                     "200": {
@@ -77,6 +99,9 @@
         },
         "/api/fasilitas-home": {
             "get": {
+                "tags": [
+                    "Fasilitas"
+                ],
                 "operationId": "6af393009b506a7c51973b3264b85767",
                 "responses": {
                     "200": {
@@ -87,6 +112,9 @@
         },
         "/api/fasilitas/{id}": {
             "get": {
+                "tags": [
+                    "Fasilitas"
+                ],
                 "operationId": "293eaca9d156964dd97af06cd25f9a71",
                 "responses": {
                     "200": {
@@ -97,6 +125,9 @@
         },
         "/api/prestasi": {
             "get": {
+                "tags": [
+                    "Prestasi"
+                ],
                 "operationId": "bfcab062c895fad809797c014c1e19db",
                 "responses": {
                     "200": {
@@ -107,6 +138,9 @@
         },
         "/api/prestasi-home": {
             "get": {
+                "tags": [
+                    "Prestasi"
+                ],
                 "operationId": "3097c10689ecf07b0bf7cb3d0bb7e451",
                 "responses": {
                     "200": {
@@ -117,6 +151,9 @@
         },
         "/api/prestasi/{id}": {
             "get": {
+                "tags": [
+                    "Prestasi"
+                ],
                 "operationId": "7386773cd30c87a33b178f6739f4c8a0",
                 "responses": {
                     "200": {
@@ -127,6 +164,9 @@
         },
         "/api/organisasi": {
             "get": {
+                "tags": [
+                    "Organisasi"
+                ],
                 "operationId": "bc30f6f864df615faa5af76955a65191",
                 "responses": {
                     "200": {
@@ -137,6 +177,9 @@
         },
         "/api/organisasi-home": {
             "get": {
+                "tags": [
+                    "Organisasi"
+                ],
                 "operationId": "bc76df90e282a91b98ef2fd776e41a0a",
                 "responses": {
                     "200": {
@@ -147,6 +190,9 @@
         },
         "/api/organisasi/{id}": {
             "get": {
+                "tags": [
+                    "Organisasi"
+                ],
                 "operationId": "51c421bfbabb99810d13eec7faeae8a2",
                 "responses": {
                     "200": {
@@ -157,6 +203,9 @@
         },
         "/api/testimoni": {
             "get": {
+                "tags": [
+                    "Testimoni"
+                ],
                 "operationId": "079b633d8f632eb7d946c31f6c91ddef",
                 "responses": {
                     "200": {
@@ -167,6 +216,9 @@
         },
         "/api/testimoni-home": {
             "get": {
+                "tags": [
+                    "Testimoni"
+                ],
                 "operationId": "ed744568335e8af4c3f04de22f304d38",
                 "responses": {
                     "200": {
@@ -177,6 +229,9 @@
         },
         "/api/testimoni/{id}": {
             "get": {
+                "tags": [
+                    "Testimoni"
+                ],
                 "operationId": "63c9471a5c141e51caebb1251cba3c6e",
                 "responses": {
                     "200": {
@@ -187,6 +242,9 @@
         },
         "/api/portofolio": {
             "get": {
+                "tags": [
+                    "Portofolio"
+                ],
                 "operationId": "2d9d363c3844c056803b6d098cfdf084",
                 "responses": {
                     "200": {
@@ -197,6 +255,9 @@
         },
         "/api/portofolio-home": {
             "get": {
+                "tags": [
+                    "Portofolio"
+                ],
                 "operationId": "c44ec65014259322274dd141ccc54371",
                 "responses": {
                     "200": {
@@ -207,6 +268,9 @@
         },
         "/api/portofolio/{id}": {
             "get": {
+                "tags": [
+                    "Portofolio"
+                ],
                 "operationId": "e52c20f52242a916c6fb38cfd5fbb5fa",
                 "responses": {
                     "200": {
@@ -217,6 +281,9 @@
         },
         "/api/suport": {
             "get": {
+                "tags": [
+                    "Sopport"
+                ],
                 "operationId": "d5c4ab98222bdbcfd29c3a09b6f19ac2",
                 "responses": {
                     "200": {
@@ -227,6 +294,9 @@
         },
         "/api/suport-home": {
             "get": {
+                "tags": [
+                    "Sopport"
+                ],
                 "operationId": "9860c00130dca8c2de628af7fa281493",
                 "responses": {
                     "200": {
@@ -237,6 +307,9 @@
         },
         "/api/suport/{id}": {
             "get": {
+                "tags": [
+                    "Sopport"
+                ],
                 "operationId": "c464a078d720008919e8031e70af3b87",
                 "responses": {
                     "200": {
@@ -247,6 +320,9 @@
         },
         "/api/faqs": {
             "get": {
+                "tags": [
+                    "Faqs"
+                ],
                 "operationId": "2b7d8f715f89e4ce4968bc82685ae7d1",
                 "responses": {
                     "200": {
@@ -257,6 +333,9 @@
         },
         "/api/post": {
             "get": {
+                "tags": [
+                    "Post"
+                ],
                 "operationId": "3382b18c1b61a0fd9b12496279a1fdf2",
                 "responses": {
                     "200": {
@@ -267,6 +346,9 @@
         },
         "/api/post/{slug}": {
             "get": {
+                "tags": [
+                    "Post"
+                ],
                 "operationId": "588910786af9137e809228f5614460e8",
                 "responses": {
                     "200": {
@@ -277,6 +359,9 @@
         },
         "/api/agenda": {
             "get": {
+                "tags": [
+                    "Agenda"
+                ],
                 "operationId": "c40c16092397f9ccfd69f0082bf13542",
                 "responses": {
                     "200": {
@@ -287,6 +372,9 @@
         },
         "/api/agenda/{slug}": {
             "get": {
+                "tags": [
+                    "Agenda"
+                ],
                 "operationId": "33110a8ed5dcb3d317775d45e191e06d",
                 "responses": {
                     "200": {
@@ -297,6 +385,9 @@
         },
         "/api/team": {
             "get": {
+                "tags": [
+                    "Our Team"
+                ],
                 "operationId": "94eddde781f08012c134da55482441ec",
                 "responses": {
                     "200": {
@@ -307,6 +398,9 @@
         },
         "/api/team-home": {
             "get": {
+                "tags": [
+                    "Our Team"
+                ],
                 "operationId": "f85c6ebd67a73bec18f9523df52cc9f1",
                 "responses": {
                     "200": {
@@ -317,6 +411,9 @@
         },
         "/api/team/{id}": {
             "get": {
+                "tags": [
+                    "Our Team"
+                ],
                 "operationId": "92c411bfad503ac11a43935a641ec795",
                 "responses": {
                     "200": {
@@ -327,6 +424,9 @@
         },
         "/api/legalitas": {
             "get": {
+                "tags": [
+                    "Legalitas"
+                ],
                 "operationId": "f5723f71344f1d3870a2be8ac485a7fb",
                 "responses": {
                     "200": {
@@ -337,6 +437,9 @@
         },
         "/api/legalitas-home": {
             "get": {
+                "tags": [
+                    "Legalitas"
+                ],
                 "operationId": "1548a8e73df691b3cadc0a226d51c44b",
                 "responses": {
                     "200": {
@@ -347,6 +450,9 @@
         },
         "/api/legalitas/{id}": {
             "get": {
+                "tags": [
+                    "Legalitas"
+                ],
                 "operationId": "a6bb7bae0d7023784fbf8409e5fe6ebc",
                 "responses": {
                     "200": {
@@ -357,6 +463,9 @@
         },
         "/api/partner": {
             "get": {
+                "tags": [
+                    "Partners"
+                ],
                 "operationId": "eb0583bd3263261b5e82a9943331c118",
                 "responses": {
                     "200": {
@@ -367,6 +476,9 @@
         },
         "/api/partner-home": {
             "get": {
+                "tags": [
+                    "Partners"
+                ],
                 "operationId": "50e75ef609324cdd4f211da7eaf8879e",
                 "responses": {
                     "200": {
@@ -377,6 +489,9 @@
         },
         "/api/partner/{id}": {
             "get": {
+                "tags": [
+                    "Partners"
+                ],
                 "operationId": "e4e6e169ebecb1fab62093ca394448ab",
                 "responses": {
                     "200": {
@@ -387,6 +502,9 @@
         },
         "/api/indentity/{id}": {
             "get": {
+                "tags": [
+                    "Identity"
+                ],
                 "operationId": "682b4ae81c0c3f06c370d230c08f010a",
                 "responses": {
                     "200": {
@@ -397,6 +515,9 @@
         },
         "/api/slider": {
             "get": {
+                "tags": [
+                    "Sliders"
+                ],
                 "operationId": "40e49d291ea50b90df05c65f4d333ffa",
                 "responses": {
                     "200": {
@@ -407,6 +528,9 @@
         },
         "/api/slider-home": {
             "get": {
+                "tags": [
+                    "Sliders"
+                ],
                 "operationId": "e2202d6a1c0ea7af40682bbf72db12a3",
                 "responses": {
                     "200": {
@@ -417,6 +541,9 @@
         },
         "/api/slider/{id}": {
             "get": {
+                "tags": [
+                    "Sliders"
+                ],
                 "operationId": "382e30fa39992d363cbd8797cd69f1ed",
                 "responses": {
                     "200": {
@@ -427,6 +554,9 @@
         },
         "/api/analytics": {
             "get": {
+                "tags": [
+                    "Analytics"
+                ],
                 "operationId": "4004b69a242c51eb667c73ed895def20",
                 "responses": {
                     "200": {
@@ -435,5 +565,79 @@
                 }
             }
         }
-    }
+    },
+    "tags": [
+        {
+            "name": "Fakultas",
+            "description": "Fakultas"
+        },
+        {
+            "name": "Departement",
+            "description": "Departement"
+        },
+        {
+            "name": "USP",
+            "description": "USP"
+        },
+        {
+            "name": "Fasilitas",
+            "description": "Fasilitas"
+        },
+        {
+            "name": "Prestasi",
+            "description": "Prestasi"
+        },
+        {
+            "name": "Organisasi",
+            "description": "Organisasi"
+        },
+        {
+            "name": "Testimoni",
+            "description": "Testimoni"
+        },
+        {
+            "name": "Portofolio",
+            "description": "Portofolio"
+        },
+        {
+            "name": "Sopport",
+            "description": "Sopport"
+        },
+        {
+            "name": "Faqs",
+            "description": "Faqs"
+        },
+        {
+            "name": "Post",
+            "description": "Post"
+        },
+        {
+            "name": "Agenda",
+            "description": "Agenda"
+        },
+        {
+            "name": "Our Team",
+            "description": "Our Team"
+        },
+        {
+            "name": "Legalitas",
+            "description": "Legalitas"
+        },
+        {
+            "name": "Partners",
+            "description": "Partners"
+        },
+        {
+            "name": "Identity",
+            "description": "Identity"
+        },
+        {
+            "name": "Sliders",
+            "description": "Sliders"
+        },
+        {
+            "name": "Analytics",
+            "description": "Analytics"
+        }
+    ]
 }

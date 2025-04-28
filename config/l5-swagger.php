@@ -11,7 +11,7 @@ return [
     'documentations' => [
         'default' => [
             'api' => [
-                'title' => 'L5 Swagger UI',
+                'title' => 'API Documentation For Faculty',
             ],
 
             'routes' => [
