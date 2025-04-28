@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Departement;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+
 
 class DepartementController extends Controller
 {
@@ -68,6 +70,9 @@ class DepartementController extends Controller
             'status'   => 'nullable|string|max:255',
         ]);
 
+        // Buat slug otomatis
+        $validate['slug'] = Str::slug($validate['name']);
+
         if ($request->hasFile('image1')) {
             $validate['image1'] = $request->file('image1')->store('departement-image', 'public');
         }
@@ -121,6 +126,9 @@ class DepartementController extends Controller
             'yt_id'        => 'required|string|max:255',
             'status'       => 'nullable|string|max:255',
         ]);
+
+        // Buat slug otomatis
+        $validate['slug'] = Str::slug($validate['name']);
 
         // Jika user upload gambar baru
         if ($request->hasFile('image1')) {

@@ -6,6 +6,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -44,6 +45,9 @@ class PostController extends Controller
             'yt'      => 'nullable|string',
             'id_category' => 'required',
         ]);
+
+        // Buat slug otomatis
+        $validate['slug'] = Str::slug($validate['title']);
 
        
         if($request->file('image')){

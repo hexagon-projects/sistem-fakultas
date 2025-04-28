@@ -1,0 +1,439 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Fakultas",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/fakultas": {
+            "get": {
+                "operationId": "61e244185641bbfd4b561f3cacfe92b3",
+                "responses": {
+                    "200": {
+                        "description": "The data"
+                    }
+                }
+            }
+        },
+        "/api/departement": {
+            "get": {
+                "operationId": "d748fecde96ceb8c4948194622d40a25",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Departement"
+                    }
+                }
+            }
+        },
+        "/api/departement/{slug}": {
+            "get": {
+                "operationId": "26d5f56b6b2d6816b878e8c65437f8a9",
+                "responses": {
+                    "200": {
+                        "description": "Get One Data Departement by Slug"
+                    }
+                }
+            }
+        },
+        "/api/unggulan": {
+            "get": {
+                "operationId": "28c8aa4007fb93a09ac217bdf9112c09",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Unggulan"
+                    }
+                }
+            }
+        },
+        "/api/unggulan-home": {
+            "get": {
+                "operationId": "41ba03552d9657685662a9690f35b295",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Unggulan By Home"
+                    }
+                }
+            }
+        },
+        "/api/unggulan/{id}": {
+            "get": {
+                "operationId": "a64e33def61ba28c27cb1078b948774c",
+                "responses": {
+                    "200": {
+                        "description": "Get All By Departement ID"
+                    }
+                }
+            }
+        },
+        "/api/fasilitas": {
+            "get": {
+                "operationId": "2c3fd56dae7c128a897c41f61fef0785",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Fasilitas"
+                    }
+                }
+            }
+        },
+        "/api/fasilitas-home": {
+            "get": {
+                "operationId": "6af393009b506a7c51973b3264b85767",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Fasilitas by Home"
+                    }
+                }
+            }
+        },
+        "/api/fasilitas/{id}": {
+            "get": {
+                "operationId": "293eaca9d156964dd97af06cd25f9a71",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Fasilitas By Id Departmenet"
+                    }
+                }
+            }
+        },
+        "/api/prestasi": {
+            "get": {
+                "operationId": "bfcab062c895fad809797c014c1e19db",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Prestasi"
+                    }
+                }
+            }
+        },
+        "/api/prestasi-home": {
+            "get": {
+                "operationId": "3097c10689ecf07b0bf7cb3d0bb7e451",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Prestasi By Home"
+                    }
+                }
+            }
+        },
+        "/api/prestasi/{id}": {
+            "get": {
+                "operationId": "7386773cd30c87a33b178f6739f4c8a0",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Prestasi By Id Departement"
+                    }
+                }
+            }
+        },
+        "/api/organisasi": {
+            "get": {
+                "operationId": "bc30f6f864df615faa5af76955a65191",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Organisasi"
+                    }
+                }
+            }
+        },
+        "/api/organisasi-home": {
+            "get": {
+                "operationId": "bc76df90e282a91b98ef2fd776e41a0a",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Organisasi By Home"
+                    }
+                }
+            }
+        },
+        "/api/organisasi/{id}": {
+            "get": {
+                "operationId": "51c421bfbabb99810d13eec7faeae8a2",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Organisasi By Id Departement"
+                    }
+                }
+            }
+        },
+        "/api/testimoni": {
+            "get": {
+                "operationId": "079b633d8f632eb7d946c31f6c91ddef",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Testimoni"
+                    }
+                }
+            }
+        },
+        "/api/testimoni-home": {
+            "get": {
+                "operationId": "ed744568335e8af4c3f04de22f304d38",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Testimoni By Home"
+                    }
+                }
+            }
+        },
+        "/api/testimoni/{id}": {
+            "get": {
+                "operationId": "63c9471a5c141e51caebb1251cba3c6e",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Testimoni By Id Departement"
+                    }
+                }
+            }
+        },
+        "/api/portofolio": {
+            "get": {
+                "operationId": "2d9d363c3844c056803b6d098cfdf084",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Portofolio"
+                    }
+                }
+            }
+        },
+        "/api/portofolio-home": {
+            "get": {
+                "operationId": "c44ec65014259322274dd141ccc54371",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Portofolio By Home"
+                    }
+                }
+            }
+        },
+        "/api/portofolio/{id}": {
+            "get": {
+                "operationId": "e52c20f52242a916c6fb38cfd5fbb5fa",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Portofolio By Id Departement"
+                    }
+                }
+            }
+        },
+        "/api/suport": {
+            "get": {
+                "operationId": "d5c4ab98222bdbcfd29c3a09b6f19ac2",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Suport"
+                    }
+                }
+            }
+        },
+        "/api/suport-home": {
+            "get": {
+                "operationId": "9860c00130dca8c2de628af7fa281493",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Suport By Home"
+                    }
+                }
+            }
+        },
+        "/api/suport/{id}": {
+            "get": {
+                "operationId": "c464a078d720008919e8031e70af3b87",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Suport By Id Departement"
+                    }
+                }
+            }
+        },
+        "/api/faqs": {
+            "get": {
+                "operationId": "2b7d8f715f89e4ce4968bc82685ae7d1",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Faqs"
+                    }
+                }
+            }
+        },
+        "/api/post": {
+            "get": {
+                "operationId": "3382b18c1b61a0fd9b12496279a1fdf2",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Post"
+                    }
+                }
+            }
+        },
+        "/api/post/{slug}": {
+            "get": {
+                "operationId": "588910786af9137e809228f5614460e8",
+                "responses": {
+                    "200": {
+                        "description": "Get One Data POST by Slug"
+                    }
+                }
+            }
+        },
+        "/api/agenda": {
+            "get": {
+                "operationId": "c40c16092397f9ccfd69f0082bf13542",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Agenda"
+                    }
+                }
+            }
+        },
+        "/api/agenda/{slug}": {
+            "get": {
+                "operationId": "33110a8ed5dcb3d317775d45e191e06d",
+                "responses": {
+                    "200": {
+                        "description": "Get One Data AGENDA by Slug"
+                    }
+                }
+            }
+        },
+        "/api/team": {
+            "get": {
+                "operationId": "94eddde781f08012c134da55482441ec",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Ourteam"
+                    }
+                }
+            }
+        },
+        "/api/team-home": {
+            "get": {
+                "operationId": "f85c6ebd67a73bec18f9523df52cc9f1",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Ourteam By Home"
+                    }
+                }
+            }
+        },
+        "/api/team/{id}": {
+            "get": {
+                "operationId": "92c411bfad503ac11a43935a641ec795",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Ourteam By Id Departement"
+                    }
+                }
+            }
+        },
+        "/api/legalitas": {
+            "get": {
+                "operationId": "f5723f71344f1d3870a2be8ac485a7fb",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Legalitas Dokumen"
+                    }
+                }
+            }
+        },
+        "/api/legalitas-home": {
+            "get": {
+                "operationId": "1548a8e73df691b3cadc0a226d51c44b",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Legalitas By Home"
+                    }
+                }
+            }
+        },
+        "/api/legalitas/{id}": {
+            "get": {
+                "operationId": "a6bb7bae0d7023784fbf8409e5fe6ebc",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Legalitas By Id Departement"
+                    }
+                }
+            }
+        },
+        "/api/partner": {
+            "get": {
+                "operationId": "eb0583bd3263261b5e82a9943331c118",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data partner Dokumen"
+                    }
+                }
+            }
+        },
+        "/api/partner-home": {
+            "get": {
+                "operationId": "50e75ef609324cdd4f211da7eaf8879e",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data partner By Home"
+                    }
+                }
+            }
+        },
+        "/api/partner/{id}": {
+            "get": {
+                "operationId": "e4e6e169ebecb1fab62093ca394448ab",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data partner By Id Departement"
+                    }
+                }
+            }
+        },
+        "/api/indentity/{id}": {
+            "get": {
+                "operationId": "682b4ae81c0c3f06c370d230c08f010a",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data indentity one"
+                    }
+                }
+            }
+        },
+        "/api/slider": {
+            "get": {
+                "operationId": "40e49d291ea50b90df05c65f4d333ffa",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data slider Dokumen"
+                    }
+                }
+            }
+        },
+        "/api/slider-home": {
+            "get": {
+                "operationId": "e2202d6a1c0ea7af40682bbf72db12a3",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data slider By Home"
+                    }
+                }
+            }
+        },
+        "/api/slider/{id}": {
+            "get": {
+                "operationId": "382e30fa39992d363cbd8797cd69f1ed",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data slider By Id Departement"
+                    }
+                }
+            }
+        },
+        "/api/analytics": {
+            "get": {
+                "operationId": "4004b69a242c51eb667c73ed895def20",
+                "responses": {
+                    "200": {
+                        "description": "Get analytics"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -11,4 +11,10 @@ class Faq extends Model
         'question',
         'answer',
     ];    
+
+    public function category()
+    {
+        return $this->belongsTo(Faq_category::class, 'id_category');
+    }
+
 }

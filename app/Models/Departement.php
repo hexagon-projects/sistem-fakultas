@@ -9,6 +9,7 @@ class Departement extends Model
     protected $fillable = [
         'id_profil_fakultas',
         'name',
+        'slug',
         'akreditasi',
         'tagline',
         'yt_id',
