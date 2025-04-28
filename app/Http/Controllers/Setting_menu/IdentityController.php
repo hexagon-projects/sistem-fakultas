@@ -15,6 +15,42 @@ class IdentityController extends Controller
         return view('setting_menu.viewIdentity', compact('identity'));
     }
 
+    public function store(Request $request)
+    {
+
+        $validate = $request->validate([
+            'title' => 'required|string|max:255',
+            'meta' => 'required|string|max:255',
+            'adress' => 'required',
+            'link_map' => 'required',
+            'phone' => 'required|string',
+            'email' => 'required|email',
+            'fb' => 'required|string',
+            'ig' => 'required|string',
+            'tiktok' => 'required|string',
+            'yt' => 'required|string',
+            'time_service' => 'required|string',
+            'day_service' => 'required|string',
+            'image1' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'image2' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
+        ]);
+
+       // Handle image1
+    if ($request->hasFile('image1')) {
+        $validate['image1'] = $request->file('image1')->store('sideBanner-image', 'public');
+    }
+
+    // Handle image2
+    if ($request->hasFile('image2')) {
+        $validate['image2'] = $request->file('image2')->store('sideBanner-image', 'public');
+    }
+
+    Identity::create($validate);
+
+    return redirect()->back()->with('success', 'Data Identity berhasil diperbarui.');
+
+    }
+
    
 
 public function update(Request $request)

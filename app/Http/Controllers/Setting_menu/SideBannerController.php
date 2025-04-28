@@ -17,6 +17,36 @@ class SideBannerController extends Controller
         return view('setting_menu.viewSideBanner', compact('sideBanner', 'departements'));
     }
 
+    public function store(Request $request)
+    {
+
+        $validate = $request->validate([
+            'id_departement' => 'required|string|max:255',
+            'title' => 'required|string|max:255',
+            'description' => 'required',
+            'status' => 'required',
+            'home' => 'required|string',
+            'yt' => 'required|string',
+            'image1' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'image2' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
+        ]);
+
+       // Handle image1
+    if ($request->hasFile('image1')) {
+        $validate['image1'] = $request->file('image1')->store('sideBanner-image', 'public');
+    }
+
+    // Handle image2
+    if ($request->hasFile('image2')) {
+        $validate['image2'] = $request->file('image2')->store('sideBanner-image', 'public');
+    }
+
+    Side_baner::create($validate);
+
+    return redirect()->back()->with('success', 'Data Side Banner berhasil diperbarui.');
+
+    }
+
     public function update(Request $request)
 {
     // dd($request->all());

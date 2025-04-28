@@ -346,7 +346,7 @@
                 <span class="absolute inset-y-0 left-0 w-1 bg-[#034833] rounded-tr-lg rounded-br-lg"
                     aria-hidden="true"></span>
                 <a class="inline-flex items-center w-full text-sm font-semibold text-black transition-colors duration-150 hover:text-gray-800 p-2"
-                    href="index.html">
+                    href="/dashboard">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                         <path
@@ -395,61 +395,61 @@
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/login.html">Faculties</a>
+                            href="{{ route('faculty.index') }}">Faculties</a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/create-account.html">
+                            href="{{ route('departement.index') }}">
                             Departments
                             </a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
+                        {{-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/forgot-password.html">
+                            href="{{ route('register.index') }}">
                             Registration
                             </a>
+                        </li> --}}
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
+                  >
+                    <a class="w-full"
+                            href="{{ route('unggulan.index') }}">USP</a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/404.html">USP</a>
+                            href="{{ route('fasilitas.index') }}">Facilities</a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/blank.html">Facilities</a>
+                            href="{{ route('achievement.index') }}">Achievement</a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/blank.html">Achievement</a>
+                            href="{{ route('organization.index') }}">Student Activities</a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/blank.html">Student Activities</a>
+                            href="{{ route('testimoni.index') }}">Testimonies</a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/blank.html">Testimonies</a>
+                            href="{{ route('portofolio.index') }}">Portofolios</a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/blank.html">Portofolios</a>
+                            href="{{ route('suport.index') }}">Supports</a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/blank.html">Supports</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="pages/blank.html">FAQs</a>
+                            href="{{ route('faq.index') }}">FAQs</a>
                         </li>
                     </ul>
                 </template>
@@ -489,12 +489,12 @@
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/login.html">Post</a>
+                            href="{{ route('posts.index') }}">Post</a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/create-account.html">
+                            href="{{ route('agenda.index') }}">
                             Agenda
                             </a>
                         </li>
@@ -534,34 +534,34 @@
                         x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
                         class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
                         aria-label="submenu">
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
+                        {{-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/login.html">About Us</a>
-                        </li>
+                        </li> --}}
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/create-account.html">
+                            href="{{ route('ourteam.index') }}">
                             Our Teams
                             </a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/forgot-password.html">
+                            href="{{ route('dataValue.index') }}">
                             Data
                             </a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/404.html">Legals Document</a>
+                            href="{{ route('legalDocument.index') }}">Legals Document</a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/blank.html">Partners</a>
+                            href="{{ route('partner.index') }}">Partners</a>
                         </li>
                     </ul>
                 </template>
@@ -600,41 +600,41 @@
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/login.html">Identity</a>
+                            href="{{ route('identity.index') }}">Identity</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
+                        {{-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/create-account.html">
+                            href="{{ route('fasilitas.index') }}">
                             Header
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/forgot-password.html">
+                            href="{{ route('sideBanner.index') }}">
                             Side Banner
                             </a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/404.html">Slider</a>
+                            href="{{ route('slider.index') }}">Slider</a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/blank.html">Meta Pixel</a>
+                            href="{{ route('meta.index') }}">Meta Pixel</a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/blank.html">Google Analytics</a>
+                            href="{{ route('google.index') }}">Google Analytics</a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
-                            href="pages/blank.html">Welcome Chat</a>
+                            href="{{ route('chat.index') }}">Welcome Chat</a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
