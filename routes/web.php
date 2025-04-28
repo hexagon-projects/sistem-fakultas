@@ -6,11 +6,10 @@ use App\Models\Ourteam;
 use App\Models\Partner;
 use App\Models\Category;
 use App\Models\Identity;
+use App\Models\Agenda;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UsersController;
 use App\Http\Controllers\Post\PostController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\DepartementController;
 use App\Http\Controllers\Post\AgendaController;
 use App\Http\Controllers\Profile\AboutController;
 use App\Http\Controllers\Profile\OurteamController;
@@ -25,9 +24,6 @@ use App\Http\Controllers\Setting_menu\SliderController;
 use App\Http\Controllers\Profile\LegalDocumentController;
 use App\Http\Controllers\Setting_menu\IdentityController;
 use App\Http\Controllers\Setting_menu\SideBannerController;
-use App\Models\Agenda;
-use App\Models\Partner;
-
 
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\DepartementController;
@@ -61,14 +57,16 @@ Route::middleware(['auth'])->group(function () {
         return view('form');
     });
 
+    Route::get('/data_value', [DataValueController::class, 'index'])->name('dataValue.index');
+    Route::put('/data_value', [DataValueController::class, 'update'])->name('dataValue.update');
     // POST
-    
+
     Route::get('/view_post', [PostController::class, 'index'])->name('posts.index');
-      
+
     Route::get('/create_post', [PostController::class, 'create'])->name('posts.create');
 
     Route::post('/upload_post', [PostController::class, 'store'])->name('posts.store');
-    
+
     Route::get('/post/{id}/edit', [PostController::class, 'edit'])->name('post.edit');
     Route::put('/post/{id}', [PostController::class, 'update'])->name('post.update');
     Route::get('/post/{id}/delete', [PostController::class, 'destroy'])->name('post.delete');
@@ -144,7 +142,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resources([
         'users' => UsersController::class,
     ]);
-    
+
     // Departement
     Route::resources([
         'departement' => DepartementController::class,
@@ -153,52 +151,52 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/departement/step3/{id}', [DepartementController::class, 'step3'])->name('departement.step3');
     Route::put('/departement/step2/update/{id}', [DepartementController::class, 'step2Update'])->name('departement.update.step2');
     Route::put('/departement/step3/update/{id}', [DepartementController::class, 'step3Update'])->name('departement.update.step3');
-    
+
     // USP
     Route::resources([
         'unggulan' => UnggulanController::class,
     ]);
-    
+
     // Fasilitas
     Route::resources([
         'fasilitas' => FacilityController::class,
     ]);
-    
+
     // achievement
     Route::resources([
         'achievement' => ArchievementController::class,
     ]);
-    
+
     // achievement
     Route::resources([
         'organization' => StudentActivitiesController::class,
     ]);
-    
+
     // achievement
     Route::resources([
         'testimoni' => TestimoniesController::class,
     ]);
-    
+
     // suport
     Route::resources([
         'suport' => SupportController::class,
     ]);
-    
+
     // suport
     Route::resources([
         'portofolio' => PortofolioController::class,
     ]);
-    
+
     // FAQs
     Route::resources([
         'faq' => FaqsController::class,
     ]);
-    
+
     // FAQ Categories
     Route::resources([
         'faqcategories' => FaqCategoriesController::class,
     ]);
-    
+
     // Faculty
     Route::resources([
         'faculty' => FacultyController::class,
@@ -207,19 +205,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/faculty/step3/{id}', [FacultyController::class, 'step3'])->name('faculty.step3');
     Route::put('/faculty/step2/update/{id}', [FacultyController::class, 'step2Update'])->name('faculty.update.step2');
     Route::put('/faculty/step3/update/{id}', [FacultyController::class, 'step3Update'])->name('faculty.update.step3');
-    
+
     Route::get('/view_agenda', [AgendaController::class, 'index'])->name('agenda.index');
     Route::get('/create_agenda', [AgendaController::class, 'create'])->name('agenda.create');
     Route::post('/upload_agenda', [AgendaController::class, 'store'])->name('agenda.store');
     Route::get('/agenda/{id}/edit', [AgendaController::class, 'edit'])->name('agenda.edit');
     Route::put('/agenda/{id}', [AgendaController::class, 'update'])->name('agenda.update');
     Route::get('/agenda/{id}/delete', [AgendaController::class, 'destroy'])->name('agenda.delete');
-
-
-
-
-
-
 });
-
-

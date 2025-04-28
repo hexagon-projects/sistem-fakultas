@@ -22,7 +22,6 @@ class SideBannerSeeder extends Seeder
                 'yt' => 'https://youtube.com/watch?v=contohvideo1',
                 'status' => 'active',
                 'home' => 'yes'
-
         ]);
     }
 }

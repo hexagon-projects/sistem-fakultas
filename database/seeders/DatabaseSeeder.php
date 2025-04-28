@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\DataValue;
+use App\Models\Identity;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -15,6 +17,65 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        DB::table('profile_fakultas')->insert([
+            'name' => 'Fakultas Teknik',
+            'tagline' => 'Mewujudkan Insinyur Berkarakter',
+            'title1' => 'Visi',
+            'description1' => 'Menjadi fakultas teknik unggulan tingkat nasional.',
+            'title2' => 'Misi',
+            'description2' => 'Menyelenggarakan pendidikan, penelitian, dan pengabdian.',
+            'title3' => 'Tujuan',
+            'description3' => 'Membentuk lulusan yang berdaya saing global.',
+            'title4' => 'Nilai',
+            'description4' => 'Integritas, Profesionalisme, Inovasi.',
+            'image1' => 'image1.jpg',
+            'image2' => 'image2.jpg',
+            'image3' => 'image3.jpg',
+            'image4' => 'image4.jpg',
+            'statistik1' => '10.000 Mahasiswa',
+            'statistik2' => '50 Dosen',
+            'statistik3' => '20 Program Studi',
+            'statistik4' => '5 Gedung Kuliah',
+            'status' => 'aktif',
+            'yt' => 'https://youtube.com/example'
+        ]);
+        Identity::create([
+            'title' => 'Universitas Pasundan',
+            'meta' => 'Universitas Pasundan (UNPAS) - Perguruan Tinggi Swasta terkemuka di Bandung, Jawa Barat, yang menyediakan berbagai program studi berkualitas untuk jenjang Diploma, Sarjana, Magister, dan Doktor.',
+            'adress' => '(Kampus I) Jl. Lengkong besar no 68, Kec Lengkong Kota Bandung Jawa Barat 40261',
+            'link_map' => 'https://maps.app.goo.gl/K4ZfK6MNnNN2NuRq7',
+            'phone' => '62811960193',
+            'email' => 'konsultasi@jatidiri.app',
+            'fb' => 'unpas',
+            'ig' => 'unpas',
+            'tiktok' => '@unpas',
+            'yt' => '@unpas',
+            'time_service' => '08.00 - 17.00',
+            'day_service' => 'Senin - Jumat',
+            'image1' => 'image/sdjnajdn', // kalau belum ada gambar
+            'image2' => 'image/sdjnajdn', // kalau belum ada gambar
+        ]);
+        DataValue::create([
+            'title1' => 'Mahasiswa',
+            'title2' => 'Lulusan',
+            'title3' => 'Program Studi',
+            'title4' => 'Prestasi',
+
+            'data1' => '9112',
+            'data2' => '9877436',
+            'data3' => '44',
+            'data4' => '2139',
+
+            'value1' => 'Some value 1',
+            'value2' => 'Some value 2',
+            'value3' => 'Some value 3',
+            'value4' => 'Some value 4',
+        ]);
+        DB::table('analytics')->insert([
+            'google' => 'ini contoh google analytic',
+            'meta'   => 'Deskripsi website kamu',
+            'chat'   => 'Hallo Minpas, Saya mau info pendaftaran mahasiswa baru untuk tahun ini!',
+        ]);
         DB::table('users')->insert([
             [
                 'name' => 'Kemal Ramadhan',
@@ -23,7 +84,7 @@ class DatabaseSeeder extends Seeder
                 'role' => 'Super Admin',
                 'email_verified_at' => now(),
                 'password' => Hash::make('Kk1617102084'),
-              
+
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -34,7 +95,7 @@ class DatabaseSeeder extends Seeder
                 'role' => 'admin',
                 'email_verified_at' => now(),
                 'password' => Hash::make('password'), // pastikan password di-hash
-               
+
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -45,12 +106,12 @@ class DatabaseSeeder extends Seeder
                 'role' => 'admin',
                 'email_verified_at' => now(),
                 'password' => Hash::make('password'),
-              
+
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
         ]);
-       
+
         DB::table('categories')->insert([
             ['id' => 1, 'name' => 'Artikel', 'image' => 'images/categories/article.jpg'],
             ['id' => 2, 'name' => 'Berita', 'image' => 'images/categories/news.jpg'],
@@ -74,16 +135,24 @@ class DatabaseSeeder extends Seeder
                 'title' => 'Tips Belajar Quill Editor',
                 'resume' => 'Cara integrasi Quill Editor di Laravel.',
                 'content' => '<p>Quill adalah rich text editor yang ringan dan mudah digunakan...</p>',
-                'publish' =>'2023-10-21',
+                'publish' => '2023-10-21',
                 'status' => 'active',
                 'image' => 'images/posts/post2.jpg',
                 'yt' => 'https://www.youtube.com/watch?v=video2',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-          
-        ]);
 
-       
+        ]);
+        DB::table('side_baners')->insert([
+            'id_departement' => '1',
+            'title' => 'Contoh Judul Pertama',
+            'description' => 'Ini adalah deskripsi panjang untuk item pertama. Bisa berisi teks panjang dengan berbagai informasi.',
+            'image1' => 'image1.jpg',
+            'image2' => 'image2.jpg',
+            'yt' => 'https://youtube.com/watch?v=contohvideo1',
+            'status' => 'active',
+            'home' => 'yes'
+        ]);
     }
 }
