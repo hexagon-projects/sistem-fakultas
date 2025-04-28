@@ -197,7 +197,7 @@ class DepartementController extends Controller
             'link4'    => 'required|string|max:255',
             'title4'     => 'required|string|max:255',
             'address'     => 'required|string',
-            'map'     => 'required|string|max:255',
+            'map'     => 'required|string',
             'description4'      => 'required|string',
             'image4'       => 'nullable|mimes:jpg,jpeg,png,pdf,webp|max:2048',
         ]);

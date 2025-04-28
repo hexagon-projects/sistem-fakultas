@@ -22,6 +22,16 @@ use App\Models\Partner;
 
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\DepartementController;
+use App\Http\Controllers\UnggulanController;
+use App\Http\Controllers\FacilityController;
+use App\Http\Controllers\ArchievementController;
+use App\Http\Controllers\StudentActivitiesController;
+use App\Http\Controllers\TestimoniesController;
+use App\Http\Controllers\SupportController;
+use App\Http\Controllers\FaqsController;
+use App\Http\Controllers\FaqCategoriesController;
+use App\Http\Controllers\FacultyController;
+use App\Http\Controllers\PortofolioController;
 
 Route::get('/login', function () {
     return view('/auth/login');
@@ -115,17 +125,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/partner/{id}/delete', [PartnerController::class, 'destroy'])->name('partner.delete');
 
 
-
-
-
-
-
-
-
-
-
-
-
     // Users
     Route::resources([
         'users' => UsersController::class,
@@ -139,7 +138,60 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/departement/step3/{id}', [DepartementController::class, 'step3'])->name('departement.step3');
     Route::put('/departement/step2/update/{id}', [DepartementController::class, 'step2Update'])->name('departement.update.step2');
     Route::put('/departement/step3/update/{id}', [DepartementController::class, 'step3Update'])->name('departement.update.step3');
-
+    
+    // USP
+    Route::resources([
+        'unggulan' => UnggulanController::class,
+    ]);
+    
+    // Fasilitas
+    Route::resources([
+        'fasilitas' => FacilityController::class,
+    ]);
+    
+    // achievement
+    Route::resources([
+        'achievement' => ArchievementController::class,
+    ]);
+    
+    // achievement
+    Route::resources([
+        'organization' => StudentActivitiesController::class,
+    ]);
+    
+    // achievement
+    Route::resources([
+        'testimoni' => TestimoniesController::class,
+    ]);
+    
+    // suport
+    Route::resources([
+        'suport' => SupportController::class,
+    ]);
+    
+    // suport
+    Route::resources([
+        'portofolio' => PortofolioController::class,
+    ]);
+    
+    // FAQs
+    Route::resources([
+        'faq' => FaqsController::class,
+    ]);
+    
+    // FAQ Categories
+    Route::resources([
+        'faqcategories' => FaqCategoriesController::class,
+    ]);
+    
+    // Faculty
+    Route::resources([
+        'faculty' => FacultyController::class,
+    ]);
+    Route::get('/faculty/step2/{id}', [FacultyController::class, 'step2'])->name('faculty.step2');
+    Route::get('/faculty/step3/{id}', [FacultyController::class, 'step3'])->name('faculty.step3');
+    Route::put('/faculty/step2/update/{id}', [FacultyController::class, 'step2Update'])->name('faculty.update.step2');
+    Route::put('/faculty/step3/update/{id}', [FacultyController::class, 'step3Update'])->name('faculty.update.step3');
     
     Route::get('/view_agenda', function () {
         return view('blog_post/agenda/viewAgenda');

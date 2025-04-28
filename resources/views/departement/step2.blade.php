@@ -111,7 +111,7 @@
                     </div>
                     <div class="flex flex-col gap-1 mb-5">
                         <label for="description3">Decription 2</label>
-                        <textarea name="description3" id="detail" class="block w-full mt-1 text-sm border-gray-300 border-2 p-2 rounded-md">{{ $departement->description2 }}</textarea>
+                        <textarea name="description3" id="detail" class="block w-full mt-1 text-sm border-gray-300 border-2 p-2 rounded-md">{{ $departement->description3 }}</textarea>
                         @error('description3')
                             <div>
                                 <small class="text-red-500"><i>{{ $message }}</i></small>

@@ -13,7 +13,6 @@ class Faq_category extends Model
 
     protected $fillable = [
         'name',
-        
     ];
 
 }

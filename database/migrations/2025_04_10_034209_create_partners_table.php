@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('detail');
             $table->string('image');
             $table->string('status');
-            $table->string('home');
+            $table->string('home')->nullable();
             $table->timestamps();
         });
     }

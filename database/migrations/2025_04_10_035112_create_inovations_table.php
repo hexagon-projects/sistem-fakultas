@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('name');
             $table->text('description');
-            $table->string('home');
+            $table->string('home')->nullable();
             $table->string('image1');
             $table->string('image2');
             $table->string('inovator');
