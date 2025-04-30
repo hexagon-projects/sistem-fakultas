@@ -37,6 +37,8 @@ use App\Http\Controllers\FaqsController;
 use App\Http\Controllers\FaqCategoriesController;
 use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\PortofolioController;
+use App\Http\Controllers\ProspekController;
+use App\Http\Controllers\KurikulumController;
 
 Route::get('/login', function () {
     return view('/auth/login');
@@ -157,6 +159,16 @@ Route::middleware(['auth'])->group(function () {
     // USP
     Route::resources([
         'unggulan' => UnggulanController::class,
+    ]);
+    
+    // prospek
+    Route::resources([
+        'prospek' => ProspekController::class,
+    ]);
+    
+    // Kurikulum
+    Route::resources([
+        'kurikulum' => KurikulumController::class,
     ]);
 
     // Fasilitas

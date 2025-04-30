@@ -82,6 +82,9 @@ class PostController extends Controller
             'id_category' => 'required',
         ]);
 
+        // Buat slug otomatis
+        $validated['slug'] = Str::slug($validated['title']);
+
         if ($request->file('image')) {
             $validated['image'] = $request->file('image')->store('post-image', 'public');
         }

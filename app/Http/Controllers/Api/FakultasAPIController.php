@@ -22,6 +22,8 @@ use App\Models\Partner;
 use App\Models\Identity;
 use App\Models\Slider;
 use App\Models\Analytic;
+use App\Models\Prospek;
+use App\Models\Kurikulum;
 
 /**
  * @OA\Info(
@@ -150,6 +152,132 @@ class FakultasAPIController extends Controller
             ], 404);
         }
         return response()->json($usps);
+    }
+    
+    /**
+     * @OA\Get(
+     *     path="/api/prospek",
+     *     tags={"Prospek"},
+     *     @OA\Response(
+     *         response="200",
+     *         description="Get All Data Prospek"
+     *     )
+     * )
+     */
+    public function getProspekAll()
+    {
+        $prospek = Prospek::all();
+        if (!$prospek) {
+            return response()->json([
+                'message' => 'Prospek not found',
+            ], 404);
+        }
+        return response()->json($prospek);
+    }
+    
+    /**
+     * @OA\Get(
+     *     path="/api/prospek-home",
+     *     tags={"Prospek"},
+     *     @OA\Response(
+     *         response="200",
+     *         description="Get All Data Prospek By Home"
+     *     )
+     * )
+     */
+    public function getProspekByHome()
+    {
+        $prospek = Prospek::where('home', '1')->get();
+        if (!$prospek) {
+            return response()->json([
+                'message' => 'Prospek not found',
+            ], 404);
+        }
+        return response()->json($prospek);
+    }
+    
+    /**
+     * @OA\Get(
+     *     path="/api/prospek/{id}",
+     *     tags={"Prospek"},
+     *     @OA\Response(
+     *         response="200",
+     *         description="Get All By Departement ID"
+     *     )
+     * )
+     */
+    public function getProspekByDepeartmenet($id)
+    {
+        $prospek = Prospek::where('id_departement', $id)->get();
+        if (!$prospek) {
+            return response()->json([
+                'message' => 'Prospek not found',
+            ], 404);
+        }
+        return response()->json($prospek);
+    }
+    
+    /**
+     * @OA\Get(
+     *     path="/api/kurikulum",
+     *     tags={"Kurikulum"},
+     *     @OA\Response(
+     *         response="200",
+     *         description="Get All Data Kurikulum"
+     *     )
+     * )
+     */
+    public function getKurikulumAll()
+    {
+        $kurkulum = Kurikulum::all();
+        if (!$kurkulum) {
+            return response()->json([
+                'message' => 'kurkulum not found',
+            ], 404);
+        }
+        return response()->json($kurkulum);
+    }
+    
+    /**
+     * @OA\Get(
+     *     path="/api/kurikulum-home",
+     *     tags={"Kurikulum"},
+     *     @OA\Response(
+     *         response="200",
+     *         description="Get All Data Kurikulum By Home"
+     *     )
+     * )
+     */
+    public function getKurikulumByHome()
+    {
+        $kurikulum = Kurikulum::where('home', '1')->get();
+        if (!$kurikulum) {
+            return response()->json([
+                'message' => 'kurikulum not found',
+            ], 404);
+        }
+        return response()->json($kurikulum);
+    }
+    
+    /**
+     * @OA\Get(
+     *     path="/api/kurikulum/{id}",
+     *     tags={"Kurikulum"},
+     *     @OA\Response(
+     *         response="200",
+     *         description="Get All By Departement ID"
+     *     )
+     * )
+     */
+    public function getKurikulumByDepeartmenet($id)
+    {
+        $kurikulum = Kurikulum::where('id_departement', $id)->get();
+        if (!$kurikulum) {
+            return response()->json([
+                'message' => 'kurikulum not found',
+            ], 404);
+        }
+        return response()->json($kurikulum);
     }
     
     /**
