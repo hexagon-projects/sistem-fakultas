@@ -29,8 +29,7 @@
             <li class="relative px-6 py-3">
                 <button
                     class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black"
-                    @click="togglePagesService"
-                    @click="isPagesServiceOpen = !isPagesServiceOpen"
+                    @click="togglePagesService" @click="isPagesServiceOpen = !isPagesServiceOpen"
                     :class="{
                         'bg-[#034833] rounded-lg p-2 text-white': isPagesServiceOpen,
                         'hover:bg-gray-200 rounded-lg p-2': !isPagesServiceOpen
@@ -61,64 +60,50 @@
                         x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
                         class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
                         aria-label="submenu">
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('faculty.index') }}">Faculties</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('faculty.index') }}">Faculties</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('departement.index') }}">
-                            Departments
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('departement.index') }}">
+                                Departments
                             </a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    {{-- <a class="w-full"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            {{-- <a class="w-full"
                             href="pages/forgot-password.html">
                             Registration
                             </a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   > --}}
-                    <a class="w-full"
-                            href="{{ route('unggulan.index') }}">USP</a>
+                            <a class="w-full" href="{{ route('unggulan.index') }}">USP</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('fasilitas.index') }}">Facilities</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('prospek.index') }}">Prospek</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('achievement.index') }}">Achievement</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('kurikulum.index') }}">Kurikulum</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('organization.index') }}">Student Activities</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('fasilitas.index') }}">Facilities</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('testimoni.index') }}">Testimonies</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('achievement.index') }}">Achievement</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('portofolio.index') }}">Portofolios</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('organization.index') }}">Student Activities</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('suport.index') }}">Supports</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('testimoni.index') }}">Testimonies</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('faq.index') }}">FAQs</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('portofolio.index') }}">Inovasi</a>
+                        </li>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('suport.index') }}">Supports</a>
+                        </li>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('faq.index') }}">FAQs</a>
                         </li>
                     </ul>
                 </template>
@@ -126,16 +111,16 @@
             <li class="relative px-6 py-3">
                 <button
                     class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black"
-                    @click="togglePagesBlog"
-                    @click="isPagesBlogOpen = !isPagesBlogOpen"
+                    @click="togglePagesBlog" @click="isPagesBlogOpen = !isPagesBlogOpen"
                     :class="{
                         'bg-[#034833] rounded-lg p-2 text-white': isPagesBlogOpen,
                         'hover:bg-gray-200 rounded-lg p-2': !isPagesBlogOpen
                     }"
                     aria-haspopup="true">
                     <span class="inline-flex items-center">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round"
+                            stroke-linejoin="round">
                             <path d="M7 8h10M7 12h6m-6 4h10" />
                             <path d="M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6z" />
                         </svg>
@@ -155,16 +140,12 @@
                         x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
                         class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
                         aria-label="submenu">
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('posts.index') }}">Post</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('posts.index') }}">Post</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="/view_agenda">
-                            Agenda
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="/view_agenda">
+                                Agenda
                             </a>
                         </li>
                     </ul>
@@ -173,8 +154,7 @@
             <li class="relative px-6 py-3">
                 <button
                     class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black"
-                    @click="togglePagesProfil"
-                    @click="isPagesProfilOpen = !isPagesProfilOpen"
+                    @click="togglePagesProfil" @click="isPagesProfilOpen = !isPagesProfilOpen"
                     :class="{
                         'bg-[#034833] rounded-lg p-2 text-white': isPagesProfilOpen,
                         'hover:bg-gray-200 rounded-lg p-2': !isPagesProfilOpen
@@ -203,7 +183,7 @@
                         x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
                         class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
                         aria-label="submenu">
-                       
+
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
                   >
                     <a class="w-full"
@@ -211,22 +191,18 @@
                             Our Teams
                             </a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    {{-- <a class="w-full"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            {{-- <a class="w-full"
                             href="{{ route('dataValue.index') }}">
                             Data
                             </a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   > --}}
-                    <a class="w-full"
-                            href="{{ route('legalDocument.index') }}">Legals Document</a>
+                            <a class="w-full" href="{{ route('legalDocument.index') }}">Legals Document</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('partner.index') }}">Partners</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('partner.index') }}">Partners</a>
                         </li>
                     </ul>
                 </template>
@@ -262,49 +238,35 @@
                         x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
                         class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
                         aria-label="submenu">
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('identity.index') }}">Identity</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('identity.index') }}">Identity</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    {{-- <a class="w-full"
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            {{-- <a class="w-full"
                             href="pages/create-account.html">
                             Header
                             </a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   > --}}
-                    <a class="w-full"
-                            href="{{ route('sideBanner.index') }}">
-                            Side Banner
+                            <a class="w-full" href="{{ route('sideBanner.index') }}">
+                                Side Banner
                             </a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('slider.index') }}">Slider</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('slider.index') }}">Slider</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('meta.index') }}">Meta Pixel</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('meta.index') }}">Meta Pixel</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('google.index') }}">Google Analytics</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('google.index') }}">Google Analytics</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('chat.index') }}">Welcome Chat</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('chat.index') }}">Welcome Chat</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('users.index') }}">User</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('users.index') }}">User</a>
                         </li>
                     </ul>
                 </template>
@@ -361,8 +323,7 @@
             <li class="relative px-6 py-3">
                 <button
                     class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black"
-                    @click="togglePagesService"
-                    @click="isPagesServiceOpen = !isPagesServiceOpen"
+                    @click="togglePagesService" @click="isPagesServiceOpen = !isPagesServiceOpen"
                     :class="{
                         'bg-[#034833] rounded-lg p-2 text-white': isPagesServiceOpen,
                         'hover:bg-gray-200 rounded-lg p-2': !isPagesServiceOpen
@@ -392,16 +353,12 @@
                         x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
                         class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
                         aria-label="submenu">
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('faculty.index') }}">Faculties</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('faculty.index') }}">Faculties</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('departement.index') }}">
-                            Departments
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('departement.index') }}">
+                                Departments
                             </a>
                         </li>
                         {{-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
@@ -411,45 +368,35 @@
                             Registration
                             </a>
                         </li> --}}
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('unggulan.index') }}">USP</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('unggulan.index') }}">USP</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('fasilitas.index') }}">Facilities</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('prospek.index') }}">Prospek</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('achievement.index') }}">Achievement</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('kurikulum.index') }}">Kurikulum</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('organization.index') }}">Student Activities</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('fasilitas.index') }}">Facilities</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('testimoni.index') }}">Testimonies</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('achievement.index') }}">Achievement</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('portofolio.index') }}">Portofolios</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('organization.index') }}">Student Activities</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('suport.index') }}">Supports</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('testimoni.index') }}">Testimonies</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('faq.index') }}">FAQs</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('portofolio.index') }}">Inovasi</a>
+                        </li>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('suport.index') }}">Supports</a>
+                        </li>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('faq.index') }}">FAQs</a>
                         </li>
                     </ul>
                 </template>
@@ -457,8 +404,7 @@
             <li class="relative px-6 py-3">
                 <button
                     class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black"
-                @click="togglePagesBlog"
-                    @click="isPagesBlogOpen = !isPagesBlogOpen"
+                    @click="togglePagesBlog" @click="isPagesBlogOpen = !isPagesBlogOpen"
                     :class="{
                         'bg-[#034833] rounded-lg p-2 text-white': isPagesBlogOpen,
                         'hover:bg-gray-200 rounded-lg p-2': !isPagesBlogOpen
@@ -486,16 +432,12 @@
                         x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
                         class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
                         aria-label="submenu">
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('posts.index') }}">Post</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('posts.index') }}">Post</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('agenda.index') }}">
-                            Agenda
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('agenda.index') }}">
+                                Agenda
                             </a>
                         </li>
                     </ul>
@@ -504,8 +446,7 @@
             <li class="relative px-6 py-3">
                 <button
                     class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black"
-                @click="togglePagesProfil"
-                    @click="isPagesProfilOpen = !isPagesProfilOpen"
+                    @click="togglePagesProfil" @click="isPagesProfilOpen = !isPagesProfilOpen"
                     :class="{
                         'bg-[#034833] rounded-lg p-2 text-white': isPagesProfilOpen,
                         'hover:bg-gray-200 rounded-lg p-2': !isPagesProfilOpen
@@ -539,11 +480,9 @@
                     <a class="w-full"
                             href="pages/login.html">About Us</a>
                         </li> --}}
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('ourteam.index') }}">
-                            Our Teams
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('ourteam.index') }}">
+                                Our Teams
                             </a>
                         </li>
                         {{-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
@@ -558,10 +497,8 @@
                     <a class="w-full"
                             href="{{ route('legalDocument.index') }}">Legals Document</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('partner.index') }}">Partners</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('partner.index') }}">Partners</a>
                         </li>
                     </ul>
                 </template>
@@ -597,10 +534,8 @@
                         x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
                         class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
                         aria-label="submenu">
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('identity.index') }}">Identity</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('identity.index') }}">Identity</a>
                         </li>
                         {{-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
@@ -609,37 +544,25 @@
                             Header
                             </a>
                         </li> --}}
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('sideBanner.index') }}">
-                            Side Banner
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('sideBanner.index') }}">
+                                Side Banner
                             </a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('slider.index') }}">Slider</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('slider.index') }}">Slider</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('meta.index') }}">Meta Pixel</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('meta.index') }}">Meta Pixel</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('google.index') }}">Google Analytics</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('google.index') }}">Google Analytics</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('chat.index') }}">Welcome Chat</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('chat.index') }}">Welcome Chat</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="pages/blank.html">User</a>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="pages/blank.html">User</a>
                         </li>
                     </ul>
                 </template>

@@ -84,6 +84,84 @@
                 }
             }
         },
+        "/api/prospek": {
+            "get": {
+                "tags": [
+                    "Prospek"
+                ],
+                "operationId": "be36f518d68cf74146e9522ca0b78d68",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Prospek"
+                    }
+                }
+            }
+        },
+        "/api/prospek-home": {
+            "get": {
+                "tags": [
+                    "Prospek"
+                ],
+                "operationId": "23466bc83e7f5622595e352079d89b20",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Prospek By Home"
+                    }
+                }
+            }
+        },
+        "/api/prospek/{id}": {
+            "get": {
+                "tags": [
+                    "Prospek"
+                ],
+                "operationId": "2bece85319cba9477332ae936d09c4cc",
+                "responses": {
+                    "200": {
+                        "description": "Get All By Departement ID"
+                    }
+                }
+            }
+        },
+        "/api/kurikulum": {
+            "get": {
+                "tags": [
+                    "Kurikulum"
+                ],
+                "operationId": "24eb5af86ff62e324361d54a76b17f7e",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Kurikulum"
+                    }
+                }
+            }
+        },
+        "/api/kurikulum-home": {
+            "get": {
+                "tags": [
+                    "Kurikulum"
+                ],
+                "operationId": "46382f45e342dfa0434e15a2ab6b57f3",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Kurikulum By Home"
+                    }
+                }
+            }
+        },
+        "/api/kurikulum/{id}": {
+            "get": {
+                "tags": [
+                    "Kurikulum"
+                ],
+                "operationId": "fcd4d66f70c29ba9d73381433a396625",
+                "responses": {
+                    "200": {
+                        "description": "Get All By Departement ID"
+                    }
+                }
+            }
+        },
         "/api/fasilitas": {
             "get": {
                 "tags": [
@@ -578,6 +656,14 @@
         {
             "name": "USP",
             "description": "USP"
+        },
+        {
+            "name": "Prospek",
+            "description": "Prospek"
+        },
+        {
+            "name": "Kurikulum",
+            "description": "Kurikulum"
         },
         {
             "name": "Fasilitas",

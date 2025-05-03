@@ -40,6 +40,21 @@ use App\Http\Controllers\Setting_menu\IdentityController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Http\Controllers\Setting_menu\SideBannerController;
 
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\DepartementController;
+use App\Http\Controllers\UnggulanController;
+use App\Http\Controllers\FacilityController;
+use App\Http\Controllers\ArchievementController;
+use App\Http\Controllers\StudentActivitiesController;
+use App\Http\Controllers\TestimoniesController;
+use App\Http\Controllers\SupportController;
+use App\Http\Controllers\FaqsController;
+use App\Http\Controllers\FaqCategoriesController;
+use App\Http\Controllers\FacultyController;
+use App\Http\Controllers\PortofolioController;
+use App\Http\Controllers\ProspekController;
+use App\Http\Controllers\KurikulumController;
+
 Route::get('/login', function () {
     return view('/auth/login');
 })->name('login');
@@ -157,6 +172,16 @@ Route::middleware(['auth'])->group(function () {
     // USP
     Route::resources([
         'unggulan' => UnggulanController::class,
+    ]);
+    
+    // prospek
+    Route::resources([
+        'prospek' => ProspekController::class,
+    ]);
+    
+    // Kurikulum
+    Route::resources([
+        'kurikulum' => KurikulumController::class,
     ]);
 
     // Fasilitas
