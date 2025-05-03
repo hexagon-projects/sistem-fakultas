@@ -1,28 +1,43 @@
 <?php
 
 use App\Models\User;
+use App\Models\Agenda;
 use App\Models\Slider;
 use App\Models\Ourteam;
 use App\Models\Partner;
 use App\Models\Category;
 use App\Models\Identity;
-use App\Models\Agenda;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FaqsController;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\FacultyController;
+use App\Http\Controllers\SupportController;
+use App\Http\Controllers\FacilityController;
+use App\Http\Controllers\UnggulanController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Post\PostController;
+
+
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\PortofolioController;
+use App\Http\Controllers\DepartementController;
 use App\Http\Controllers\Post\AgendaController;
+use App\Http\Controllers\TestimoniesController;
+use App\Http\Controllers\ArchievementController;
+
+use App\Http\Controllers\FaqCategoriesController;
 use App\Http\Controllers\Profile\AboutController;
 use App\Http\Controllers\Profile\OurteamController;
 use App\Http\Controllers\Profile\PartnerController;
 use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\Category\CategoryController;
-
-
 use App\Http\Controllers\Profile\DataValueController;
 use App\Http\Controllers\Setting_menu\MetaController;
+use App\Http\Controllers\StudentActivitiesController;
 use App\Http\Controllers\Setting_menu\SliderController;
 use App\Http\Controllers\Profile\LegalDocumentController;
 use App\Http\Controllers\Setting_menu\IdentityController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Http\Controllers\Setting_menu\SideBannerController;
 
 use App\Http\Controllers\UsersController;
@@ -50,14 +65,12 @@ Route::get('/', function () {
 
 
 Route::middleware(['auth'])->group(function () {
+// dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile')->middleware('auth');
     Route::put('/profile/update/{user}', [ProfileController::class, 'update'])->name('profile.update');
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-    Route::get('/form', function () {
-        return view('form');
-    });
+
 
     Route::get('/data_value', [DataValueController::class, 'index'])->name('dataValue.index');
     Route::put('/data_value', [DataValueController::class, 'update'])->name('dataValue.update');

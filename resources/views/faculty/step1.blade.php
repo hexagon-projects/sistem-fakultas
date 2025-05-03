@@ -58,15 +58,21 @@
                             @enderror
                         </div>
                         <div class="flex flex-col gap-1 mb-5">
-                            <label for="">Akreditasi</label>
-                            <input type="text" name="akreditasi" value="{{ $faculty->akreditasi ?? '' }}"
-                                class="block w-full mt-1 text-sm focus:border-[#5676ff] focus:outline-none focus:shadow-outline-purple form-input border-gray-300 border-2 p-2 rounded-md" />
+                            <label for="akreditasi">Akreditasi</label>
+                            <select name="akreditasi" 
+                                class="block w-full mt-1 text-sm focus:border-[#5676ff] focus:outline-none focus:shadow-outline-purple form-select border-gray-300 border-2 p-2 rounded-md">
+                              <option value="{{ $faculty->akreditasi ?? '' }}">-- Pilih Akreditasi --</option>
+                              <option value="Unggul">Unggul</option>
+                              <option value="Baik Sekali">Baik Sekali</option>
+                              <option value="Baik">Baik</option>
+                            </select>
                             @error('akreditasi')
-                                <div>
-                                    <small class="text-red-500"><i>{{ $message }}</i></small>
-                                </div>
+                              <div>
+                                <small class="text-red-500"><i>{{ $message }}</i></small>
+                              </div>
                             @enderror
-                        </div>
+                          </div>
+                          
                     </div>
                     <div class="flex flex-col gap-1 mb-5">
                         <label for="">Tagline Faculty</label>
