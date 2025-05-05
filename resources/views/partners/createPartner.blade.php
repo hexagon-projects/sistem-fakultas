@@ -72,12 +72,16 @@
 
             <label class="block text-sm mb-3">
               <span class="text-gray-700 font-semibold">Status</span>
-              <input
+              <select
                 name="status"
-                type="text"
                 class="block w-full mt-1 text-sm border-gray-300 border-2 p-2 rounded-md"
-              />
+              >
+                <option value="">-- Pilih Status --</option>
+                <option value="active" >Active</option>
+                <option value="nonactive">Nonactive</option>
+              </select>
             </label>
+            
            
           </div>
 

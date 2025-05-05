@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('prospeks', function (Blueprint $table) {
+        Schema::create('timelines', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_departement')->nullable();
             $table->foreign('id_departement')->references('id')->on('departements');
             $table->string('title');
+            $table->string('slug')->nullable();
             $table->text('description');
             $table->string('image');
-            $table->string('icon');
+            $table->integer('no_urut');
             $table->string('home')->nullable();
             $table->timestamps();
         });
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('prospeks');
+        Schema::dropIfExists('timelines');
     }
 };

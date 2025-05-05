@@ -642,6 +642,84 @@
                     }
                 }
             }
+        },
+        "/api/jurnal": {
+            "get": {
+                "tags": [
+                    "Jurnal"
+                ],
+                "operationId": "6d85ddfe8522eba03dc03a4030147dea",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Jurnal"
+                    }
+                }
+            }
+        },
+        "/api/jurnal-home": {
+            "get": {
+                "tags": [
+                    "Jurnal"
+                ],
+                "operationId": "7beb4a074e9ca178f51dd0a4e64a2e94",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Jurnal By Home"
+                    }
+                }
+            }
+        },
+        "/api/jurnal/{id}": {
+            "get": {
+                "tags": [
+                    "Jurnal"
+                ],
+                "operationId": "fe88d84f80e35e30a3676447a1dc2414",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Jurnal By Id Departement"
+                    }
+                }
+            }
+        },
+        "/api/timeline": {
+            "get": {
+                "tags": [
+                    "Timeline"
+                ],
+                "operationId": "816d362fac30192f7157803d9a0fa308",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Timeline"
+                    }
+                }
+            }
+        },
+        "/api/timeline-home": {
+            "get": {
+                "tags": [
+                    "Timeline"
+                ],
+                "operationId": "303a977b22dfc4f68de16336d373e596",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Timeline By Home"
+                    }
+                }
+            }
+        },
+        "/api/timeline/{id}": {
+            "get": {
+                "tags": [
+                    "Timeline"
+                ],
+                "operationId": "076fa88a4287e3428d3b51686efc80f5",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Timeline By Id Departement"
+                    }
+                }
+            }
         }
     },
     "tags": [
@@ -724,6 +802,14 @@
         {
             "name": "Analytics",
             "description": "Analytics"
+        },
+        {
+            "name": "Jurnal",
+            "description": "Jurnal"
+        },
+        {
+            "name": "Timeline",
+            "description": "Timeline"
         }
     ]
 }

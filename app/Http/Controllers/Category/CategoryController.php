@@ -35,7 +35,7 @@ class CategoryController extends Controller
     {
     //   dd($request->all());
         $validate = $request->validate([
-            'name'   => 'required|string|max:255',
+            'name'   => 'required|string',
             'image'   => 'nullable|image|mimes:jpg,jpeg,png,webp|max:1048',
           
         ]);
@@ -63,7 +63,7 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
 
         $validated = $request->validate([
-            'name'   => 'required|string|max:255',
+            'name'   => 'required|string',
             'image'   => 'nullable|image|mimes:jpg,jpeg,png,webp|max:1048',
         ]);
 

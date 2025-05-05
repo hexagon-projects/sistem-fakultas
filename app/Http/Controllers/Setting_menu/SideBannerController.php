@@ -21,8 +21,8 @@ class SideBannerController extends Controller
     {
 
         $validate = $request->validate([
-            'id_departement' => 'required|string|max:255',
-            'title' => 'required|string|max:255',
+            'id_departement' => 'required|string',
+            'title' => 'required|string',
             'description' => 'required',
             'status' => 'required',
             'home' => 'required|string',
@@ -53,8 +53,8 @@ class SideBannerController extends Controller
     $sideBanner = Side_baner::first();
 
     $validated = $request->validate([
-        'id_departement' => 'nullable|string|max:255',
-        'title' => 'nullable|string|max:255',
+        'id_departement' => 'nullable|string',
+        'title' => 'nullable|string',
         'description' => 'nullable',
         'status' => 'nullable',
         'home' => 'nullable|string',

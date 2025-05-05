@@ -19,8 +19,8 @@ class IdentityController extends Controller
     {
 
         $validate = $request->validate([
-            'title' => 'required|string|max:255',
-            'meta' => 'required|string|max:255',
+            'title' => 'required|string',
+            'meta' => 'required|string',
             'adress' => 'required',
             'link_map' => 'required',
             'phone' => 'required|string',
@@ -59,8 +59,8 @@ public function update(Request $request)
     $identity = Identity::first();
 
     $validated = $request->validate([
-        'title' => 'nullable|string|max:255',
-        'meta' => 'nullable|string|max:255',
+        'title' => 'nullable|string',
+        'meta' => 'nullable|string',
         'adress' => 'nullable',
         'link_map' => 'nullable',
         'phone' => 'nullable|string',

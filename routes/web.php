@@ -10,21 +10,25 @@ use App\Models\Identity;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FaqsController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\JurnalController;
 use App\Http\Controllers\FacultyController;
+use App\Http\Controllers\ProspekController;
 use App\Http\Controllers\SupportController;
 use App\Http\Controllers\FacilityController;
+use App\Http\Controllers\TimelineController;
+
+
 use App\Http\Controllers\UnggulanController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KurikulumController;
 use App\Http\Controllers\Post\PostController;
-
-
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\PortofolioController;
+
 use App\Http\Controllers\DepartementController;
 use App\Http\Controllers\Post\AgendaController;
 use App\Http\Controllers\TestimoniesController;
 use App\Http\Controllers\ArchievementController;
-
 use App\Http\Controllers\FaqCategoriesController;
 use App\Http\Controllers\Profile\AboutController;
 use App\Http\Controllers\Profile\OurteamController;
@@ -35,25 +39,11 @@ use App\Http\Controllers\Profile\DataValueController;
 use App\Http\Controllers\Setting_menu\MetaController;
 use App\Http\Controllers\StudentActivitiesController;
 use App\Http\Controllers\Setting_menu\SliderController;
+
 use App\Http\Controllers\Profile\LegalDocumentController;
 use App\Http\Controllers\Setting_menu\IdentityController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Http\Controllers\Setting_menu\SideBannerController;
-
-use App\Http\Controllers\UsersController;
-use App\Http\Controllers\DepartementController;
-use App\Http\Controllers\UnggulanController;
-use App\Http\Controllers\FacilityController;
-use App\Http\Controllers\ArchievementController;
-use App\Http\Controllers\StudentActivitiesController;
-use App\Http\Controllers\TestimoniesController;
-use App\Http\Controllers\SupportController;
-use App\Http\Controllers\FaqsController;
-use App\Http\Controllers\FaqCategoriesController;
-use App\Http\Controllers\FacultyController;
-use App\Http\Controllers\PortofolioController;
-use App\Http\Controllers\ProspekController;
-use App\Http\Controllers\KurikulumController;
 
 Route::get('/login', function () {
     return view('/auth/login');
@@ -217,6 +207,15 @@ Route::middleware(['auth'])->group(function () {
     // FAQs
     Route::resources([
         'faq' => FaqsController::class,
+    ]);
+    // Jurnals
+    Route::resources([
+        'jurnal' => JurnalController::class,
+    ]);
+
+    // Timelines
+    Route::resources([
+        'timeline' => TimelineController::class,
     ]);
 
     // FAQ Categories

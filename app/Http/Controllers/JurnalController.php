@@ -1,13 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Storage;
+use App\Models\Jurnal;
 
-use Illuminate\Http\Request;
+use App\Models\Ourteam;
 use App\Models\Portofolio;
 use App\Models\Departement;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
-class PortofolioController extends Controller
+class JurnalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +19,7 @@ class PortofolioController extends Controller
     {
         $search = $request->input('search');
 
-        $portofolios = Portofolio::query()
+        $jurnals = Jurnal::query()
             ->when($search, function ($query, $search) {
                 $query->where('title', 'like', "%{$search}%")
                     ->orWhere('description', 'like', "%{$search}%");
@@ -24,7 +27,7 @@ class PortofolioController extends Controller
             ->paginate(10)
             ->withQueryString(); // biar query search tetap ada saat ganti halaman
 
-        return view('portofolio.index', compact('portofolios', 'search'));
+        return view('jurnal.viewJurnal', compact('jurnals', 'search'));
     }
 
     /**
@@ -33,7 +36,9 @@ class PortofolioController extends Controller
     public function create()
     {
         $departements = Departement::all();
-        return view('portofolio.create', compact('departements'));
+        $jurnals = Jurnal::all();
+        $teams = Ourteam::all();
+        return view('jurnal.createJurnal', compact('departements', 'jurnals', 'teams'));
     }
 
     /**
@@ -45,33 +50,41 @@ class PortofolioController extends Controller
         $request->validate([
             'id_departement' => 'nullable|exists:departements,id', // Validasi ID departemen
             'title' => 'required|string',
+            'name' => 'required|string',
             'description' => 'required|string',
             'home' => 'nullable|string',
-            'image1' => 'required|mimes:jpg,jpeg,png,webp|max:2048',
+            'id_team' => 'nullable|integer',
+            'image1' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
             'image2' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
             'image3' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
-            'yt' => 'nullable',
+           
         ]);
+        
+        $slug = Str::slug($request->input('title'));
+
 
         // Proses upload gambar
-        $image1Path = $request->file('image1')->store('portofolio-images', 'public');
-        $image2Path = $request->hasFile('image2') ? $request->file('image2')->store('portofolio-images', 'public') : null;
-        $image3Path = $request->hasFile('image3') ? $request->file('image3')->store('portofolio-images', 'public') : null;
+        $image1Path = $request->file('image1')->store('jurnal-images', 'public');
+        $image2Path = $request->hasFile('image2') ? $request->file('image2')->store('jurnal-images', 'public') : null;
+        $image3Path = $request->hasFile('image3') ? $request->file('image3')->store('jurnal-images', 'public') : null;
 
         // Simpan data ke database
-        $portofolio = Portofolio::create([
+        Jurnal::create([
             'id_departement' => $request->input('id_departement'),
             'title' => $request->input('title'),
+            'name' => $request->input('name'),
             'description' => $request->input('description'),
             'home' => $request->input('home'),
+            'id_team' => $request->input('id_team'),
             'image1' => $image1Path,
             'image2' => $image2Path,
             'image3' => $image3Path,
-            'yt' => $request->input('yt'),
+            'slug' => $slug,
+            
         ]);
 
         // Redirect setelah berhasil
-        return redirect()->route('portofolio.index')->with('success', 'Portofolio berhasil ditambahkan!');
+        return redirect()->route('jurnal.index')->with('success', 'Jurnal berhasil ditambahkan!');
     }
 
 
@@ -89,8 +102,10 @@ class PortofolioController extends Controller
     public function edit(string $id)
     {
         $departements = Departement::all();
-        $portofolio = Portofolio::findOrFail($id);
-        return view('portofolio.edit', compact('portofolio', 'departements'));
+        $jurnal = Jurnal::findOrFail($id);
+        $teams = Ourteam::all();
+
+        return view('jurnal.editJurnal', compact('jurnal', 'departements', 'teams'));
     }
 
     /**
@@ -101,61 +116,67 @@ class PortofolioController extends Controller
         // Validasi data
         $request->validate([
             'id_departement' => 'nullable|exists:departements,id', // Validasi ID departemen
-            'title' => 'required|string',
-            'description' => 'required|string',
+            'title' => 'nullable|string',
+            'name' => 'nullable|string',
+            'description' => 'nullable|string',
             'home' => 'nullable|string',
+            'id_team' => 'nullable|integer',
             'image1' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
             'image2' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
             'image3' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
-            'yt' => 'nullable',
         ]);
 
+        $slug = Str::slug($request->input('title'));
+
+
         // Temukan portofolio berdasarkan ID
-        $portofolio = Portofolio::findOrFail($id);
+        $jurnal = Jurnal::findOrFail($id);
 
         // Proses upload gambar hanya jika ada file yang diupload
         if ($request->hasFile('image1')) {
             // Hapus gambar lama jika ada
-            if ($portofolio->image1) {
-                Storage::disk('public')->delete($portofolio->image1);
+            if ($jurnal->image1) {
+                Storage::disk('public')->delete($jurnal->image1);
             }
-            $image1Path = $request->file('image1')->store('portofolio-images', 'public');
+            $image1Path = $request->file('image1')->store('jurnal-images', 'public');
         } else {
-            $image1Path = $portofolio->image1; // Biarkan gambar lama jika tidak ada perubahan
+            $image1Path = $jurnal->image1; // Biarkan gambar lama jika tidak ada perubahan
         }
 
         if ($request->hasFile('image2')) {
-            if ($portofolio->image2) {
-                Storage::disk('public')->delete($portofolio->image2);
+            if ($jurnal->image2) {
+                Storage::disk('public')->delete($jurnal->image2);
             }
-            $image2Path = $request->file('image2')->store('portofolio-images', 'public');
+            $image2Path = $request->file('image2')->store('jurnal-images', 'public');
         } else {
-            $image2Path = $portofolio->image2;
+            $image2Path = $jurnal->image2;
         }
 
         if ($request->hasFile('image3')) {
-            if ($portofolio->image3) {
-                Storage::disk('public')->delete($portofolio->image3);
+            if ($jurnal->image3) {
+                Storage::disk('public')->delete($jurnal->image3);
             }
-            $image3Path = $request->file('image3')->store('portofolio-images', 'public');
+            $image3Path = $request->file('image3')->store('jurnal-images', 'public');
         } else {
-            $image3Path = $portofolio->image3;
+            $image3Path = $jurnal->image3;
         }
 
         // Perbarui data portofolio
-        $portofolio->update([
+        $jurnal->update([
             'id_departement' => $request->input('id_departement'),
             'title' => $request->input('title'),
+            'name' => $request->input('name'),
             'description' => $request->input('description'),
             'home' => $request->input('home'),
+            'id_team' => $request->input('id_team'),
             'image1' => $image1Path,
             'image2' => $image2Path,
             'image3' => $image3Path,
-            'yt' => $request->input('yt'),
+            'slug' => $slug,
         ]);
 
         // Redirect setelah berhasil
-        return redirect()->route('portofolio.index')->with('success', 'Portofolio berhasil diperbarui!');
+        return redirect()->route('jurnal.index')->with('success', 'Jurnal berhasil diperbarui!');
     }
 
 
@@ -165,24 +186,24 @@ class PortofolioController extends Controller
     public function destroy($id)
     {
         // Temukan portofolio berdasarkan ID
-        $portofolio = Portofolio::findOrFail($id);
+        $jurnal = Jurnal::findOrFail($id);
 
         // Hapus gambar-gambar yang terkait jika ada
-        if ($portofolio->image1) {
-            Storage::disk('public')->delete($portofolio->image1);
+        if ($jurnal->image1) {
+            Storage::disk('public')->delete($jurnal->image1);
         }
-        if ($portofolio->image2) {
-            Storage::disk('public')->delete($portofolio->image2);
+        if ($jurnal->image2) {
+            Storage::disk('public')->delete($jurnal->image2);
         }
-        if ($portofolio->image3) {
-            Storage::disk('public')->delete($portofolio->image3);
+        if ($jurnal->image3) {
+            Storage::disk('public')->delete($jurnal->image3);
         }
 
         // Hapus data portofolio dari database
-        $portofolio->delete();
+        $jurnal->delete();
 
         // Redirect setelah berhasil
-        return redirect()->route('portofolio.index')->with('success', 'Portofolio berhasil dihapus!');
+        return redirect()->route('jurnal.index')->with('success', 'Jurnal berhasil dihapus!');
     }
 
 }

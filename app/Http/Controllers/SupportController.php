@@ -45,11 +45,11 @@ class SupportController extends Controller
         // Validasi data
         $request->validate([
             'id_departement' => 'nullable|exists:departements,id',
-            'title' => 'required|string|max:255',
-            'name' => 'required|string|max:255',
-            'support_by' => 'required|string|max:255',
-            'yt' => 'required|string|max:255',
-            'home' => 'nullable|string|max:255',
+            'title' => 'required|string',
+            'name' => 'required|string',
+            'support_by' => 'required|string',
+            'yt' => 'required|string',
+            'home' => 'nullable|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
 
@@ -101,11 +101,11 @@ class SupportController extends Controller
         // Validasi input
         $request->validate([
             'id_departement' => 'nullable|exists:departements,id',
-            'title' => 'required|string|max:255',
-            'name' => 'required|string|max:255',
-            'support_by' => 'required|string|max:255',
-            'yt' => 'required|string|max:255',
-            'home' => 'nullable|string|max:255',
+            'title' => 'required|string',
+            'name' => 'required|string',
+            'support_by' => 'required|string',
+            'yt' => 'required|string',
+            'home' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
 

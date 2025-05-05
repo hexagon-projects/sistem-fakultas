@@ -1,16 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Usp;
 
-
+use App\Models\Timeline;
+use App\Models\Departement;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-use Illuminate\Http\Request;
-use App\Models\Prospek;
-use App\Models\Kurikulum;
-use App\Models\Departement;
-
-class KurikulumController extends Controller
+class TimelineController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +18,7 @@ class KurikulumController extends Controller
     {
         $search = $request->input('search');
 
-        $kurikulums = Kurikulum::query()
+        $timelines = Timeline::query()
             ->when($search, function ($query, $search) {
                 $query->where('title', 'like', "%{$search}%")
                     ->orWhere('description', 'like', "%{$search}%");
@@ -27,16 +26,18 @@ class KurikulumController extends Controller
             ->paginate(10)
             ->withQueryString(); // biar query search tetap ada saat ganti halaman
 
-        return view('kurikulum.index', compact('kurikulums', 'search'));
+        return view('timeline.viewTimeline', compact('timelines', 'search'));
     }
+
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
         $departements = Departement::all();
-        return view('kurikulum.create', compact('departements'));
+        return view('timeline.createTimeline', compact('departements'));
     }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -47,95 +48,104 @@ class KurikulumController extends Controller
             'title' => 'required|string',
             'description' => 'required|string',
             'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'icon' => 'required|mimes:jpg,jpeg,png,webp,svg|max:2048',
             'home' => 'nullable|string',
+            'slug' => 'nullable|string',
+            'no_urut' => 'nullable|integer',
         ]);
 
+        $slug = Str::slug($request->input('title'));
+        
+
         // Simpan gambar
-        $imagePath = $request->file('image')->store('kurikulums', 'public');
-        $iconPath = $request->file('icon')->store('kurikulums', 'public');
+        $imagePath = $request->file('image')->store('timeline-image', 'public');
 
         // Simpan data ke database
-        Kurikulum::create([
+        Timeline::create([
             'id_departement' => $request->id_departement,
             'title' => $request->title,
             'description' => $request->description,
             'image' => $imagePath,
-            'icon' => $iconPath,
             'home' => $request->home,
+            'no_urut' => $request->no_urut,
+            'slug' => $slug,
         ]);
 
-        return redirect()->route('kurikulum.index')->with('success', "Data berhasil dibuat!");
+        return redirect()->route('timeline.index')->with('success', "Data Timeline berhasil dibuat!");
     }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
     {
         $departements = Departement::all();
-        $kurikulum = Kurikulum::findOrFail($id);
-        return view('kurikulum.edit', compact('departements', 'kurikulum'));
+        $timeline = Timeline::findOrFail($id);
+        return view('timeline.editTimeline', compact('departements', 'timeline'));
     }
+
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        $kurikulum = Kurikulum::findOrFail($id);
+        $timeline = Timeline::findOrFail($id);
 
         $request->validate([
             'id_departement' => 'nullable|exists:departements,id',
             'title' => 'required|string',
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'icon' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2048',
             'home' => 'nullable|string',
+            'no_urut' => 'nullable|integer',
         ]);
+
+        $slug = Str::slug($request->input('title'));
+
 
         // Jika ada gambar baru, simpan dan hapus gambar lama
         if ($request->hasFile('image')) {
-            if ($kurikulum->image && Storage::disk('public')->exists($kurikulum->image)) {
-                Storage::disk('public')->delete($kurikulum->image);
+            if ($timeline->image && Storage::disk('public')->exists($timeline->image)) {
+                Storage::disk('public')->delete($timeline->image);
             }
 
-            $imagePath = $request->file('image')->store('kurikulums', 'public');
-            $kurikulum->image = $imagePath;
-        }
-        if ($request->hasFile('icon')) {
-            if ($kurikulum->icon && Storage::disk('public')->exists($kurikulum->icon)) {
-                Storage::disk('public')->delete($kurikulum->icon);
-            }
-
-            $iconPath = $request->file('icon')->store('kurikulums', 'public');
-            $kurikulum->icon = $iconPath;
+            $imagePath = $request->file('image')->store('timeline', 'public');
+            $timeline->image = $imagePath;
         }
 
-        $kurikulum->update([
+        $timeline->update([
             'id_departement' => $request->id_departement,
             'title' => $request->title,
             'description' => $request->description,
             'home' => $request->home,
+            'no_urut' => $request->no_urut,
+            'slug' => $slug,
         ]);
 
-        return redirect()->route('kurikulum.index')->with('success', "Data Berhasil Diperbaharui!");
+        return redirect()->route('timeline.index')->with('success', "Data Timeline Berhasil Diperbarui!");
     }
+
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        $kurikulum = Kurikulum::findOrFail($id);
+        $timeline = Timeline::findOrFail($id);
 
         // Hapus gambar dari penyimpanan
-        if ($kurikulum->image && Storage::disk('public')->exists($kurikulum->image)) {
-            Storage::disk('public')->delete($kurikulum->image);
-        }
-        if ($kurikulum->icon && Storage::disk('public')->exists($kurikulum->icon)) {
-            Storage::disk('public')->delete($kurikulum->icon);
+        if ($timeline->image && Storage::disk('public')->exists($timeline->image)) {
+            Storage::disk('public')->delete($timeline->image);
         }
 
-        $kurikulum->delete();
+        $timeline->delete();
 
-        return redirect()->back()->with('success', 'Data berhasil dihapus.');
+        return redirect()->back()->with('success', 'Data Timeline berhasil dihapus.');
     }
 }

@@ -68,20 +68,25 @@
                 <select name="id_departement" class="block w-full mt-1 text-sm border-gray-300 border-2 p-2 rounded-md">
                   <option value="">-- Pilih Departement --</option>
                   @foreach ($departements as $dept)
-                    <option value="{{ $dept->id }} {{ (old('id_departement', $partner->id_departement ) == $dept->id) ? 'selected' : '' }}">{{ $dept->name }}</option>
+                  <option value="{{ $dept->id }}" {{ old('id_departement', $partner->id_departement) == $dept->id ? 'selected' : '' }}>
+                    {{ $dept->name }}
+                </option>
                   @endforeach
                 </select>
               </label>
   
               <label class="block text-sm mb-3">
                 <span class="text-gray-700 font-semibold">Status</span>
-                <input
+                <select
                   name="status"
-                  value="{{ old('status', $partner->status) }}"
-                  type="text"
                   class="block w-full mt-1 text-sm border-gray-300 border-2 p-2 rounded-md"
-                />
+                >
+                  <option value="">-- Pilih Status --</option>
+                  <option value="active" @selected(old('status', $partner->status ?? '') == 'active')>Active</option>
+                  <option value="nonactive" @selected(old('status', $partner->status ?? '') == 'nonactive')>Nonactive</option>
+                </select>
               </label>
+              
   
             
             </div>
@@ -109,14 +114,17 @@
 
              
             </div>
-          </div>
-  
-          <button
+            
+            <button
             type="submit"
             class="block mb-5 w-auto px-4 py-2 mt-6 text-sm font-medium text-white bg-primary hover:bg-gray-900 rounded-lg transition-colors"
           >
             Save
           </button>
+          </div>
+    
+  
+        
         </form>
       </div>
     </div>

@@ -42,14 +42,16 @@ class ProspekController extends Controller
     {
         $request->validate([
             'id_departement' => 'nullable|exists:departements,id',
-            'title' => 'required|string|max:255',
+            'title' => 'required|string',
             'description' => 'required|string',
             'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'home' => 'nullable|string|max:255',
+            'icon' => 'required|mimes:jpg,jpeg,png,webp,svg|max:2048',
+            'home' => 'nullable|string',
         ]);
 
         // Simpan gambar
         $imagePath = $request->file('image')->store('prospeks', 'public');
+        $iconPath = $request->file('icon')->store('prospeks', 'public');
 
         // Simpan data ke database
         Prospek::create([
@@ -57,6 +59,7 @@ class ProspekController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'image' => $imagePath,
+            'icon' => $iconPath,
             'home' => $request->home,
         ]);
 
@@ -80,10 +83,11 @@ class ProspekController extends Controller
 
         $request->validate([
             'id_departement' => 'nullable|exists:departements,id',
-            'title' => 'required|string|max:255',
+            'title' => 'required|string',
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'home' => 'nullable|string|max:255',
+            'icon' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2048',
+            'home' => 'nullable|string',
         ]);
 
         // Jika ada gambar baru, simpan dan hapus gambar lama
@@ -94,6 +98,14 @@ class ProspekController extends Controller
 
             $imagePath = $request->file('image')->store('prospeks', 'public');
             $prospek->image = $imagePath;
+        }
+        if ($request->hasFile('icon')) {
+            if ($prospek->icon && Storage::disk('public')->exists($prospek->icon)) {
+                Storage::disk('public')->delete($prospek->icon);
+            }
+
+            $iconPath = $request->file('icon')->store('prospeks', 'public');
+            $prospek->icon = $iconPath;
         }
 
         $prospek->update([
@@ -115,6 +127,9 @@ class ProspekController extends Controller
         // Hapus gambar dari penyimpanan
         if ($prospek->image && Storage::disk('public')->exists($prospek->image)) {
             Storage::disk('public')->delete($prospek->image);
+        }
+        if ($prospek->icon && Storage::disk('public')->exists($prospek->icon)) {
+            Storage::disk('public')->delete($prospek->icon);
         }
 
         $prospek->delete();
