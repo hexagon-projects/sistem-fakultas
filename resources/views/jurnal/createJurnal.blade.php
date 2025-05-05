@@ -1,8 +1,8 @@
-<x-layout title="Prospek">
+<x-layout title="Add Jurnal">
 
     <div class="p-5 flex items-center justify-center">
         <div class="w-full bg-white p-5 rounded-xl text-sm flex flex-col">
-            <form action="{{ route('prospek.store') }}" method="post" enctype="multipart/form-data" id="form-departement">
+            <form action="{{ route('jurnal.store') }}" method="post" enctype="multipart/form-data" id="form-departement">
             @csrf
             <div class="grid grid-cols-1 md:grid-cols-3 gap-5 items-start">
 
@@ -46,6 +46,17 @@
                         @enderror
                     </div>
                     <div class="flex flex-col gap-1 mb-5">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" value="{{ old('name') }}"
+                            class="block w-full mt-1 text-sm focus:border-[#5676ff] focus:outline-none focus:shadow-outline-purple form-input border-gray-300 border-2 p-2 rounded-md" />
+                        @error('title')
+                            <div>
+                                <small class="text-red-500"><i>{{ $message }}</i></small>
+                            </div>
+                        @enderror
+                    </div>
+                
+                    <div class="flex flex-col gap-1 mb-5">
                         <label for="description">Decription</label>
                         <textarea name="description" id="description" class="block w-full mt-1 text-sm border-gray-300 border-2 p-2 rounded-md"></textarea>
                         @error('description')
@@ -57,15 +68,14 @@
                     
                 </div>
                 
-                <div>
                 <div class="col-span-1">
                     <div class="flex flex-col gap-1 mb-5">
                         <label for="title1">Image (Max : 1MB)</label>
                         <div class="relative w-full h-40 border-2 border-dashed rounded-md flex items-center justify-center bg-gray-50 overflow-hidden">
                             <input
                                 type="file"
-                                name="image"
-                                id="image"
+                                name="image1"
+                                id="image1"
                                 accept="image/*"
                                 onchange="previewImage(event)"
                                 class="absolute inset-0 opacity-0 cursor-pointer z-10"
@@ -88,56 +98,88 @@
                             <span id="upload-text" class="text-gray-400 z-0 text-center px-2">Klik untuk pilih gambar</span>
                         </div>
                     
-                        @error('image')
+                        @error('image1')
                             <p class="text-red-500 text-sm mt-2"><i>{{ $message }}</i></p>
                         @enderror
                     </div>
-
-                </div>
-                <div class="col-span-1">
                     <div class="flex flex-col gap-1 mb-5">
-                        <label for="icon">Icon (Max : 1MB)</label>
+                        <label for="title1">Image 2 (Max : 1MB)</label>
                         <div class="relative w-full h-40 border-2 border-dashed rounded-md flex items-center justify-center bg-gray-50 overflow-hidden">
                             <input
                                 type="file"
-                                name="icon"
-                                id="icon"
-                                {{-- accept="image/*" --}}
-                                onchange="previewIcon(event)"
+                                name="image2"
+                                id="image2"
+                                accept="image/*"
+                                onchange="previewImage2(event)"
                                 class="absolute inset-0 opacity-0 cursor-pointer z-10"
                             />
-                
-                            <!-- Preview Icon -->
-                            <img
-                                id="icon-preview"
-                                src="#"
-                                alt="Preview"
-                                class="absolute inset-0 w-full h-full object-cover hidden z-0 rounded-md"
-                            />
-                
+                    
+                            <!-- Preview Gambar -->
+                            <img id="image-preview-2" src="#" alt="Preview" class="absolute inset-0 w-full h-full object-cover hidden z-0 rounded-md" />
+                    
                             <!-- Tombol Hapus -->
                             <button
-                                id="remove-icon-btn"
+                                id="remove-btn-2"
                                 type="button"
-                                onclick="removeIcon()"
+                                onclick="removeImage2()"
                                 class="hidden absolute top-1 right-1 bg-red-600 text-white text-xs px-2 py-1 rounded z-20"
                             >
                                 Hapus
                             </button>
-                
+                    
                             <!-- Text Default -->
-                            <span id="upload-icon-text" class="text-gray-400 z-0 text-center px-2">Klik untuk pilih gambar</span>
+                            <span id="upload-text-2" class="text-gray-400 z-0 text-center px-2">Klik untuk pilih gambar</span>
                         </div>
-                
-                        @error('icon')
+                    
+                        @error('image2')
                             <p class="text-red-500 text-sm mt-2"><i>{{ $message }}</i></p>
                         @enderror
                     </div>
+                    <div class="flex flex-col gap-1 mb-5">
+                        <label for="title1">Image 3 (Max : 1MB)</label>
+                        <div class="relative w-full h-40 border-2 border-dashed rounded-md flex items-center justify-center bg-gray-50 overflow-hidden">
+                            <input
+                                type="file"
+                                name="image3"
+                                id="image3"
+                                accept="image/*"
+                                onchange="previewImage3(event)"
+                                class="absolute inset-0 opacity-0 cursor-pointer z-10"
+                            />
+                    
+                            <!-- Preview Gambar -->
+                            <img id="image-preview-3" src="#" alt="Preview" class="absolute inset-0 w-full h-full object-cover hidden z-0 rounded-md" />
+                    
+                            <!-- Tombol Hapus -->
+                            <button
+                                id="remove-btn-3"
+                                type="button"
+                                onclick="removeImage3()"
+                                class="hidden absolute top-1 right-1 bg-red-600 text-white text-xs px-2 py-1 rounded z-20"
+                            >
+                                Hapus
+                            </button>
+                    
+                            <!-- Text Default -->
+                            <span id="upload-text-3" class="text-gray-400 z-0 text-center px-2">Klik untuk pilih gambar</span>
+                        </div>
+                    
+                        @error('image3')
+                            <p class="text-red-500 text-sm mt-2"><i>{{ $message }}</i></p>
+                        @enderror
+                    </div>
+
+                    <select name="id_team" class="select2 w-full" id="id_team">
+                        <option value="">-- Pilih Penerbit --</option>
+                        @foreach ($teams as $team)
+                            <option value="{{ $team->id }}" @selected(old('id_team', $faculty->id_team ?? '') == $team->id)>{{ $team->name }}</option>
+                        @endforeach
+                    </select>
+
                 </div>
             </div>
-            </div>
             <div class="flex items-center justify-between my-5">
-                <a href="{{ route('prospek.index') }}" class="py-3 px-5 bg-gray-300 rounded-xl">Back</a>
+                <a href="{{ route('portofolio.index') }}" class="py-3 px-5 bg-gray-300 rounded-xl">Back</a>
                 <button class="py-3 px-5 bg-[#5676ff] text-white rounded-xl" type="button" onclick="confirmSubmit()">Next</button>
             </div>
             </form>
@@ -145,6 +187,14 @@
     </div>
 
 
+    <script>
+        $(document).ready(function() {
+            $('.select2').select2({
+                placeholder: "-- Pilih Penerbit --",
+                allowClear: true
+            });
+        });
+    </script>
     <script>
         function previewImage(event) {
             const fileInput = event.target;
@@ -177,6 +227,72 @@
             uploadText.classList.remove('hidden');
         }
     </script>
+    
+    <script>
+        function previewImage2(event) {
+            const fileInput = event.target;
+            const preview = document.getElementById('image-preview-2');
+            const removeBtn = document.getElementById('remove-btn-2');
+            const uploadText = document.getElementById('upload-text-2');
+    
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.classList.remove('hidden');
+                    removeBtn.classList.remove('hidden');
+                    uploadText.classList.add('hidden');
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        }
+    
+        function removeImage() {
+            const fileInput = document.getElementById('image2');
+            const preview = document.getElementById('image-preview-2');
+            const removeBtn = document.getElementById('remove-btn-2');
+            const uploadText = document.getElementById('upload-text-2');
+    
+            fileInput.value = '';
+            preview.src = '#';
+            preview.classList.add('hidden');
+            removeBtn.classList.add('hidden');
+            uploadText.classList.remove('hidden');
+        }
+    </script>
+    
+    <script>
+        function previewImage3(event) {
+            const fileInput = event.target;
+            const preview = document.getElementById('image-preview-3');
+            const removeBtn = document.getElementById('remove-btn-3');
+            const uploadText = document.getElementById('upload-text-3');
+    
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.classList.remove('hidden');
+                    removeBtn.classList.remove('hidden');
+                    uploadText.classList.add('hidden');
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        }
+    
+        function removeImage() {
+            const fileInput = document.getElementById('image3');
+            const preview = document.getElementById('image-preview-3');
+            const removeBtn = document.getElementById('remove-btn-3');
+            const uploadText = document.getElementById('upload-text-3');
+    
+            fileInput.value = '';
+            preview.src = '#';
+            preview.classList.add('hidden');
+            removeBtn.classList.add('hidden');
+            uploadText.classList.remove('hidden');
+        }
+    </script>
 
 <script>
     function confirmSubmit() {
@@ -197,47 +313,6 @@
                 document.getElementById('form-departement').submit();
             }
         });
-    }
-</script>
-
-<script>
-    function previewIcon(event) {
-        const file = event.target.files[0];
-        const preview = document.getElementById('icon-preview');
-        const uploadText = document.getElementById('upload-icon-text');
-        const removeBtn = document.getElementById('remove-icon-btn');
-
-        if (file) {
-            const reader = new FileReader();
-
-            reader.onload = function (e) {
-                preview.src = e.target.result;
-                preview.classList.remove('hidden');
-                uploadText.classList.add('hidden');
-                removeBtn.classList.remove('hidden');
-            };
-
-            reader.readAsDataURL(file);
-        }
-
-        if (file.size > 1024 * 1024) {
-        alert('Ukuran gambar tidak boleh lebih dari 1MB');
-        event.target.value = '';
-        return;
-}
-    }
-
-    function removeIcon() {
-        const input = document.getElementById('icon');
-        const preview = document.getElementById('icon-preview');
-        const uploadText = document.getElementById('upload-icon-text');
-        const removeBtn = document.getElementById('remove-icon-btn');
-
-        input.value = '';
-        preview.src = '#';
-        preview.classList.add('hidden');
-        uploadText.classList.remove('hidden');
-        removeBtn.classList.add('hidden');
     }
 </script>
 

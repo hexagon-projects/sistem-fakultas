@@ -11,15 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('prospeks', function (Blueprint $table) {
+        Schema::create('jurnals', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_departement')->nullable();
             $table->foreign('id_departement')->references('id')->on('departements');
+            $table->unsignedBigInteger('id_team')->nullable();
+            $table->foreign('id_team')->references('id')->on('ourteams');
             $table->string('title');
+            $table->string('name');
+            $table->string('slug')->nullable();
             $table->text('description');
-            $table->string('image');
-            $table->string('icon');
             $table->string('home')->nullable();
+            $table->string('image1');
+            $table->string('image2');
+            $table->string('image3');
             $table->timestamps();
         });
     }
@@ -29,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('prospeks');
+        Schema::dropIfExists('jurnals');
     }
 };

@@ -251,6 +251,15 @@
                         @enderror
                     </div>
 
+                    <select name="id_team" class="select2 w-full" id="id_team">
+                        <option value="">-- Pilih Ketua --</option>
+                        @foreach ($teams as $team)
+                            <option value="{{ $team->id }}" @selected(old('id_team', $faculty->id_team ?? '') == $team->id)>{{ $team->name }}</option>
+                        @endforeach
+                    </select>
+                    
+                    
+
                 </div>
             </div>
             <div class="flex items-center justify-end my-5">
@@ -260,6 +269,26 @@
         </div>
     </div>
 
+
+    <script>
+        $(document).ready(function() {
+            $('.select2').select2({
+                placeholder: "-- Pilih Ketua --",
+                allowClear: true
+            });
+        });
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#team_id').select2({
+                minimumResultsForSearch: 2,
+                placeholder: "Pilih Ketua Fakultas",
+                allowClear: true
+            });
+        });
+    </script>
 
     <script>
         function previewImage(event) {

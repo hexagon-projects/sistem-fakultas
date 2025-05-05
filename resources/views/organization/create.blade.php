@@ -54,6 +54,25 @@
                             </div>
                         @enderror
                     </div>
+
+                    <div class="flex flex-col gap-1 mb-5">
+                        <label for="category">Category</label>
+                        <select name="category" id="category"
+                            class="block w-full mt-1 text-sm focus:border-[#5676ff] focus:outline-none focus:shadow-outline-purple form-select border-gray-300 border-2 p-2 rounded-md">
+                            <option value="">-- Pilih Kategori --</option>
+                            <option value="BEM" {{ old('category') == 'BEM' ? 'selected' : '' }}>BEM</option>
+                            <option value="UKM" {{ old('category') == 'UKM' ? 'selected' : '' }}>UKM</option>
+                            <option value="HIMA" {{ old('category') == 'HIMA' ? 'selected' : '' }}>HIMA</option>
+                            <option value="Lainnya" {{ old('category') == 'Lainnya' ? 'selected' : '' }}>Lainnya</option>
+                        </select>
+                    
+                        @error('category')
+                            <div>
+                                <small class="text-red-500"><i>{{ $message }}</i></small>
+                            </div>
+                        @enderror
+                    </div>
+                    
                     
                 </div>
                 

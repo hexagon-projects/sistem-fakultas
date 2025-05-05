@@ -57,6 +57,7 @@
                     
                 </div>
                 
+                <div>
                 <div class="col-span-1">
                     <div class="flex flex-col gap-1 mb-5">
                         <label for="title1">Image (Max : 1MB)</label>
@@ -93,6 +94,49 @@
                     </div>
 
                 </div>
+
+                <div class="col-span-1">
+                    <div class="flex flex-col gap-1 mb-5">
+                        <label for="icon">Icon (Max : 1MB)</label>
+                        <div class="relative w-full h-40 border-2 border-dashed rounded-md flex items-center justify-center bg-gray-50 overflow-hidden">
+                            <input
+                                type="file"
+                                name="icon"
+                                id="icon"
+                                {{-- accept="image/*" --}}
+                                onchange="previewIcon(event)"
+                                class="absolute inset-0 opacity-0 cursor-pointer z-10"
+                            />
+                
+                            <!-- Preview Icon -->
+                            <img
+                                id="icon-preview"
+                                src="#"
+                                alt="Preview"
+                                class="absolute inset-0 w-full h-full object-cover hidden z-0 rounded-md"
+                            />
+                
+                            <!-- Tombol Hapus -->
+                            <button
+                                id="remove-icon-btn"
+                                type="button"
+                                onclick="removeIcon()"
+                                class="hidden absolute top-1 right-1 bg-red-600 text-white text-xs px-2 py-1 rounded z-20"
+                            >
+                                Hapus
+                            </button>
+                
+                            <!-- Text Default -->
+                            <span id="upload-icon-text" class="text-gray-400 z-0 text-center px-2">Klik untuk pilih gambar</span>
+                        </div>
+                
+                        @error('icon')
+                            <p class="text-red-500 text-sm mt-2"><i>{{ $message }}</i></p>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+         
             </div>
             <div class="flex items-center justify-between my-5">
                 <a href="{{ route('kurikulum.index') }}" class="py-3 px-5 bg-gray-300 rounded-xl">Back</a>
@@ -155,6 +199,47 @@
                 document.getElementById('form-departement').submit();
             }
         });
+    }
+</script>
+
+<script>
+    function previewIcon(event) {
+        const file = event.target.files[0];
+        const preview = document.getElementById('icon-preview');
+        const uploadText = document.getElementById('upload-icon-text');
+        const removeBtn = document.getElementById('remove-icon-btn');
+
+        if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                preview.src = e.target.result;
+                preview.classList.remove('hidden');
+                uploadText.classList.add('hidden');
+                removeBtn.classList.remove('hidden');
+            };
+
+            reader.readAsDataURL(file);
+        }
+
+        if (file.size > 1024 * 1024) {
+        alert('Ukuran gambar tidak boleh lebih dari 1MB');
+        event.target.value = '';
+        return;
+}
+    }
+
+    function removeIcon() {
+        const input = document.getElementById('icon');
+        const preview = document.getElementById('icon-preview');
+        const uploadText = document.getElementById('upload-icon-text');
+        const removeBtn = document.getElementById('remove-icon-btn');
+
+        input.value = '';
+        preview.src = '#';
+        preview.classList.add('hidden');
+        uploadText.classList.remove('hidden');
+        removeBtn.classList.add('hidden');
     }
 </script>
 

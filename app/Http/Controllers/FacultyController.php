@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Storage;
-
-use Illuminate\Http\Request;
 use App\Models\Faculty;
+
+use App\Models\Ourteam;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FacultyController extends Controller
 {
@@ -14,8 +15,9 @@ class FacultyController extends Controller
      */
     public function index()
     {
+        $teams = Ourteam::all();
         $faculty = Faculty::first();   
-        return view('faculty.step1', compact('faculty'));
+        return view('faculty.step1', compact('faculty', 'teams'));
     }
     public function step2($id)
     {
@@ -56,6 +58,7 @@ class FacultyController extends Controller
             'color2'   => 'required|string|max:255',
             'image1'   => 'nullable|mimes:jpg,jpeg,png,pdf,webp|max:2048',
             'yt_id'   => 'required|string|max:255',
+            'id_team'   => 'required|integer',
             'status'   => 'nullable|string|max:255',
         ]);
 
@@ -110,6 +113,7 @@ class FacultyController extends Controller
             'color2'      => 'required|string|max:255',
             'image1'      => 'nullable|mimes:jpg,jpeg,png,pdf,webp|max:2048',
             'yt_id'       => 'required|string|max:255',
+            'id_team'   => 'nullable|integer',
             'status'      => 'nullable|string|max:255',
         ]);
 

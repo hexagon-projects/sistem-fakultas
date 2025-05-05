@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_departement')->nullable();
             $table->foreign('id_departement')->references('id')->on('departements');
             $table->string('name');
+            $table->string('category');
             $table->text('description');
             $table->string('home')->nullable();
             $table->string('image');

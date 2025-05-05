@@ -4,14 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Prospek extends Model
+class Timeline extends Model
 {
     protected $fillable = [
         'id_departement',
         'title',
+        'slug',
         'description',
         'image',
-        'icon',
         'home',
+        'no_urut',
     ];
 }

@@ -4,14 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Prospek extends Model
+class Jurnal extends Model
 {
     protected $fillable = [
         'id_departement',
         'title',
+        'slug',
+        'name',
         'description',
-        'image',
-        'icon',
         'home',
-    ];
+        'id_team',
+        'image1',
+        'image2',
+        'image3',
+      
+    ];    
 }

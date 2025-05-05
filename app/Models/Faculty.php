@@ -12,6 +12,7 @@ class Faculty extends Model
         'akreditasi',
         'tagline',
         'yt_id',
+        'id_team',
         'instagram',
         'youtube',
         'tiktok',

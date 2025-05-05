@@ -105,6 +105,9 @@
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
                             <a class="w-full" href="{{ route('faq.index') }}">FAQs</a>
                         </li>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('jurnal.index') }}">Jurnals</a>
+                        </li>
                     </ul>
                 </template>
             </li>
@@ -191,18 +194,21 @@
                             Our Teams
                             </a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            {{-- <a class="w-full"
+                        {{-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full"
                             href="{{ route('dataValue.index') }}">
                             Data
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  > --}}
+                  >
                             <a class="w-full" href="{{ route('legalDocument.index') }}">Legals Document</a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
                             <a class="w-full" href="{{ route('partner.index') }}">Partners</a>
+                        </li>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('timeline.index') }}">Timeline</a>
                         </li>
                     </ul>
                 </template>
@@ -398,6 +404,9 @@
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
                             <a class="w-full" href="{{ route('faq.index') }}">FAQs</a>
                         </li>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('jurnal.index') }}">Jurnals</a>
+                        </li>
                     </ul>
                 </template>
             </li>
@@ -485,13 +494,7 @@
                                 Our Teams
                             </a>
                         </li>
-                        {{-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
-                            href="{{ route('dataValue.index') }}">
-                            Data
-                            </a>
-                        </li> --}}
+                       
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
@@ -499,6 +502,9 @@
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
                             <a class="w-full" href="{{ route('partner.index') }}">Partners</a>
+                        </li>
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                            <a class="w-full" href="{{ route('timeline.index') }}">Timeline</a>
                         </li>
                     </ul>
                 </template>
