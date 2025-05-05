@@ -44,11 +44,11 @@ class ArchievementController extends Controller
     {
         $request->validate([
             'id_departement' => 'nullable|exists:departements,id',
-            'title' => 'required|string|max:255',
-            'name' => 'required|string|max:255',
-            'winner_name' => 'required|string|max:255',
+            'title' => 'required|string',
+            'name' => 'required|string',
+            'winner_name' => 'required|string',
             'description' => 'required|string',
-            'home' => 'nullable|string|max:255',
+            'home' => 'nullable|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
 
@@ -94,11 +94,11 @@ class ArchievementController extends Controller
     {
         $request->validate([
             'id_departement' => 'nullable|exists:departements,id',
-            'title' => 'required|string|max:255',
-            'name' => 'required|string|max:255',
-            'winner_name' => 'required|string|max:255',
+            'title' => 'required|string',
+            'name' => 'required|string',
+            'winner_name' => 'required|string',
             'description' => 'required|string',
-            'home' => 'nullable|string|max:255',
+            'home' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
     

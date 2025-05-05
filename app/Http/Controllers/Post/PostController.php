@@ -36,7 +36,7 @@ class PostController extends Controller
     {
     //   dd($request->all());
         $validate = $request->validate([
-            'title'   => 'required|string|max:255',
+            'title'   => 'required|string',
             'resume'  => 'required',
             'content' => 'required',
             'publish' => 'required|date',
@@ -72,7 +72,7 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
 
         $validated = $request->validate([
-            'title'   => 'required|string|max:255',
+            'title'   => 'required|string',
             'resume'  => 'required',
             'content' => 'required',
             'publish' => 'required|date',

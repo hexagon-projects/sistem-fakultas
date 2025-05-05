@@ -44,11 +44,11 @@ class KurikulumController extends Controller
     {
         $request->validate([
             'id_departement' => 'nullable|exists:departements,id',
-            'title' => 'required|string|max:255',
+            'title' => 'required|string',
             'description' => 'required|string',
             'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
             'icon' => 'required|mimes:jpg,jpeg,png,webp,svg|max:2048',
-            'home' => 'nullable|string|max:255',
+            'home' => 'nullable|string',
         ]);
 
         // Simpan gambar
@@ -85,11 +85,11 @@ class KurikulumController extends Controller
 
         $request->validate([
             'id_departement' => 'nullable|exists:departements,id',
-            'title' => 'required|string|max:255',
+            'title' => 'required|string',
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
             'icon' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2048',
-            'home' => 'nullable|string|max:255',
+            'home' => 'nullable|string',
         ]);
 
         // Jika ada gambar baru, simpan dan hapus gambar lama

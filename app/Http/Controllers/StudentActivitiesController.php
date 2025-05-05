@@ -44,10 +44,10 @@ class StudentActivitiesController extends Controller
         // Validasi data
         $request->validate([
             'id_departement' => 'nullable|exists:departements,id',
-            'name' => 'required|string|max:255',
+            'name' => 'required|string',
             'description' => 'required|string',
-            'home' => 'nullable|string|max:255',
-            'category' => 'nullable|string|max:255',
+            'home' => 'nullable|string',
+            'category' => 'nullable|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
 
@@ -98,10 +98,10 @@ class StudentActivitiesController extends Controller
         // Validasi data
         $request->validate([
             'id_departement' => 'nullable|exists:departements,id',
-            'name' => 'required|string|max:255',
-            'category' => 'required|string|max:255',
+            'name' => 'required|string',
+            'category' => 'required|string',
             'description' => 'required|string',
-            'home' => 'nullable|string|max:255',
+            'home' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
 

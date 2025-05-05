@@ -44,7 +44,7 @@ class FaqsController extends Controller
     {
         // Validasi data
         $request->validate([
-            'question' => 'required|string|max:255',
+            'question' => 'required|string',
             'answer' => 'required|string',
             'id_category' => 'required|exists:faq_categories,id',
         ]);
@@ -85,7 +85,7 @@ class FaqsController extends Controller
     {
         // Validasi data
         $request->validate([
-            'question' => 'required|string|max:255',
+            'question' => 'required|string',
             'answer' => 'required|string',
             'id_category' => 'required|exists:faq_categories,id',
         ]);

@@ -64,10 +64,9 @@
                         <select name="category" id="category"
                             class="block w-full mt-1 text-sm focus:border-[#5676ff] focus:outline-none focus:shadow-outline-purple form-select border-gray-300 border-2 p-2 rounded-md">
                             <option value="">-- Pilih Kategori --</option>
-                            <option value="BEM" {{ old('category', $organization->category) == 'BEM' ? 'selected' : '' }}>BEM</option>
-                            <option value="UKM" {{ old('category', $organization->category) == 'UKM' ? 'selected' : '' }}>UKM</option>
-                            <option value="HIMA" {{ old('category', $organization->category) == 'HIMA' ? 'selected' : '' }}>HIMA</option>
-                            <option value="Lainnya" {{ old('category', $organization->category) == 'Lainnya' ? 'selected' : '' }}>Lainnya</option>
+                            <option value="Kegiatan" {{ old('category', $organization->category) == 'Kegiatan' ? 'selected' : '' }}>Kegiatan</option>
+                            <option value="Organisasi" {{ old('category', $organization->category) == 'Organisasi' ? 'selected' : '' }}>Organisasi</option>
+                            <option value="Komunitas" {{ old('category', $organization->category) == 'Kegiatan' ? 'selected' : '' }}>Komunitas</option>
                         </select>
                     
                         @error('category')

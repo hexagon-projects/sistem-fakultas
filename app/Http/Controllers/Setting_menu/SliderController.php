@@ -37,7 +37,7 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $validate = $request->validate([
-            'id_departement'   => 'required|integer|max:255',
+            'id_departement'   => 'required|integer',
             'title'  => 'required',
             'description' => 'required',
             'image1' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:1048',
@@ -74,7 +74,7 @@ class SliderController extends Controller
     $slider = Slider::findOrFail($id);
 
     $validated = $request->validate([
-        'id_departement'   => 'nullable|integer|max:255',
+        'id_departement'   => 'nullable|integer',
         'title'  => 'nullable',
         'description' => 'nullable',
         'image1' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:1048',

@@ -45,12 +45,12 @@ class TimelineController extends Controller
     {
         $request->validate([
             'id_departement' => 'nullable|exists:departements,id',
-            'title' => 'required|string|max:255',
+            'title' => 'required|string',
             'description' => 'required|string',
             'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'home' => 'nullable|string|max:255',
-            'slug' => 'nullable|string|max:255',
-            'no_urut' => 'nullable|integer|max:255',
+            'home' => 'nullable|string',
+            'slug' => 'nullable|string',
+            'no_urut' => 'nullable|integer',
         ]);
 
         $slug = Str::slug($request->input('title'));
@@ -100,11 +100,11 @@ class TimelineController extends Controller
 
         $request->validate([
             'id_departement' => 'nullable|exists:departements,id',
-            'title' => 'required|string|max:255',
+            'title' => 'required|string',
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'home' => 'nullable|string|max:255',
-            'no_urut' => 'nullable|integer|max:255',
+            'home' => 'nullable|string',
+            'no_urut' => 'nullable|integer',
         ]);
 
         $slug = Str::slug($request->input('title'));

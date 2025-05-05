@@ -49,11 +49,11 @@ class JurnalController extends Controller
         // Validasi data
         $request->validate([
             'id_departement' => 'nullable|exists:departements,id', // Validasi ID departemen
-            'title' => 'required|string|max:255',
-            'name' => 'required|string|max:255',
+            'title' => 'required|string',
+            'name' => 'required|string',
             'description' => 'required|string',
-            'home' => 'nullable|string|max:255',
-            'id_team' => 'nullable|integer|max:255',
+            'home' => 'nullable|string',
+            'id_team' => 'nullable|integer',
             'image1' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
             'image2' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
             'image3' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
@@ -116,11 +116,11 @@ class JurnalController extends Controller
         // Validasi data
         $request->validate([
             'id_departement' => 'nullable|exists:departements,id', // Validasi ID departemen
-            'title' => 'nullable|string|max:255',
-            'name' => 'nullable|string|max:255',
+            'title' => 'nullable|string',
+            'name' => 'nullable|string',
             'description' => 'nullable|string',
-            'home' => 'nullable|string|max:255',
-            'id_team' => 'nullable|integer|max:255',
+            'home' => 'nullable|string',
+            'id_team' => 'nullable|integer',
             'image1' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
             'image2' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
             'image3' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',

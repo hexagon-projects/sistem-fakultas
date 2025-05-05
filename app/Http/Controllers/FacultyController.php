@@ -45,21 +45,21 @@ class FacultyController extends Controller
     public function store(Request $request)
     {
         $validate = $request->validate([
-            'name'   => 'required|string|max:255',
-            'akreditasi'   => 'required|string|max:255',
-            'tagline'   => 'required|string|max:255',
-            'instagram'   => 'required|string|max:255',
-            'tiktok'   => 'required|string|max:255',
-            'facebook'   => 'required|string|max:255',
-            'youtube'   => 'required|string|max:255',
-            'title1'   => 'required|string|max:255',
-            'description1'   => 'required|string|max:255',
-            'color1'   => 'required|string|max:255',
-            'color2'   => 'required|string|max:255',
+            'name'   => 'required|string',
+            'akreditasi'   => 'required|string',
+            'tagline'   => 'required|string',
+            'instagram'   => 'required|string',
+            'tiktok'   => 'required|string',
+            'facebook'   => 'required|string',
+            'youtube'   => 'required|string',
+            'title1'   => 'required|string',
+            'description1'   => 'required|string',
+            'color1'   => 'required|string',
+            'color2'   => 'required|string',
             'image1'   => 'nullable|mimes:jpg,jpeg,png,pdf,webp|max:2048',
-            'yt_id'   => 'required|string|max:255',
+            'yt_id'   => 'required|string',
             'id_team'   => 'required|integer',
-            'status'   => 'nullable|string|max:255',
+            'status'   => 'nullable|string',
         ]);
 
         if ($request->hasFile('image1')) {
@@ -100,21 +100,21 @@ class FacultyController extends Controller
 
         // Validasi input
         $validate = $request->validate([
-            'name'        => 'required|string|max:255',
-            'akreditasi'  => 'required|string|max:255',
-            'tagline'     => 'required|string|max:255',
-            'instagram'   => 'required|string|max:255',
-            'tiktok'      => 'required|string|max:255',
-            'facebook'    => 'required|string|max:255',
-            'youtube'     => 'required|string|max:255',
-            'title1'      => 'required|string|max:255',
-            'description1'=> 'required|string|max:255',
-            'color1'      => 'required|string|max:255',
-            'color2'      => 'required|string|max:255',
+            'name'        => 'required|string',
+            'akreditasi'  => 'required|string',
+            'tagline'     => 'required|string',
+            'instagram'   => 'required|string',
+            'tiktok'      => 'required|string',
+            'facebook'    => 'required|string',
+            'youtube'     => 'required|string',
+            'title1'      => 'required|string',
+            'description1'=> 'required|string',
+            'color1'      => 'required|string',
+            'color2'      => 'required|string',
             'image1'      => 'nullable|mimes:jpg,jpeg,png,pdf,webp|max:2048',
-            'yt_id'       => 'required|string|max:255',
+            'yt_id'       => 'required|string',
             'id_team'   => 'nullable|integer',
-            'status'      => 'nullable|string|max:255',
+            'status'      => 'nullable|string',
         ]);
 
         // Handle upload gambar jika ada
@@ -143,12 +143,12 @@ class FacultyController extends Controller
         $faculty = Faculty::findOrFail($id); // Ambil data berdasarkan ID
 
         $validate = $request->validate([
-            'statistik1'         => 'required|string|max:255',
-            'statistik2'   => 'required|string|max:255',
-            'statistik3'      => 'required|string|max:255',
-            'statistik4'    => 'required|string|max:255',
-            'title2'       => 'required|string|max:255',
-            'title3'     => 'required|string|max:255',
+            'statistik1'         => 'required|string',
+            'statistik2'   => 'required|string',
+            'statistik3'      => 'required|string',
+            'statistik4'    => 'required|string',
+            'title2'       => 'required|string',
+            'title3'     => 'required|string',
             'description2'      => 'required|string',
             'description3'       => 'required|string',
             'image2'       => 'nullable|mimes:jpg,jpeg,png,pdf,webp|max:2048',
@@ -187,11 +187,11 @@ class FacultyController extends Controller
         $faculty = Faculty::findOrFail($id); // Ambil data berdasarkan ID
 
         $validate = $request->validate([
-            'link1'         => 'required|string|max:255',
-            'link2'   => 'required|string|max:255',
-            'link3'      => 'required|string|max:255',
-            'link4'    => 'required|string|max:255',
-            'title4'     => 'required|string|max:255',
+            'link1'         => 'required|string',
+            'link2'   => 'required|string',
+            'link3'      => 'required|string',
+            'link4'    => 'required|string',
+            'title4'     => 'required|string',
             'address'     => 'required|string',
             'map'     => 'required|string',
             'description4'      => 'required|string',

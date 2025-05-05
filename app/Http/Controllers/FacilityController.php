@@ -43,15 +43,15 @@ class FacilityController extends Controller
     {
         $request->validate([
             'id_departement' => 'nullable|exists:departements,id',
-            'title' => 'required|string|max:255',
-            'subtitle' => 'required|string|max:255',
+            'title' => 'required|string',
+            'subtitle' => 'required|string',
             'description' => 'required|string',
-            'home' => 'nullable|string|max:255',
+            'home' => 'nullable|string',
             'image1' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
             'image2' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
             'image3' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
             'image4' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
-            'yt' => 'required|string|max:255',
+            'yt' => 'required|string',
         ]);
 
         // Simpan file gambar ke storage
@@ -101,15 +101,15 @@ class FacilityController extends Controller
 {
     $request->validate([
         'id_departement' => 'nullable|exists:departements,id',
-        'title' => 'required|string|max:255',
-        'subtitle' => 'required|string|max:255',
+        'title' => 'required|string',
+        'subtitle' => 'required|string',
         'description' => 'required|string',
-        'home' => 'nullable|string|max:255',
+        'home' => 'nullable|string',
         'image1' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
         'image2' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
         'image3' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
         'image4' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
-        'yt' => 'required|string|max:255',
+        'yt' => 'required|string',
     ]);
 
     $facility = Facility::findOrFail($id);
