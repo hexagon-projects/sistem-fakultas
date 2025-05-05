@@ -22,6 +22,8 @@ use App\Models\Partner;
 use App\Models\Identity;
 use App\Models\Slider;
 use App\Models\Analytic;
+use App\Models\Prospek;
+use App\Models\Kurikulum;
 
 /**
  * @OA\Info(
@@ -62,7 +64,7 @@ class FakultasAPIController extends Controller
      */
     public function getDepartementAll()
     {
-        $departement = Departement::first();
+        $departement = Departement::all();
         return response()->json($departement);
     }
     
@@ -154,6 +156,132 @@ class FakultasAPIController extends Controller
     
     /**
      * @OA\Get(
+     *     path="/api/prospek",
+     *     tags={"Prospek"},
+     *     @OA\Response(
+     *         response="200",
+     *         description="Get All Data Prospek"
+     *     )
+     * )
+     */
+    public function getProspekAll()
+    {
+        $prospek = Prospek::all();
+        if (!$prospek) {
+            return response()->json([
+                'message' => 'Prospek not found',
+            ], 404);
+        }
+        return response()->json($prospek);
+    }
+    
+    /**
+     * @OA\Get(
+     *     path="/api/prospek-home",
+     *     tags={"Prospek"},
+     *     @OA\Response(
+     *         response="200",
+     *         description="Get All Data Prospek By Home"
+     *     )
+     * )
+     */
+    public function getProspekByHome()
+    {
+        $prospek = Prospek::where('home', '1')->get();
+        if (!$prospek) {
+            return response()->json([
+                'message' => 'Prospek not found',
+            ], 404);
+        }
+        return response()->json($prospek);
+    }
+    
+    /**
+     * @OA\Get(
+     *     path="/api/prospek/{id}",
+     *     tags={"Prospek"},
+     *     @OA\Response(
+     *         response="200",
+     *         description="Get All By Departement ID"
+     *     )
+     * )
+     */
+    public function getProspekByDepeartmenet($id)
+    {
+        $prospek = Prospek::where('id_departement', $id)->get();
+        if (!$prospek) {
+            return response()->json([
+                'message' => 'Prospek not found',
+            ], 404);
+        }
+        return response()->json($prospek);
+    }
+    
+    /**
+     * @OA\Get(
+     *     path="/api/kurikulum",
+     *     tags={"Kurikulum"},
+     *     @OA\Response(
+     *         response="200",
+     *         description="Get All Data Kurikulum"
+     *     )
+     * )
+     */
+    public function getKurikulumAll()
+    {
+        $kurkulum = Kurikulum::all();
+        if (!$kurkulum) {
+            return response()->json([
+                'message' => 'kurkulum not found',
+            ], 404);
+        }
+        return response()->json($kurkulum);
+    }
+    
+    /**
+     * @OA\Get(
+     *     path="/api/kurikulum-home",
+     *     tags={"Kurikulum"},
+     *     @OA\Response(
+     *         response="200",
+     *         description="Get All Data Kurikulum By Home"
+     *     )
+     * )
+     */
+    public function getKurikulumByHome()
+    {
+        $kurikulum = Kurikulum::where('home', '1')->get();
+        if (!$kurikulum) {
+            return response()->json([
+                'message' => 'kurikulum not found',
+            ], 404);
+        }
+        return response()->json($kurikulum);
+    }
+    
+    /**
+     * @OA\Get(
+     *     path="/api/kurikulum/{id}",
+     *     tags={"Kurikulum"},
+     *     @OA\Response(
+     *         response="200",
+     *         description="Get All By Departement ID"
+     *     )
+     * )
+     */
+    public function getKurikulumByDepeartmenet($id)
+    {
+        $kurikulum = Kurikulum::where('id_departement', $id)->get();
+        if (!$kurikulum) {
+            return response()->json([
+                'message' => 'kurikulum not found',
+            ], 404);
+        }
+        return response()->json($kurikulum);
+    }
+    
+    /**
+     * @OA\Get(
      *     path="/api/fasilitas",
      *     tags={"Fasilitas"},
      *     @OA\Response(
@@ -185,7 +313,7 @@ class FakultasAPIController extends Controller
      */
     public function getFasilitasByHome()
     {
-        $fasilitas = Facility::where('home', '1');
+        $fasilitas = Facility::where('home', '1')->get();
         if (!$fasilitas) {
             return response()->json([
                 'message' => 'fasilitas not found',
@@ -271,7 +399,7 @@ class FakultasAPIController extends Controller
      */
     public function getPrestasiByDepartement($id)
     {
-        $prestasi = Achievement::where('id_departement', $id);
+        $prestasi = Achievement::where('id_departement', $id)->get();
         if (!$prestasi) {
             return response()->json([
                 'message' => 'prestasi not found',
@@ -336,7 +464,7 @@ class FakultasAPIController extends Controller
      */
     public function getOrganisasiByDepartement($id)
     {
-        $organisasi = Organization::where('id_departement', $id);
+        $organisasi = Organization::where('id_departement', $id)->get();
         if (!$organisasi) {
             return response()->json([
                 'message' => 'Organisasi not found',
@@ -392,6 +520,15 @@ class FakultasAPIController extends Controller
      * @OA\Get(
      *     path="/api/testimoni/{id}",
      *     tags={"Testimoni"},
+     * @OA\Parameter(
+    *         name="ID",
+    *         in="path",
+    *         description="Id of the departement",
+    *         required=true,
+    *         @OA\Schema(
+    *             type="string"
+    *         )
+    *     ),
      *     @OA\Response(
      *         response="200",
      *         description="Get All Data Testimoni By Id Departement"
@@ -400,7 +537,7 @@ class FakultasAPIController extends Controller
      */
     public function getTestimoniByDepartement($id)
     {
-        $testimoni = Testimonial::where('id_departement', $id);
+        $testimoni = Testimonial::where('id_departement', $id)->get();
         if (!$testimoni) {
             return response()->json([
                 'message' => 'testimoni not found',
@@ -464,7 +601,7 @@ class FakultasAPIController extends Controller
      */
     public function getPortofolioByDepartement($id)
     {
-        $portofolio = Portofolio::where('id_departement', $id);
+        $portofolio = Portofolio::where('id_departement', $id)->first();
         if (!$portofolio) {
             return response()->json([
                 'message' => 'portofolio not found',
@@ -528,7 +665,7 @@ class FakultasAPIController extends Controller
      */
     public function getSuportByDepartement($id)
     {
-        $suport = Support::where('id_departement', $id);
+        $suport = Support::where('id_departement', $id)->get();
         if (!$suport) {
             return response()->json([
                 'message' => 'suport not found',
@@ -706,7 +843,7 @@ class FakultasAPIController extends Controller
      */
     public function getTeamByDepartement($id)
     {
-        $team = Ourteam::where('id_departement', $id);
+        $team = Ourteam::where('id_departement', $id)->get();
         if (!$team) {
             return response()->json([
                 'message' => 'team not found',
@@ -770,7 +907,7 @@ class FakultasAPIController extends Controller
      */
     public function getLegalitasByDepartement($id)
     {
-        $legalitas = Legal_document::where('id_departement', $id);
+        $legalitas = Legal_document::where('id_departement', $id)->get();
         if (!$legalitas) {
             return response()->json([
                 'message' => 'legalitas not found',
@@ -834,7 +971,7 @@ class FakultasAPIController extends Controller
      */
     public function getPartnerByDepartement($id)
     {
-        $partner = Partner::where('id_departement', $id);
+        $partner = Partner::where('id_departement', $id)->get();
         if (!$partner) {
             return response()->json([
                 'message' => 'partner not found',
@@ -845,7 +982,7 @@ class FakultasAPIController extends Controller
     
     /**
      * @OA\Get(
-     *     path="/api/indentity/{id}",
+     *     path="/api/indentity",
      *     tags={"Identity"},
      *     @OA\Response(
      *         response="200",
@@ -919,7 +1056,7 @@ class FakultasAPIController extends Controller
      */
     public function getSliderByDepartement($id)
     {
-        $slider = Slider::where('id_departement', $id);
+        $slider = Slider::where('id_departement', $id)->get();
         if (!$slider) {
             return response()->json([
                 'message' => 'slider not found',

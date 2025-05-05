@@ -132,7 +132,7 @@
         // Build a system
         const ui = SwaggerUIBundle({
             dom_id: '#swagger-ui',
-            urls: urls,
+            url: 'https://pendaftaran.jatidiri.app/docs',
             "urls.primaryName": "{{ $documentationTitle }}",
             operationsSorter: {!! isset($operationsSorter) ? '"' . $operationsSorter . '"' : 'null' !!},
             configUrl: {!! isset($configUrl) ? '"' . $configUrl . '"' : 'null' !!},

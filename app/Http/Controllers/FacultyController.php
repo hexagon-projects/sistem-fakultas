@@ -51,7 +51,7 @@ class FacultyController extends Controller
             'facebook'   => 'required|string|max:255',
             'youtube'   => 'required|string|max:255',
             'title1'   => 'required|string|max:255',
-            'description1'   => 'required|string|max:255',
+            'description1'   => 'required|string',
             'color1'   => 'required|string|max:255',
             'color2'   => 'required|string|max:255',
             'image1'   => 'nullable|mimes:jpg,jpeg,png,pdf,webp|max:2048',

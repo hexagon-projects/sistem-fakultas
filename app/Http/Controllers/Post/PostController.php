@@ -67,7 +67,7 @@ class PostController extends Controller
         return view('blog_post.post.editPost', compact('post')); 
     }
 
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         $post = Post::findOrFail($id);
 
@@ -82,6 +82,9 @@ class PostController extends Controller
             'id_category' => 'required',
         ]);
 
+        // Buat slug otomatis
+        $validated['slug'] = Str::slug($validated['title']);
+
         if ($request->file('image')) {
             $validated['image'] = $request->file('image')->store('post-image', 'public');
         }
@@ -90,6 +93,7 @@ class PostController extends Controller
 
         return redirect()->route('posts.index', $post->id)->with('success', 'Post berhasil diperbarui!');
     }
+
     public function destroy($id)
     {
         $post = Post::findOrFail($id);

@@ -21,12 +21,22 @@ Route::get('/unggulan', [FakultasAPIController::class, 'getUnggulanAll'])->name(
 Route::get('/unggulan-home', [FakultasAPIController::class, 'getUnggulanByHome'])->name('getUnggulanByHome');
 Route::get('/unggulan/{id}', [FakultasAPIController::class, 'getUnggulanByDepeartmenet'])->name('getUnggulanByDepeartmenet');
 
+// prospek
+Route::get('/prospek', [FakultasAPIController::class, 'getProspekAll'])->name('getProspekAll');
+Route::get('/prospek-home', [FakultasAPIController::class, 'getProspekByHome'])->name('getProspekByHome');
+Route::get('/prospek/{id}', [FakultasAPIController::class, 'getProspekByDepeartmenet'])->name('getProspekByDepeartmenet');
+
+// Kurikulum
+Route::get('/kurikulum', [FakultasAPIController::class, 'getKurikulumAll'])->name('getKurikulumAll');
+Route::get('/kurikulum-home', [FakultasAPIController::class, 'getKurikulumByHome'])->name('getKurikulumByHome');
+Route::get('/kurikulum/{id}', [FakultasAPIController::class, 'getKurikulumByDepeartmenet'])->name('getKurikulumByDepeartmenet');
+
 // fasilitas
 Route::get('/fasilitas', [FakultasAPIController::class, 'getFasilitasAll'])->name('getFasilitasAll');
 Route::get('/fasilitas-home', [FakultasAPIController::class, 'getFasilitasByHome'])->name('getFasilitasByHome');
 Route::get('/fasilitas/{id}', [FakultasAPIController::class, 'getFasilitasByDepartement'])->name('getFasilitasByDepartement');
 
-// fasilitas
+// prestasi
 Route::get('/prestasi', [FakultasAPIController::class, 'getPrestasiAll'])->name('getPrestasiAll');
 Route::get('/prestasi-home', [FakultasAPIController::class, 'getPrestasiByHome'])->name('getPrestasiByHome');
 Route::get('/prestasi/{id}', [FakultasAPIController::class, 'getPrestasiByDepartement'])->name('getPrestasiByDepartement');
@@ -37,7 +47,7 @@ Route::get('/organisasi', [FakultasAPIController::class, 'getOrganisasiAll'])->n
 Route::get('/organisasi-home', [FakultasAPIController::class, 'getOrganisasiByHome'])->name('getorganisasiByHome');
 Route::get('/organisasi/{id}', [FakultasAPIController::class, 'getOrganisasiByDepartement'])->name('getorganisasiByDepartement');
 
-// organisasi
+// testimoni
 Route::get('/testimoni', [FakultasAPIController::class, 'getTestimoniAll'])->name('getTestimoniAll');
 Route::get('/testimoni-home', [FakultasAPIController::class, 'getTestimoniByHome'])->name('getTestimoniByHome');
 Route::get('/testimoni/{id}', [FakultasAPIController::class, 'getTestimoniByDepartement'])->name('getTestimoniByDepartement');
@@ -47,7 +57,7 @@ Route::get('/portofolio', [FakultasAPIController::class, 'getPortofolioAll'])->n
 Route::get('/portofolio-home', [FakultasAPIController::class, 'getPortofolioByHome'])->name('getPortofolioByHome');
 Route::get('/portofolio/{id}', [FakultasAPIController::class, 'getPortofolioByDepartement'])->name('getPortofolioByDepartement');
 
-// portofolio
+// support
 Route::get('/suport', [FakultasAPIController::class, 'getSuportAll'])->name('getSuportAll');
 Route::get('/suport-home', [FakultasAPIController::class, 'getSuportByHome'])->name('getSuportByHome');
 Route::get('/suport/{id}', [FakultasAPIController::class, 'getSuportByDepartement'])->name('getSuportByDepartement');
