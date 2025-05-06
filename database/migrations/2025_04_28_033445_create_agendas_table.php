@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('yt')->nullable();
             $table->string('register_link');
             $table->string('contact');
+            $table->string('category');
             $table->string('image');
             $table->timestamps();
         });

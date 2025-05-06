@@ -109,6 +109,16 @@
                 placeholder="Event contact no"
               />
             </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Category</label>
+              <input 
+                name="category" 
+                type="text"
+                class="mt-1 block w-full p-2 border-2 border-gray-300 rounded-md focus:outline-none focus:ring focus:border-[#034833]"
+              
+              />
+            </div>
           </div>
   
           {{-- Upload Image --}}

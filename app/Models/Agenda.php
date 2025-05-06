@@ -23,6 +23,7 @@ class Agenda extends Model
         'yt',
         'register_link',
         'contact',
+        'category',
         'image',
     ];
 }

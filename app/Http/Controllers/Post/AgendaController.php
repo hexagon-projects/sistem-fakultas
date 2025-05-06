@@ -44,6 +44,7 @@ class AgendaController extends Controller
             'yt' => 'required|string',
             'register_link' => 'required|string',
             'contact' => 'required|string',
+            'category' => 'required|string',
             'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
           
         ]);
@@ -84,6 +85,7 @@ class AgendaController extends Controller
         'yt' => 'nullable|string',
         'register_link' => 'nullable|string',
         'contact' => 'nullable|string',
+        'category' => 'nullable|string',
         'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
