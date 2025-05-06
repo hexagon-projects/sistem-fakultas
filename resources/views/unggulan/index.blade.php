@@ -1,4 +1,4 @@
-<x-layout title="Departement">
+<x-layout title="USP">
     <div class="p-5">
         <div class="flex items-center justify-between">
             <a href="{{ route('unggulan.create') }}" class="py-2 px-3 bg-[#5676ff] rounded-full flex items-center hover:bg-gray-900 text-white gap-3 text-xs">
@@ -8,9 +8,9 @@
                   </svg>
                 <span>Add USP</span>
             </a>
-            <form action="{{ route('unggulan.index') }}" method="GET" class="mb-4 flex items-center gap-2">
+            <form action="{{ route('unggulan.index') }}" method="GET" class="mb-4 flex items-center gap-2 mt-4">
                 <input type="text" name="search" placeholder="Cari Data" value="{{ request('search') }}"
-                    class="py-2 px-3 text-xs rounded-full" />
+                    class="py-2 px-3 text-xs rounded-full w-24 md:w-full" />
                     <div class="flex gap-1">
                         <button type="submit" class="py-2 px-3 text-xs rounded-full bg-[#5676ff] text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-search w-3" viewBox="0 0 16 16">

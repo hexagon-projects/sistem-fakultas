@@ -69,25 +69,25 @@
                 
                 <div class="col-span-1">
                     <div class="flex flex-col gap-1 mb-5">
-                        <label for="title1">Image (Max : 1MB)</label>
+                        <label for="title1">Image1 (Max : 1MB)</label>
                         <div class="relative w-full h-40 border-2 border-dashed rounded-md flex items-center justify-center bg-gray-50 overflow-hidden">
                             <input
                                 type="file"
-                                name="image"
-                                id="image"
+                                name="image1"
+                                id="image1"
                                 accept="image/*"
-                                onchange="previewImage(event)"
+                                onchange="previewImage1(event)"
                                 class="absolute inset-0 opacity-0 cursor-pointer z-10"
                             />
                     
                             <!-- Preview Gambar -->
-                            <img id="image-preview" src="#" alt="Preview" class="absolute inset-0 w-full h-full object-cover hidden z-0 rounded-md" />
+                            <img id="image1-preview" src="#" alt="Preview" class="absolute inset-0 w-full h-full object-cover hidden z-0 rounded-md" />
                     
                             <!-- Tombol Hapus -->
                             <button
                                 id="remove-btn"
                                 type="button"
-                                onclick="removeImage()"
+                                onclick="removeImage1()"
                                 class="hidden absolute top-1 right-1 bg-red-600 text-white text-xs px-2 py-1 rounded z-20"
                             >
                                 Hapus
@@ -101,6 +101,92 @@
                             <p class="text-red-500 text-sm mt-2"><i>{{ $message }}</i></p>
                         @enderror
                     </div>
+                  
+
+                    <label for="title1">Image2 (Max : 1MB)</label>
+                    <div class="relative w-full h-40 border-2 border-dashed rounded-md flex items-center justify-center bg-gray-50 overflow-hidden mt-2">
+                        <input
+                            type="file"
+                            name="image2"
+                            id="image2"
+                            accept="image/*"
+                            onchange="previewImage2(event)"
+                            class="absolute inset-0 opacity-0 cursor-pointer z-10"
+                        />
+                
+                        <!-- Preview Gambar -->
+                        <img id="image2-preview" src="#" alt="Preview" class="absolute inset-0 w-full h-full object-cover hidden z-0 rounded-md" />
+                
+                        <!-- Tombol Hapus -->
+                        <button
+                            id="remove-btn"
+                            type="button"
+                            onclick="removeImage2()"
+                            class="hidden absolute top-1 right-1 bg-red-600 text-white text-xs px-2 py-1 rounded z-20"
+                        >
+                            Hapus
+                        </button>
+                
+                        <!-- Text Default -->
+                        <span id="upload-text" class="text-gray-400 z-0 text-center px-2">Klik untuk pilih gambar</span>
+                    </div>
+
+                    <label for="title1">Image3 (Max : 1MB)</label>
+                    <div class="relative w-full h-40 border-2 border-dashed rounded-md flex items-center justify-center bg-gray-50 overflow-hidden mt-2">
+                        <input
+                            type="file"
+                            name="image3"
+                            id="image3"
+                            accept="image/*"
+                            onchange="previewImage3(event)"
+                            class="absolute inset-0 opacity-0 cursor-pointer z-10"
+                        />
+                
+                        <!-- Preview Gambar -->
+                        <img id="image3-preview" src="#" alt="Preview" class="absolute inset-0 w-full h-full object-cover hidden z-0 rounded-md" />
+                
+                        <!-- Tombol Hapus -->
+                        <button
+                            id="remove-btn"
+                            type="button"
+                            onclick="removeImage3()"
+                            class="hidden absolute top-1 right-1 bg-red-600 text-white text-xs px-2 py-1 rounded z-20"
+                        >
+                            Hapus
+                        </button>
+                
+                        <!-- Text Default -->
+                        <span id="upload-text" class="text-gray-400 z-0 text-center px-2">Klik untuk pilih gambar</span>
+                    </div>
+
+                    <label for="title1">Image4 (Max : 1MB)</label>
+                    <div class="relative w-full h-40 border-2 border-dashed rounded-md flex items-center justify-center bg-gray-50 overflow-hidden">
+                        <input
+                            type="file"
+                            name="image4"
+                            id="image4"
+                            accept="image/*"
+                            onchange="previewImage4(event)"
+                            class="absolute inset-0 opacity-0 cursor-pointer z-10"
+                        />
+                
+                        <!-- Preview Gambar -->
+                        <img id="image4-preview" src="#" alt="Preview" class="absolute inset-0 w-full h-full object-cover hidden z-0 rounded-md" />
+                
+                        <!-- Tombol Hapus -->
+                        <button
+                            id="remove-btn"
+                            type="button"
+                            onclick="removeImage4()"
+                            class="hidden absolute top-1 right-1 bg-red-600 text-white text-xs px-2 py-1 rounded z-20"
+                        >
+                            Hapus
+                        </button>
+                
+                        <!-- Text Default -->
+                        <span id="upload-text" class="text-gray-400 z-0 text-center px-2">Klik untuk pilih gambar</span>
+                    </div>
+
                     <div class="flex flex-col gap-1 mb-5">
                         <label for="yt">ID Youtube</label>
                         <input type="text" name="yt" value="{{ old('yt') }}"
@@ -124,9 +210,9 @@
 
 
     <script>
-        function previewImage(event) {
+        function previewImage1(event) {
             const fileInput = event.target;
-            const preview = document.getElementById('image-preview');
+            const preview = document.getElementById('image1-preview');
             const removeBtn = document.getElementById('remove-btn');
             const uploadText = document.getElementById('upload-text');
     
@@ -142,9 +228,105 @@
             }
         }
     
-        function removeImage() {
-            const fileInput = document.getElementById('image');
-            const preview = document.getElementById('image-preview');
+        function removeImage1() {
+            const fileInput = document.getElementById('image1');
+            const preview = document.getElementById('image1-preview');
+            const removeBtn = document.getElementById('remove-btn');
+            const uploadText = document.getElementById('upload-text');
+    
+            fileInput.value = '';
+            preview.src = '#';
+            preview.classList.add('hidden');
+            removeBtn.classList.add('hidden');
+            uploadText.classList.remove('hidden');
+        }
+    </script>
+    <script>
+        function previewImage2(event) {
+            const fileInput = event.target;
+            const preview = document.getElementById('image2-preview');
+            const removeBtn = document.getElementById('remove-btn');
+            const uploadText = document.getElementById('upload-text');
+    
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.classList.remove('hidden');
+                    removeBtn.classList.remove('hidden');
+                    uploadText.classList.add('hidden');
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        }
+    
+        function removeImage2() {
+            const fileInput = document.getElementById('image2');
+            const preview = document.getElementById('image2-preview');
+            const removeBtn = document.getElementById('remove-btn');
+            const uploadText = document.getElementById('upload-text');
+    
+            fileInput.value = '';
+            preview.src = '#';
+            preview.classList.add('hidden');
+            removeBtn.classList.add('hidden');
+            uploadText.classList.remove('hidden');
+        }
+    </script>
+    <script>
+        function previewImage3(event) {
+            const fileInput = event.target;
+            const preview = document.getElementById('image3-preview');
+            const removeBtn = document.getElementById('remove-btn');
+            const uploadText = document.getElementById('upload-text');
+    
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.classList.remove('hidden');
+                    removeBtn.classList.remove('hidden');
+                    uploadText.classList.add('hidden');
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        }
+    
+        function removeImage3() {
+            const fileInput = document.getElementById('image3');
+            const preview = document.getElementById('image3-preview');
+            const removeBtn = document.getElementById('remove-btn');
+            const uploadText = document.getElementById('upload-text');
+    
+            fileInput.value = '';
+            preview.src = '#';
+            preview.classList.add('hidden');
+            removeBtn.classList.add('hidden');
+            uploadText.classList.remove('hidden');
+        }
+    </script>
+    <script>
+        function previewImage4(event) {
+            const fileInput = event.target;
+            const preview = document.getElementById('image4-preview');
+            const removeBtn = document.getElementById('remove-btn');
+            const uploadText = document.getElementById('upload-text');
+    
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.classList.remove('hidden');
+                    removeBtn.classList.remove('hidden');
+                    uploadText.classList.add('hidden');
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        }
+    
+        function removeImage4() {
+            const fileInput = document.getElementById('imag41');
+            const preview = document.getElementById('image4-preview');
             const removeBtn = document.getElementById('remove-btn');
             const uploadText = document.getElementById('upload-text');
     

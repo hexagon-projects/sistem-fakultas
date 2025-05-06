@@ -1,7 +1,7 @@
 <x-layout title="FAQS">
     <div class="p-5">
-        <div class="flex items-center justify-between">
-            <div class="flex items-center gap-5">
+        <div class="flex items-center justify-between mb-2">
+            <div class="flex items-center gap-1">
                 <a href="{{ route('faq.create') }}" class="py-2 px-3 bg-[#5676ff] rounded-full flex items-center hover:bg-gray-900 text-white gap-3 text-xs">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-folder-plus w-4" viewBox="0 0 16 16">
                         <path d="m.5 3 .04.87a2 2 0 0 0-.342 1.311l.637 7A2 2 0 0 0 2.826 14H9v-1H2.826a1 1 0 0 1-.995-.91l-.637-7A1 1 0 0 1 2.19 4h11.62a1 1 0 0 1 .996 1.09L14.54 8h1.005l.256-2.819A2 2 0 0 0 13.81 3H9.828a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 6.172 1H2.5a2 2 0 0 0-2 2m5.672-1a1 1 0 0 1 .707.293L7.586 3H2.19q-.362.002-.683.12L1.5 2.98a1 1 0 0 1 1-.98z"/>
@@ -17,9 +17,9 @@
                     <span>FAQS Categories</span>
                 </a>
             </div>
-            <form action="{{ route('faq.index') }}" method="GET" class="mb-4 flex items-center gap-2">
+            <form action="{{ route('faq.index') }}" method="GET" class="mb-4 flex items-center gap-2 mt-4 ml-2">
                 <input type="text" name="search" placeholder="Cari Data" value="{{ request('search') }}"
-                    class="py-2 px-3 text-xs rounded-full" />
+                    class="py-2 px-3 text-xs rounded-full w-24 md:w-full" />
                     <div class="flex gap-1">
                         <button type="submit" class="py-2 px-3 text-xs rounded-full bg-[#5676ff] text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-search w-3" viewBox="0 0 16 16">

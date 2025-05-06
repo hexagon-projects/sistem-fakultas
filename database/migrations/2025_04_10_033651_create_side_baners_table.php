@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('image1');
-            $table->string('image2');
-            $table->string('yt');
+            $table->string('image2')->nullable();
+            $table->string('yt')->nullable();
             $table->string('status');
             $table->string('home')->nullable();
             $table->timestamps();

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('support_by');
             $table->string('image');
-            $table->string('yt');
+            $table->string('yt')->nullable();
             $table->string('home')->nullable();
             $table->timestamps();
         });

@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('akreditasi')->nullable();
             $table->string('tagline')->nullable();
             $table->string('yt_id')->nullable();
+            $table->unsignedBigInteger('id_team')->nullable();
+            $table->foreign('id_team')->references('id')->on('ourteams');
             $table->string('instagram')->nullable();
             $table->string('tiktok')->nullable();
             $table->string('youtube')->nullable();

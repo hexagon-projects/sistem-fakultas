@@ -44,9 +44,10 @@ class StudentActivitiesController extends Controller
         // Validasi data
         $request->validate([
             'id_departement' => 'nullable|exists:departements,id',
-            'name' => 'required|string|max:255',
+            'name' => 'required|string',
             'description' => 'required|string',
-            'home' => 'nullable|string|max:255',
+            'home' => 'nullable|string',
+            'category' => 'nullable|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
 
@@ -61,6 +62,7 @@ class StudentActivitiesController extends Controller
         $organization = Organization::create([
             'id_departement' => $request->input('id_departement'),
             'name' => $request->input('name'),
+            'category' => $request->input('category'),
             'description' => $request->input('description'),
             'home' => $request->input('home'),
             'image' => $imagePath,
@@ -96,9 +98,10 @@ class StudentActivitiesController extends Controller
         // Validasi data
         $request->validate([
             'id_departement' => 'nullable|exists:departements,id',
-            'name' => 'required|string|max:255',
+            'name' => 'required|string',
+            'category' => 'required|string',
             'description' => 'required|string',
-            'home' => 'nullable|string|max:255',
+            'home' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
 
@@ -121,6 +124,7 @@ class StudentActivitiesController extends Controller
         $organization->update([
             'id_departement' => $request->input('id_departement'),
             'name' => $request->input('name'),
+            'category' => $request->input('category'),
             'description' => $request->input('description'),
             'home' => $request->input('home'),
             'image' => $imagePath,

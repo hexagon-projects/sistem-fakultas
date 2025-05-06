@@ -44,14 +44,16 @@ class KurikulumController extends Controller
     {
         $request->validate([
             'id_departement' => 'nullable|exists:departements,id',
-            'title' => 'required|string|max:255',
+            'title' => 'required|string',
             'description' => 'required|string',
             'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'home' => 'nullable|string|max:255',
+            'icon' => 'required|mimes:jpg,jpeg,png,webp,svg|max:2048',
+            'home' => 'nullable|string',
         ]);
 
         // Simpan gambar
         $imagePath = $request->file('image')->store('kurikulums', 'public');
+        $iconPath = $request->file('icon')->store('kurikulums', 'public');
 
         // Simpan data ke database
         Kurikulum::create([
@@ -59,6 +61,7 @@ class KurikulumController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'image' => $imagePath,
+            'icon' => $iconPath,
             'home' => $request->home,
         ]);
 
@@ -82,10 +85,11 @@ class KurikulumController extends Controller
 
         $request->validate([
             'id_departement' => 'nullable|exists:departements,id',
-            'title' => 'required|string|max:255',
+            'title' => 'required|string',
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'home' => 'nullable|string|max:255',
+            'icon' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2048',
+            'home' => 'nullable|string',
         ]);
 
         // Jika ada gambar baru, simpan dan hapus gambar lama
@@ -96,6 +100,14 @@ class KurikulumController extends Controller
 
             $imagePath = $request->file('image')->store('kurikulums', 'public');
             $kurikulum->image = $imagePath;
+        }
+        if ($request->hasFile('icon')) {
+            if ($kurikulum->icon && Storage::disk('public')->exists($kurikulum->icon)) {
+                Storage::disk('public')->delete($kurikulum->icon);
+            }
+
+            $iconPath = $request->file('icon')->store('kurikulums', 'public');
+            $kurikulum->icon = $iconPath;
         }
 
         $kurikulum->update([
@@ -117,6 +129,9 @@ class KurikulumController extends Controller
         // Hapus gambar dari penyimpanan
         if ($kurikulum->image && Storage::disk('public')->exists($kurikulum->image)) {
             Storage::disk('public')->delete($kurikulum->image);
+        }
+        if ($kurikulum->icon && Storage::disk('public')->exists($kurikulum->icon)) {
+            Storage::disk('public')->delete($kurikulum->icon);
         }
 
         $kurikulum->delete();

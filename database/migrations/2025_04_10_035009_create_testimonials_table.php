@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('home')->nullable();
-            $table->string('yt');
+            $table->string('yt')->nullable();
             $table->string('image');
             $table->timestamps();
         });

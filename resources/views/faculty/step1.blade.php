@@ -58,15 +58,21 @@
                             @enderror
                         </div>
                         <div class="flex flex-col gap-1 mb-5">
-                            <label for="">Akreditasi</label>
-                            <input type="text" name="akreditasi" value="{{ $faculty->akreditasi ?? '' }}"
-                                class="block w-full mt-1 text-sm focus:border-[#5676ff] focus:outline-none focus:shadow-outline-purple form-input border-gray-300 border-2 p-2 rounded-md" />
+                            <label for="akreditasi">Akreditasi</label>
+                            <select name="akreditasi" 
+                                class="block w-full mt-1 text-sm focus:border-[#5676ff] focus:outline-none focus:shadow-outline-purple form-select border-gray-300 border-2 p-2 rounded-md">
+                              <option value="{{ $faculty->akreditasi ?? '' }}">-- Pilih Akreditasi --</option>
+                              <option value="Unggul">Unggul</option>
+                              <option value="Baik Sekali">Baik Sekali</option>
+                              <option value="Baik">Baik</option>
+                            </select>
                             @error('akreditasi')
-                                <div>
-                                    <small class="text-red-500"><i>{{ $message }}</i></small>
-                                </div>
+                              <div>
+                                <small class="text-red-500"><i>{{ $message }}</i></small>
+                              </div>
                             @enderror
-                        </div>
+                          </div>
+                          
                     </div>
                     <div class="flex flex-col gap-1 mb-5">
                         <label for="">Tagline Faculty</label>
@@ -245,6 +251,15 @@
                         @enderror
                     </div>
 
+                    <select name="id_team" class="select2 w-full" id="id_team">
+                        <option value="">-- Pilih Ketua --</option>
+                        @foreach ($teams as $team)
+                            <option value="{{ $team->id }}" @selected(old('id_team', $faculty->id_team ?? '') == $team->id)>{{ $team->name }}</option>
+                        @endforeach
+                    </select>
+                    
+                    
+
                 </div>
             </div>
             <div class="flex items-center justify-end my-5">
@@ -254,6 +269,26 @@
         </div>
     </div>
 
+
+    <script>
+        $(document).ready(function() {
+            $('.select2').select2({
+                placeholder: "-- Pilih Ketua --",
+                allowClear: true
+            });
+        });
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#team_id').select2({
+                minimumResultsForSearch: 2,
+                placeholder: "Pilih Ketua Fakultas",
+                allowClear: true
+            });
+        });
+    </script>
 
     <script>
         function previewImage(event) {

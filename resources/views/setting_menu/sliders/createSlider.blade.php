@@ -14,6 +14,7 @@
         <div class="flex flex-col lg:flex-row gap-6">
           {{-- Kiri: Form --}}
           <div class="w-full lg:w-2/3">
+            <input type="hidden" name="home" value="0">
             <label class="inline-flex items-center mt-3 mb-4">
               <input 
                 type="checkbox" 

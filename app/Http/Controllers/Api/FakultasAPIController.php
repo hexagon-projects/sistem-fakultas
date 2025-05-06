@@ -2,28 +2,30 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Departement;
-use App\Models\Faculty;
-use App\Models\Usp;
-use App\Models\Facility;
-use App\Models\Achievement;
-use App\Models\Organization;
-use App\Models\Testimonial;
-use App\Models\Portofolio;
-use App\Models\Support;
 use App\Models\Faq;
-use App\Models\Agenda;
+use App\Models\Usp;
 use App\Models\Post;
-use App\Models\Ourteam;
-use App\Models\Legal_document;
-use App\Models\Partner;
-use App\Models\Identity;
+use App\Models\Agenda;
+use App\Models\Jurnal;
 use App\Models\Slider;
-use App\Models\Analytic;
+use App\Models\Faculty;
+use App\Models\Ourteam;
+use App\Models\Partner;
 use App\Models\Prospek;
+use App\Models\Support;
+use App\Models\Analytic;
+use App\Models\Facility;
+use App\Models\Identity;
+use App\Models\Timeline;
 use App\Models\Kurikulum;
+use App\Models\Portofolio;
+use App\Models\Achievement;
+use App\Models\Departement;
+use App\Models\Testimonial;
+use App\Models\Organization;
+use Illuminate\Http\Request;
+use App\Models\Legal_document;
+use App\Http\Controllers\Controller;
 
 /**
  * @OA\Info(
@@ -334,7 +336,7 @@ class FakultasAPIController extends Controller
      */
     public function getFasilitasByDepartement($id)
     {
-        $fasilitas = Facility::where('id_departement', $id)->get();
+        $fasilitas = Facility::where('id_departement', $id)->get()->first();
         if (!$fasilitas) {
             return response()->json([
                 'message' => 'fasilitas not found',
@@ -1086,4 +1088,134 @@ class FakultasAPIController extends Controller
         return response()->json($analytics);
     }
 
+
+    /**
+     * @OA\Get(
+     *     path="/api/jurnal",
+     *     tags={"Jurnal"},
+     *     @OA\Response(
+     *         response="200",
+     *         description="Get All Data Jurnal"
+     *     )
+     * )
+     */
+    public function getJurnalAll()
+    {
+        $jurnal = Jurnal::all();
+        if (!$jurnal) {
+            return response()->json([
+                'message' => 'jurnal not found',
+            ], 404);
+        }
+        return response()->json($jurnal);
+    }
+
+     /**
+     * @OA\Get(
+     *     path="/api/jurnal-home",
+     *     tags={"Jurnal"},
+     *     @OA\Response(
+     *         response="200",
+     *         description="Get All Data Jurnal By Home"
+     *     )
+     * )
+     */
+    public function getJurnalByHome()
+    {
+        $jurnal = Jurnal::where('home', '1')->get();
+        if (!$jurnal) {
+            return response()->json([
+                'message' => 'jurnal not found',
+            ], 404);
+        }
+        return response()->json($jurnal);
+    }
+    
+    
+    /**
+     * @OA\Get(
+     *     path="/api/jurnal/{id}",
+     *     tags={"Jurnal"},
+     *     @OA\Response(
+     *         response="200",
+     *         description="Get All Data Jurnal By Id Departement"
+     *     )
+     * )
+     */
+    public function getJurnalByDepartement($id)
+    {
+        $jurnal = Jurnal::where('id_departement', $id)->first();
+        if (!$jurnal) {
+            return response()->json([
+                'message' => 'jurnal not found',
+            ], 404);
+        }
+        return response()->json($jurnal);
+    }
+    
+
+     /**
+     * @OA\Get(
+     *     path="/api/timeline",
+     *     tags={"Timeline"},
+     *     @OA\Response(
+     *         response="200",
+     *         description="Get All Data Timeline"
+     *     )
+     * )
+     */
+    public function getTimelineAll()
+    {
+        $timeline = Timeline::all();
+        if (!$timeline) {
+            return response()->json([
+                'message' => 'timeline not found',
+            ], 404);
+        }
+        return response()->json($timeline);
+    }
+
+     /**
+     * @OA\Get(
+     *     path="/api/timeline-home",
+     *     tags={"Timeline"},
+     *     @OA\Response(
+     *         response="200",
+     *         description="Get All Data Timeline By Home"
+     *     )
+     * )
+     */
+    public function getTimelineByHome()
+    {
+        $timeline = Timeline::where('home', '1')->get();
+        if (!$timeline) {
+            return response()->json([
+                'message' => 'timeline not found',
+            ], 404);
+        }
+        return response()->json($timeline);
+    }
+    
+    
+    /**
+     * @OA\Get(
+     *     path="/api/timeline/{id}",
+     *     tags={"Timeline"},
+     *     @OA\Response(
+     *         response="200",
+     *         description="Get All Data Timeline By Id Departement"
+     *     )
+     * )
+     */
+    public function getTimelineByDepartement($id)
+    {
+        $timeline = Timeline::where('id_departement', $id)->first();
+        if (!$timeline) {
+            return response()->json([
+                'message' => 'timeline not found',
+            ], 404);
+        }
+        return response()->json($timeline);
+    }
+    
 }

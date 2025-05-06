@@ -82,7 +82,7 @@ class FaqCategoriesController extends Controller
     {
         // Validasi data
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string',
         ]);
 
         // Cari kategori FAQ berdasarkan ID

@@ -17,12 +17,12 @@ return new class extends Migration
             $table->foreign('id_departement')->references('id')->on('departements');
             $table->string('name');
             $table->string('title');
-            $table->string('email');
-            $table->string('phone');
-            $table->string('ig');
-            $table->string('fb');
-            $table->string('yt');
-            $table->string('tiktok');
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('ig')->nullable();
+            $table->string('fb')->nullable();
+            $table->string('yt')->nullable();
+            $table->string('tiktok')->nullable();
             $table->string('image');
             $table->string('home')->nullable();
             $table->timestamps();

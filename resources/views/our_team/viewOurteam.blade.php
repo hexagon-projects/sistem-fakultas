@@ -15,9 +15,9 @@
                   </svg>
                 <span>Add Our Team</span>
             </a>
-            <form action="{{ route('ourteam.index') }}" method="GET" class="mb-4 flex items-center gap-2">
+            <form action="{{ route('ourteam.index') }}" method="GET" class="mb-4 flex items-center gap-2 mt-4">
                 <input type="text" name="search" placeholder="Cari Data" value="{{ request('search') }}"
-                    class="py-2 px-3 text-xs rounded-full" />
+                    class="py-2 px-3 text-xs rounded-full w-24 md:w-full" />
                     <div class="flex gap-1">
                         <button type="submit" class="py-2 px-3 text-xs rounded-full bg-primary text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-search w-3" viewBox="0 0 16 16">
@@ -111,18 +111,10 @@
                       </div>
                     </td>
 
-                    <td class="px-4 py-3 text-xs">
-                      <div
-                      class="relative hidden w-auto h-auto mr-3 rounded-full md:block"
-                    >
-                      <img
-                        class="object-cover w-36 h-36 rounded-lg "
-                        src="{{ asset('storage/' . $ourteam->image) }}"
-                        alt=""
-                        loading="lazy"
-                      />
-                      
-                    </div>
+                    <td class="px-4 py-3">
+                      <div class="w-28 h-28 md:w-36 md:h-36">
+                        <img class="object-cover w-full h-full rounded-lg" src="{{ asset('storage/' . $ourteam->image) }}" alt="" loading="lazy">
+                      </div>
                     </td>
                   
                   </tr> 

@@ -43,16 +43,22 @@ class FacilityController extends Controller
     {
         $request->validate([
             'id_departement' => 'nullable|exists:departements,id',
-            'title' => 'required|string|max:255',
-            'subtitle' => 'required|string|max:255',
+            'title' => 'required|string',
+            'subtitle' => 'required|string',
             'description' => 'required|string',
-            'home' => 'nullable|string|max:255',
-            'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
-            'yt' => 'required|string|max:255',
+            'home' => 'nullable|string',
+            'image1' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'image2' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'image3' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'image4' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'yt' => 'required|string',
         ]);
 
-        // Simpan file gambar ke storage
-        $imagePath = $request->file('image')->store('facilities', 'public');
+        // Simpan file gambar ke storage jika ada
+        $imagePath1 = $request->file('image1')->store('facilities', 'public');
+        $imagePath2 = $request->hasFile('image2') ? $request->file('image2')->store('facilities', 'public') : null;
+        $imagePath3 = $request->hasFile('image3') ? $request->file('image3')->store('facilities', 'public') : null;
+        $imagePath4 = $request->hasFile('image4') ? $request->file('image4')->store('facilities', 'public') : null;
 
         Facility::create([
             'id_departement' => $request->id_departement,
@@ -60,12 +66,16 @@ class FacilityController extends Controller
             'subtitle' => $request->subtitle,
             'description' => $request->description,
             'home' => $request->home,
-            'image' => $imagePath,
+            'image1' => $imagePath1,
+            'image2' => $imagePath2,
+            'image3' => $imagePath3,
+            'image4' => $imagePath4,
             'yt' => $request->yt,
         ]);
 
         return redirect()->route('fasilitas.index')->with('success', 'Fasilitas berhasil ditambahkan.');
     }
+
 
     /**
      * Display the specified resource.
@@ -89,41 +99,59 @@ class FacilityController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {
-        $request->validate([
-            'id_departement' => 'nullable|exists:departements,id',
-            'title' => 'required|string|max:255',
-            'subtitle' => 'required|string|max:255',
-            'description' => 'required|string',
-            'home' => 'nullable|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
-            'yt' => 'required|string|max:255',
-        ]);
-    
-        $facility = Facility::findOrFail($id);
-    
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('facilities', 'public');
-    
-            if ($facility->image && Storage::disk('public')->exists($facility->image)) {
-                Storage::disk('public')->delete($facility->image);
+{
+    $request->validate([
+        'id_departement' => 'nullable|exists:departements,id',
+        'title' => 'required|string',
+        'subtitle' => 'required|string',
+        'description' => 'required|string',
+        'home' => 'nullable|string',
+        'image1' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+        'image2' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+        'image3' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+        'image4' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+        'yt' => 'required|string',
+    ]);
+
+    $facility = Facility::findOrFail($id);
+
+    // Array penampung path gambar baru
+    $imageFields = ['image1', 'image2', 'image3', 'image4'];
+    $imagePaths = [];
+
+    foreach ($imageFields as $field) {
+        if ($request->hasFile($field)) {
+            // Simpan file baru
+            $newPath = $request->file($field)->store('facilities', 'public');
+
+            // Hapus gambar lama jika ada
+            if ($facility->$field && Storage::disk('public')->exists($facility->$field)) {
+                Storage::disk('public')->delete($facility->$field);
             }
+
+            $imagePaths[$field] = $newPath;
         } else {
-            $imagePath = $facility->image;
+            // Gunakan gambar lama jika tidak diubah
+            $imagePaths[$field] = $facility->$field;
         }
-    
-        $facility->update([
-            'id_departement' => $request->id_departement,
-            'title' => $request->title,
-            'subtitle' => $request->subtitle,
-            'description' => $request->description,
-            'home' => $request->home,
-            'image' => $imagePath,
-            'yt' => $request->yt,
-        ]);
-    
-        return redirect()->route('fasilitas.index')->with('success', 'Fasilitas berhasil diperbarui.');
     }
+
+    // Update semua field
+    $facility->update([
+        'id_departement' => $request->id_departement,
+        'title'          => $request->title,
+        'subtitle'       => $request->subtitle,
+        'description'    => $request->description,
+        'home'           => $request->home,
+        'image1'         => $imagePaths['image1'],
+        'image2'         => $imagePaths['image2'],
+        'image3'         => $imagePaths['image3'],
+        'image4'         => $imagePaths['image4'],
+        'yt'             => $request->yt,
+    ]);
+
+    return redirect()->route('fasilitas.index')->with('success', 'Fasilitas berhasil diperbarui.');
+}
 
     /**
      * Remove the specified resource from storage.
@@ -132,11 +160,17 @@ class FacilityController extends Controller
     {
         $fasilitas = Facility::findOrFail($id);
 
-        // Hapus gambar dari penyimpanan
-        if ($fasilitas->image && Storage::disk('public')->exists($fasilitas->image)) {
-            Storage::disk('public')->delete($fasilitas->image);
+        // Daftar field gambar
+        $imageFields = ['image1', 'image2', 'image3', 'image4'];
+
+        // Hapus masing-masing gambar dari storage jika ada
+        foreach ($imageFields as $field) {
+            if ($fasilitas->$field && Storage::disk('public')->exists($fasilitas->$field)) {
+                Storage::disk('public')->delete($fasilitas->$field);
+            }
         }
 
+        // Hapus data dari database
         $fasilitas->delete();
 
         return redirect()->back()->with('success', 'Data fasilitas berhasil dihapus.');

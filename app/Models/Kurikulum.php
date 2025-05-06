@@ -11,6 +11,10 @@ class Kurikulum extends Model
         'title',
         'description',
         'image',
+<<<<<<< HEAD
+=======
+        'icon',
+>>>>>>> 1d2d97eb74587fb70c1c5178eefad181d1caface
         'home',
     ];
 }

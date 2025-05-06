@@ -19,8 +19,11 @@ return new class extends Migration
             $table->string('subtitle');
             $table->text('description');
             $table->string('home')->nullable();
-            $table->string('image');
-            $table->string('yt');
+            $table->string('image1');
+            $table->string('image2')->nullable();
+            $table->string('image3')->nullable();
+            $table->string('image4')->nullable();
+            $table->string('yt')->nullable();
             $table->timestamps();
         });
     }

@@ -9,6 +9,7 @@ class Organization extends Model
     protected $fillable = [
         'id_departement',
         'name',
+        'category',
         'description',
         'home',
         'image',

@@ -87,10 +87,8 @@ class AgendaController extends Controller
         'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
-        
         // Buat slug otomatis
         $validated['slug'] = Str::slug($validated['title']);
-   
     if($request->file('image')){
         $validated['image'] = $request->file('image')->store('agenda-image', 'public');
     }

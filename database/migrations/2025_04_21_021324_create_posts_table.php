@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('content');
             $table->date('publish');
             $table->string('image');
-            $table->string('yt');
+            $table->string('yt')->nullable();
             $table->string('status');
             $table->timestamps();
         });

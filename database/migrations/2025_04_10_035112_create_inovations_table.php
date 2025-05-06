@@ -20,8 +20,8 @@ return new class extends Migration
             $table->text('description');
             $table->string('home')->nullable();
             $table->string('image1');
-            $table->string('image2');
-            $table->string('inovator');
+            $table->string('image2')->nullable();
+            $table->string('inovator')->nullable();
             $table->timestamps();
         });
     }

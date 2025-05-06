@@ -12,7 +12,10 @@ class Facility extends Model
         'subtitle',
         'description',
         'home',
-        'image',
+        'image1',
+        'image2',
+        'image3',
+        'image4',
         'yt',
     ];    
 }

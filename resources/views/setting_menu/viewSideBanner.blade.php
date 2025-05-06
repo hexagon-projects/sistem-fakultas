@@ -21,6 +21,7 @@
         @endif
         
         <label class="inline-flex items-center mt-3">
+          <input type="hidden" name="home" value="0">
           <input 
             type="checkbox" 
             name="home" 

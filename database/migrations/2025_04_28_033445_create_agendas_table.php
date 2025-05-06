@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('event');
             $table->string('location');
-            $table->string('yt');
+            $table->string('yt')->nullable();
             $table->string('register_link');
             $table->string('contact');
             $table->string('image');

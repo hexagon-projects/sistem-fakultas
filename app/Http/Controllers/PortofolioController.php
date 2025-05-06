@@ -44,13 +44,13 @@ class PortofolioController extends Controller
         // Validasi data
         $request->validate([
             'id_departement' => 'nullable|exists:departements,id', // Validasi ID departemen
-            'title' => 'required|string|max:255',
+            'title' => 'required|string',
             'description' => 'required|string',
-            'home' => 'nullable|string|max:255',
+            'home' => 'nullable|string',
             'image1' => 'required|mimes:jpg,jpeg,png,webp|max:2048',
             'image2' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
             'image3' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
-            'yt' => 'nullable|max:255',
+            'yt' => 'nullable',
         ]);
 
         // Proses upload gambar
@@ -101,13 +101,13 @@ class PortofolioController extends Controller
         // Validasi data
         $request->validate([
             'id_departement' => 'nullable|exists:departements,id', // Validasi ID departemen
-            'title' => 'required|string|max:255',
+            'title' => 'required|string',
             'description' => 'required|string',
-            'home' => 'nullable|string|max:255',
+            'home' => 'nullable|string',
             'image1' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
             'image2' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
             'image3' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
-            'yt' => 'nullable|max:255',
+            'yt' => 'nullable',
         ]);
 
         // Temukan portofolio berdasarkan ID

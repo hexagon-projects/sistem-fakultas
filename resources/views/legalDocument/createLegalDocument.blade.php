@@ -13,6 +13,7 @@
           <div class="md:col-span-2 flex flex-col gap-4">
             {{-- Display on Home --}}
             <label class="inline-flex items-center mt-3">
+          <input type="hidden" name="home" value="0">
               <input 
                 type="checkbox" 
                 name="home" 
