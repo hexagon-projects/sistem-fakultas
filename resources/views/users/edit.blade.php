@@ -2,14 +2,15 @@
 
     <div class="p-5 flex items-center justify-center">
         <div class="w-full bg-white p-5 rounded-xl text-sm flex flex-col">
-            <form action="{{ route('users.store') }}" method="post" enctype="multipart/form-data" id="form-departement">
+            <form action="{{ route('users.update', $user->id) }}" method="post" enctype="multipart/form-data" id="form-departement">
             @csrf
+            @method('PUT')
             <div class="grid grid-cols-1 gap-5 items-start">
 
                 <div class="col-span-1 md:col-span-2 gap-5">                    
                     <div class="flex flex-col gap-1 mb-5">
                         <label for="name">Full Name</label>
-                        <input type="text" name="name" value="{{ old('name') }}"
+                        <input type="text" name="name" value="{{ $user->name }}"
                             class="block w-full mt-1 text-sm focus:border-[#5676ff] focus:outline-none focus:shadow-outline-purple form-input border-gray-300 border-2 p-2 rounded-md" />
                         @error('name')
                             <div>
@@ -19,7 +20,7 @@
                     </div>
                     <div class="flex flex-col gap-1 mb-5">
                         <label for="email">Email Adsress</label>
-                        <input type="text" name="email" value="{{ old('email') }}"
+                        <input type="text" name="email" value="{{ $user->email }}"
                             class="block w-full mt-1 text-sm focus:border-[#5676ff] focus:outline-none focus:shadow-outline-purple form-input border-gray-300 border-2 p-2 rounded-md" />
                         @error('email')
                             <div>
@@ -29,7 +30,7 @@
                     </div>
                     <div class="flex flex-col gap-1 mb-5">
                         <label for="phone">Phone</label>
-                        <input type="text" name="phone" value="{{ old('phone') }}"
+                        <input type="text" name="phone" value="{{ $user->phone }}"
                             class="block w-full mt-1 text-sm focus:border-[#5676ff] focus:outline-none focus:shadow-outline-purple form-input border-gray-300 border-2 p-2 rounded-md" />
                         @error('phone')
                             <div>
@@ -38,7 +39,7 @@
                         @enderror
                     </div>
                     <div class="flex flex-col gap-1 mb-5">
-                        <label for="password">Password</label>
+                        <label for="password">New Password</label>
                         <input type="password" name="password" value="{{ old('password') }}"
                             class="block w-full mt-1 text-sm focus:border-[#5676ff] focus:outline-none focus:shadow-outline-purple form-input border-gray-300 border-2 p-2 rounded-md" />
                         @error('password')
@@ -51,6 +52,7 @@
                         <label for="role">Role</label>
                         <select name="role" id="role"
                             class="block w-full mt-1 text-sm focus:border-[#5676ff] focus:outline-none focus:shadow-outline-purple form-select border-gray-300 border-2 p-2 rounded-md">
+                            <option value="{{ $user->role }}" selected>{{ $user->role }}</option>
                             <option value="Super Admin">Super Admin</option>
                             <option value="Admin Fakultas">Admin Fakultas</option>
                             <option value="Admin Departement">Admin Departement</option>
@@ -67,7 +69,7 @@
             </div>
             <div class="flex items-center justify-between my-5">
                 <a href="{{ route('users.index') }}" class="py-3 px-5 bg-gray-300 rounded-xl">Back</a>
-                <button class="py-3 px-5 bg-[#5676ff] text-white rounded-xl" type="button" onclick="confirmSubmit()">Create</button>
+                <button class="py-3 px-5 bg-[#5676ff] text-white rounded-xl" type="button" onclick="confirmSubmit()">Update</button>
             </div>
             </form>
         </div>
