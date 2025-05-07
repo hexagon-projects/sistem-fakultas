@@ -51,6 +51,8 @@ class FacilityController extends Controller
             'image2' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
             'image3' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
             'image4' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'image5' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'image6' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
             'yt' => 'required|string',
         ]);
 
@@ -59,6 +61,8 @@ class FacilityController extends Controller
         $imagePath2 = $request->hasFile('image2') ? $request->file('image2')->store('facilities', 'public') : null;
         $imagePath3 = $request->hasFile('image3') ? $request->file('image3')->store('facilities', 'public') : null;
         $imagePath4 = $request->hasFile('image4') ? $request->file('image4')->store('facilities', 'public') : null;
+        $imagePath5 = $request->hasFile('image5') ? $request->file('image5')->store('facilities', 'public') : null;
+        $imagePath6 = $request->hasFile('image6') ? $request->file('image6')->store('facilities', 'public') : null;
 
         Facility::create([
             'id_departement' => $request->id_departement,
@@ -70,6 +74,8 @@ class FacilityController extends Controller
             'image2' => $imagePath2,
             'image3' => $imagePath3,
             'image4' => $imagePath4,
+            'image5' => $imagePath5,
+            'image6' => $imagePath6,
             'yt' => $request->yt,
         ]);
 
@@ -110,13 +116,15 @@ class FacilityController extends Controller
         'image2' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
         'image3' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
         'image4' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+        'image5' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+        'image6' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
         'yt' => 'required|string',
     ]);
 
     $facility = Facility::findOrFail($id);
 
     // Array penampung path gambar baru
-    $imageFields = ['image1', 'image2', 'image3', 'image4'];
+    $imageFields = ['image1', 'image2', 'image3', 'image4', 'image5', 'image6'];
     $imagePaths = [];
 
     foreach ($imageFields as $field) {
@@ -147,6 +155,8 @@ class FacilityController extends Controller
         'image2'         => $imagePaths['image2'],
         'image3'         => $imagePaths['image3'],
         'image4'         => $imagePaths['image4'],
+        'image5'         => $imagePaths['image5'],
+        'image6'         => $imagePaths['image6'],
         'yt'             => $request->yt,
     ]);
 
