@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('name');
             $table->string('winner_name');
+            $table->string('category');
             $table->text('description');
             $table->string('home')->nullable();
             $table->string('image');

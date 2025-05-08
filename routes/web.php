@@ -22,9 +22,10 @@ use App\Http\Controllers\UnggulanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KurikulumController;
 use App\Http\Controllers\Post\PostController;
+use App\Http\Controllers\TwoFactorController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\PortofolioController;
 
+use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\DepartementController;
 use App\Http\Controllers\Post\AgendaController;
 use App\Http\Controllers\TestimoniesController;
@@ -38,8 +39,8 @@ use App\Http\Controllers\Category\CategoryController;
 use App\Http\Controllers\Profile\DataValueController;
 use App\Http\Controllers\Setting_menu\MetaController;
 use App\Http\Controllers\StudentActivitiesController;
-use App\Http\Controllers\Setting_menu\SliderController;
 
+use App\Http\Controllers\Setting_menu\SliderController;
 use App\Http\Controllers\Profile\LegalDocumentController;
 use App\Http\Controllers\Setting_menu\IdentityController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -54,8 +55,15 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 
+    // Route::middleware('auth')->group(function () {
+    //        // 2FA
+    // Route::get('/two-factor', [TwoFactorController::class, 'index'])->name('two-factor.index');
+    // Route::post('/two-factor', [TwoFactorController::class, 'verify'])->name('two-factor.verify'); 
+    // });
+
 
 Route::middleware(['auth'])->group(function () {
+
 // dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 

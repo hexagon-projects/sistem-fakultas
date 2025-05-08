@@ -49,6 +49,7 @@ class ArchievementController extends Controller
             'winner_name' => 'required|string',
             'description' => 'required|string',
             'home' => 'nullable|string',
+            'category' => 'nullable|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
 
@@ -62,6 +63,7 @@ class ArchievementController extends Controller
             'winner_name' => $request->winner_name,
             'description' => $request->description,
             'home' => $request->home,
+            'category' => $request->category,
             'image' => $imagePath,
         ]);
 
@@ -96,8 +98,9 @@ class ArchievementController extends Controller
             'id_departement' => 'nullable|exists:departements,id',
             'title' => 'required|string',
             'name' => 'required|string',
-            'winner_name' => 'required|string',
-            'description' => 'required|string',
+            'winner_name' => 'nullable|string',
+            'description' => 'nullable|string',
+            'category' => 'nullable|string',
             'home' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
@@ -122,6 +125,7 @@ class ArchievementController extends Controller
             'winner_name' => $request->winner_name,
             'description' => $request->description,
             'home' => $request->home,
+            'category' => $request->category,
             'image' => $imagePath,
         ]);
     

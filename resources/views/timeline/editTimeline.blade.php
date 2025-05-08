@@ -55,6 +55,17 @@
                             </div>
                         @enderror
                     </div>
+
+                    <div class="mb-4 mt-4">
+                        <label for="date" class="block text-sm font-medium text-gray-700">Tanggal</label>
+                        <input
+                          type="date"
+                          name="date"
+                          value="{{ old('date', $timeline->date) }}"
+                          id="date"
+                          class="mt-3 h-10 block w-full border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm"
+                        />
+                      </div>
                     
                 </div>
                 

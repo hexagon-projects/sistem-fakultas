@@ -13,6 +13,7 @@ class Achievement extends Model
         'winner_name',
         'description',
         'home',
+        'category',
         'image',
     ];    
 }

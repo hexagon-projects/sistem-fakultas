@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('subtitle');
             $table->text('description');
             $table->string('home')->nullable();
-            $table->string('image1');
+            $table->string('image1')->nullable();
             $table->string('image2')->nullable();
             $table->string('image3')->nullable();
             $table->string('image4')->nullable();
