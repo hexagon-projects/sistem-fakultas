@@ -13,6 +13,7 @@ class Timeline extends Model
         'description',
         'image',
         'home',
+        'date',
         'no_urut',
     ];
 }

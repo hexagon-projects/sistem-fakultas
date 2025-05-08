@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('slug')->nullable();
             $table->text('description');
             $table->string('image');
+            $table->string('date');
             $table->integer('no_urut');
             $table->string('home')->nullable();
             $table->timestamps();

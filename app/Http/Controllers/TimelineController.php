@@ -49,6 +49,7 @@ class TimelineController extends Controller
             'description' => 'required|string',
             'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
             'home' => 'nullable|string',
+            'date' => 'nullable|string',
             'slug' => 'nullable|string',
             'no_urut' => 'nullable|integer',
         ]);
@@ -66,6 +67,7 @@ class TimelineController extends Controller
             'description' => $request->description,
             'image' => $imagePath,
             'home' => $request->home,
+            'date' => $request->date,
             'no_urut' => $request->no_urut,
             'slug' => $slug,
         ]);
@@ -104,6 +106,7 @@ class TimelineController extends Controller
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
             'home' => 'nullable|string',
+            'date' => 'nullable|string',
             'no_urut' => 'nullable|integer',
         ]);
 
@@ -125,6 +128,7 @@ class TimelineController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'home' => $request->home,
+            'date' => $request->date,
             'no_urut' => $request->no_urut,
             'slug' => $slug,
         ]);
