@@ -75,7 +75,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Admin User',
-                'email' => 'admin@example.com',
+                'email' => 'rickybackup2121@gmail.com',
                 'phone' => '08123456789',
                 'role' => 'admin',
                 'email_verified_at' => now(),
