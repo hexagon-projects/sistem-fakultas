@@ -22,13 +22,13 @@ class LegalDocumentController extends Controller
            ->paginate(2)
            ->withQueryString(); // biar query search tetap ada saat ganti halaman
 
-       return view('LegalDocument.viewLegalDocument', compact('legalDocuments', 'search'));
+       return view('legalDocument.viewLegalDocument', compact('legalDocuments', 'search'));
     }
 
     public function create()
     {
         // Pass the user data to the view
-        return view('LegalDocument.createLegalDocument', [
+        return view('legalDocument.createLegalDocument', [
             'departements' => Departement::all(),
         ]);
     }

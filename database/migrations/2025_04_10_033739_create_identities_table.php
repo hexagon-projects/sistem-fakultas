@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('identities', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('meta');
+            $table->text('meta');
             $table->text('adress');
             $table->text('link_map');
             $table->string('phone');

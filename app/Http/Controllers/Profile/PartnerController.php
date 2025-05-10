@@ -44,7 +44,7 @@ class PartnerController extends Controller
         'detail' => 'required|string',
         'status' => 'required|string',
         'home' => 'nullable|string',
-        'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
+        'image' => 'required|image|mimes:jpg,jpeg,png,webp,svg|max:2048',
         ]);
 
        
@@ -78,7 +78,7 @@ class PartnerController extends Controller
         'detail' => 'nullable|string',
         'status' => 'nullable|string',
         'home' => 'nullable|string',
-        'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+        'image' => 'nullable|image|mimes:jpg,jpeg,png,webp,svg|max:2048',
         ]);
 
    

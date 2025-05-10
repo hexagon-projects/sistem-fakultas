@@ -25,6 +25,7 @@ use App\Models\Testimonial;
 use App\Models\Organization;
 use Illuminate\Http\Request;
 use App\Models\Legal_document;
+use App\Models\Side_baner;
 use App\Http\Controllers\Controller;
 
 /**
@@ -994,7 +995,7 @@ class FakultasAPIController extends Controller
      */
     public function getIdentityOne()
     {
-        $indentity = Identity::first();
+        $indentity = Identity::all();
         if (!$indentity) {
             return response()->json([
                 'message' => 'indentity not found',
@@ -1216,6 +1217,27 @@ class FakultasAPIController extends Controller
             ], 404);
         }
         return response()->json($timeline);
+    }
+
+    /**
+     * @OA\Get(
+     *     path="/api/side-baner",
+     *     tags={"Banner"},
+     *     @OA\Response(
+     *         response="200",
+     *         description="Get All Data Side Baner"
+     *     )
+     * )
+     */
+    public function getSideBanner()
+    {
+        $side = Side_baner::first();
+        if (!$side) {
+            return response()->json([
+                'message' => 'side not found',
+            ], 404);
+        }
+        return response()->json($side);
     }
     
 }

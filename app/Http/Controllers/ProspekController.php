@@ -44,14 +44,19 @@ class ProspekController extends Controller
             'id_departement' => 'nullable|exists:departements,id',
             'title' => 'required|string',
             'description' => 'required|string',
-            'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'icon' => 'required|mimes:jpg,jpeg,png,webp,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'icon' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2048',
             'home' => 'nullable|string',
         ]);
 
-        // Simpan gambar
-        $imagePath = $request->file('image')->store('prospeks', 'public');
-        $iconPath = $request->file('icon')->store('prospeks', 'public');
+        // Simpan gambar jika ada
+        $imagePath = $request->hasFile('image') 
+            ? $request->file('image')->store('prospeks', 'public') 
+            : null;
+
+        $iconPath = $request->hasFile('icon') 
+            ? $request->file('icon')->store('prospeks', 'public') 
+            : null;
 
         // Simpan data ke database
         Prospek::create([

@@ -42,7 +42,7 @@ class SliderController extends Controller
             'description' => 'required',
             'image1' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:1048',
             'image2' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:1048',
-            'yt'   => 'required|string',
+            'yt'   => 'nullable|string',
             'status'      => 'required|string',
             'home' => 'required',
         ]);

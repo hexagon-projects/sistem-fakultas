@@ -19,7 +19,7 @@ class AgendaController extends Controller
                $query->where('name', 'like', "%{$search}%")
                    ;
            })
-           ->paginate(2)
+           ->paginate(10)
            ->withQueryString(); // biar query search tetap ada saat ganti halaman
 
        return view('blog_post.agenda.viewAgenda', compact('agendas', 'search'));

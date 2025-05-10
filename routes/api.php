@@ -103,7 +103,11 @@ Route::get('/slider/{id}', [FakultasAPIController::class, 'getSliderByDepartemen
 Route::get('/jurnal', [FakultasAPIController::class, 'getJurnalAll'])->name('getJurnalAll');
 Route::get('/jurnal-home', [FakultasAPIController::class, 'getJurnalByHome'])->name('getJurnalByHome');
 Route::get('/jurnal/{id}', [FakultasAPIController::class, 'getJurnalByDepartement'])->name('getJurnalByDepartement');
+
 // timeline
 Route::get('/timeline', [FakultasAPIController::class, 'getTimelineAll'])->name('getTimelineAll');
 Route::get('/timeline-home', [FakultasAPIController::class, 'getTimelineByHome'])->name('getTimelineByHome');
 Route::get('/timeline/{id}', [FakultasAPIController::class, 'getTimelineByDepartement'])->name('getTimelineByDepartement');
+
+// timeline
+Route::get('/side-baner', [FakultasAPIController::class, 'getSideBanner'])->name('getSideBanner');

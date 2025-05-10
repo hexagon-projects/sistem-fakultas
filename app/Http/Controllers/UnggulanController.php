@@ -45,7 +45,7 @@ class UnggulanController extends Controller
             'id_departement' => 'nullable|exists:departements,id',
             'title' => 'required|string',
             'description' => 'required|string',
-            'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2048',
             'home' => 'nullable|string',
         ]);
 
@@ -93,7 +93,7 @@ class UnggulanController extends Controller
             'id_departement' => 'nullable|exists:departements,id',
             'title' => 'required|string',
             'description' => 'required|string',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'image' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2048',
             'home' => 'nullable|string',
         ]);
 

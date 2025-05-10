@@ -57,10 +57,7 @@
                     
                 </div>
                 
-<<<<<<< HEAD
-=======
                 <div>
->>>>>>> 1d2d97eb74587fb70c1c5178eefad181d1caface
                 <div class="col-span-1">
                     <div class="flex flex-col gap-1 mb-5">
                         <label for="title1">Image (Max : 1MB)</label>
@@ -97,8 +94,6 @@
                     </div>
 
                 </div>
-<<<<<<< HEAD
-=======
                 <div class="col-span-1">
                     <div class="flex flex-col gap-1 mb-5">
                         <label for="icon">Icon (Max : 1MB)</label>
@@ -140,7 +135,6 @@
                     </div>
                 </div>
             </div>
->>>>>>> 1d2d97eb74587fb70c1c5178eefad181d1caface
             </div>
             <div class="flex items-center justify-between my-5">
                 <a href="{{ route('prospek.index') }}" class="py-3 px-5 bg-gray-300 rounded-xl">Back</a>
@@ -206,8 +200,6 @@
     }
 </script>
 
-<<<<<<< HEAD
-=======
 <script>
     function previewIcon(event) {
         const file = event.target.files[0];
@@ -249,5 +241,4 @@
     }
 </script>
 
->>>>>>> 1d2d97eb74587fb70c1c5178eefad181d1caface
 </x-layout>

@@ -20,7 +20,7 @@ class PostController extends Controller
                $query->where('title', 'like', "%{$search}%")
                    ->orWhere('resume', 'like', "%{$search}%");
            })
-           ->paginate(2)
+           ->paginate(10)
            ->withQueryString(); // biar query search tetap ada saat ganti halaman
 
        return view('blog_post.post.viewPost', compact('posts', 'search'));
