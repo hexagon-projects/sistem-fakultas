@@ -133,38 +133,50 @@
     </div>
 
 
-    <script>
-        function previewImage(event) {
-            const fileInput = event.target;
-            const preview = document.getElementById('image-preview');
-            const removeBtn = document.getElementById('remove-btn');
-            const uploadText = document.getElementById('upload-text');
-    
-            if (fileInput.files && fileInput.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    preview.src = e.target.result;
-                    preview.classList.remove('hidden');
-                    removeBtn.classList.remove('hidden');
-                    uploadText.classList.add('hidden');
-                };
-                reader.readAsDataURL(fileInput.files[0]);
+   <script>
+    function previewImage(event) {
+        const fileInput = event.target;
+        const file = fileInput.files[0];
+        const preview = document.getElementById('image-preview');
+        const removeBtn = document.getElementById('remove-btn');
+        const uploadText = document.getElementById('upload-text');
+
+        if (file) {
+            if (file.size > 1048576) { // 1MB = 1048576 bytes
+                alert("Ukuran file melebihi 1MB. Silakan pilih file yang lebih kecil.");
+                fileInput.value = '';
+                preview.src = '#';
+                preview.classList.add('hidden');
+                removeBtn.classList.add('hidden');
+                uploadText.classList.remove('hidden');
+                return;
             }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.classList.remove('hidden');
+                removeBtn.classList.remove('hidden');
+                uploadText.classList.add('hidden');
+            };
+            reader.readAsDataURL(file);
         }
-    
-        function removeImage() {
-            const fileInput = document.getElementById('image');
-            const preview = document.getElementById('image-preview');
-            const removeBtn = document.getElementById('remove-btn');
-            const uploadText = document.getElementById('upload-text');
-    
-            fileInput.value = '';
-            preview.src = '#';
-            preview.classList.add('hidden');
-            removeBtn.classList.add('hidden');
-            uploadText.classList.remove('hidden');
-        }
-    </script>
+    }
+
+    function removeImage() {
+        const fileInput = document.getElementById('image');
+        const preview = document.getElementById('image-preview');
+        const removeBtn = document.getElementById('remove-btn');
+        const uploadText = document.getElementById('upload-text');
+
+        fileInput.value = '';
+        preview.src = '#';
+        preview.classList.add('hidden');
+        removeBtn.classList.add('hidden');
+        uploadText.classList.remove('hidden');
+    }
+</script>
+
 
 <script>
     function confirmSubmit() {
