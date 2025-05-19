@@ -53,7 +53,7 @@ class FacilityController extends Controller
             'image4' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
             'image5' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
             'image6' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
-            'yt' => 'required|string',
+            'yt' => 'nullable|string',
         ]);
 
         // Simpan file gambar ke storage jika ada
@@ -118,7 +118,7 @@ class FacilityController extends Controller
         'image4' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
         'image5' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
         'image6' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
-        'yt' => 'required|string',
+        'yt' => 'nullable|string',
     ]);
 
     $facility = Facility::findOrFail($id);

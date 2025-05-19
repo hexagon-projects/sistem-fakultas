@@ -120,7 +120,7 @@
                             name="image2"
                             id="image2"
                             accept="image/*"
-                            onchange="previewImage4(event)"
+                            onchange="previewImage2(event)"
                             class="absolute inset-0 opacity-0 cursor-pointer z-10"
                         />
                 
