@@ -46,14 +46,14 @@ class KurikulumController extends Controller
             'id_departement' => 'nullable|exists:departements,id',
             'title' => 'required|string',
             'description' => 'required|string',
-            'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'icon' => 'required|mimes:jpg,jpeg,png,webp,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'icon' => 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2048',
             'home' => 'nullable|string',
         ]);
 
-        // Simpan gambar
-        $imagePath = $request->file('image')->store('kurikulums', 'public');
-        $iconPath = $request->file('icon')->store('kurikulums', 'public');
+        // Simpan gambar jika diupload
+        $imagePath = $request->hasFile('image') ? $request->file('image')->store('kurikulums', 'public') : null;
+        $iconPath = $request->hasFile('icon') ? $request->file('icon')->store('kurikulums', 'public') : null;
 
         // Simpan data ke database
         Kurikulum::create([
@@ -67,6 +67,7 @@ class KurikulumController extends Controller
 
         return redirect()->route('kurikulum.index')->with('success', "Data berhasil dibuat!");
     }
+    
     /**
      * Show the form for editing the specified resource.
      */

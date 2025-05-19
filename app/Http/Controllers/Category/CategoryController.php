@@ -19,7 +19,7 @@ class CategoryController extends Controller
                $query->where('name', 'like', "%{$search}%")
                    ;
            })
-           ->paginate(2)
+           ->paginate(10)
            ->withQueryString(); // biar query search tetap ada saat ganti halaman
 
        return view('blog_post.category.viewCategory', compact('categories', 'search'));
@@ -33,23 +33,22 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-    //   dd($request->all());
-        $validate = $request->validate([
-            'name'   => 'required|string',
-            'image'   => 'nullable|image|mimes:jpg,jpeg,png,webp|max:1048',
-          
+        $validated = $request->validate([
+            'name'  => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:1048',
         ]);
 
-       
-        if($request->file('image')){
-            $validate['image'] = $request->file('image')->store('category-image', 'public');
+        if ($request->hasFile('image')) {
+            $validated['image'] = $request->file('image')->store('category-image', 'public');
+        } else {
+            $validated['image'] = 'default-image.jpg'; // kasih nama file default yang ada di storage/public
         }
 
-      Category::create($validate);
+        Category::create($validated);
 
-      return redirect()->route('category.index')->with('success', 'Category berhasil dibuat!');
-
+        return redirect()->route('category.index')->with('success', 'Category berhasil dibuat!');
     }
+
 
     public function edit($id)
     {

@@ -19,7 +19,7 @@ class PartnerController extends Controller
             $query->where('name', 'like', "%{$search}%")
                 ;
         })
-        ->paginate(2)
+        ->paginate(20)
         ->withQueryString(); // biar query search tetap ada saat ganti halaman
 
     return view('partners.viewPartner', compact('partners', 'search'));
