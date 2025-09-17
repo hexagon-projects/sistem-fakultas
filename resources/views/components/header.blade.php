@@ -1,4 +1,4 @@
-<header class="z-10 py-4 bg-white shadow-md h-20">
+<header class="z-10 py-4 bg-white h-20">
     <div
       class="container flex items-center justify-between h-full px-6 mx-auto text-[#034833]"
     >
@@ -25,7 +25,7 @@
       <div class="flex justify-center flex-1 lg:mr-32">
         <div
           class="relative w-full max-w-xl mr-6 focus-within:text-purple-500"
-        >     
+        >
         </div>
       </div>
       <ul class="hidden md:flex items-center flex-shrink-0 space-x-6">

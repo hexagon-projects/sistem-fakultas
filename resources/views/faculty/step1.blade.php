@@ -32,10 +32,10 @@
                 </div>
             </div>
             <hr class="my-5">
-            <form 
-                action="{{ isset($faculty) ? route('faculty.update', $faculty->id) : route('faculty.store') }}" 
-                method="post" 
-                enctype="multipart/form-data" 
+            <form
+                action="{{ isset($faculty) ? route('faculty.update', $faculty->id) : route('faculty.store') }}"
+                method="post"
+                enctype="multipart/form-data"
                 id="form-departement"
             >
                 @csrf
@@ -59,7 +59,7 @@
                         </div>
                         <div class="flex flex-col gap-1 mb-5">
                             <label for="akreditasi">Akreditasi</label>
-                            <select name="akreditasi" 
+                            <select name="akreditasi"
                                 class="block w-full mt-1 text-sm focus:border-[#5676ff] focus:outline-none focus:shadow-outline-purple form-select border-gray-300 border-2 p-2 rounded-md">
                               <option value="{{ $faculty->akreditasi ?? '' }}">-- Pilih Akreditasi --</option>
                               <option value="Unggul">Unggul</option>
@@ -72,7 +72,7 @@
                               </div>
                             @enderror
                           </div>
-                          
+
                     </div>
                     <div class="flex flex-col gap-1 mb-5">
                         <label for="">Tagline Faculty</label>
@@ -145,16 +145,16 @@
                             </div>
                         @enderror
                     </div>
-                    
+
                 </div>
-                
+
                 <div class="col-span-1">
                     <div class="flex flex-col gap-1 mb-5 items-start">
                         <span class="text-xs p-2 bg-[#5676ff] text-white rounded-full my-5">Color Guide Departement</span>
                         <div class="grid grid-cols-2 gap-3">
                             <div class="">
                                 <label for="color" class="text-xs text-gray-700 mb-2">Primary Color</label>
-                                
+
                                 <div class="flex items-center gap-3">
                                     <input
                                         id="color"
@@ -168,16 +168,16 @@
                                         {{ old('color1', '#4197CB') }}
                                     </span>
                                 </div>
-                            
+
                                 @error('color1')
                                     <div class="bg-red-100 border border-red-300 text-red-700 text-sm rounded-md px-3 py-2 mt-2">
                                         <i>{{ $message }}</i>
                                     </div>
                                 @enderror
-                            </div>                                              
+                            </div>
                             <div class="">
                                 <label for="color" class="text-xs text-gray-700 mb-2">Primary Color</label>
-                                
+
                                 <div class="flex items-center gap-3">
                                     <input
                                         id="color"
@@ -191,13 +191,13 @@
                                         {{ old('color2', '#4197CB') }}
                                     </span>
                                 </div>
-                            
+
                                 @error('color2')
                                     <div class="bg-red-100 border border-red-300 text-red-700 text-sm rounded-md px-3 py-2 mt-2">
                                         <i>{{ $message }}</i>
                                     </div>
                                 @enderror
-                            </div>                                              
+                            </div>
                         </div>
                     </div>
                     <div class="flex flex-col gap-1 mb-5">
@@ -211,15 +211,15 @@
                                 onchange="previewImage(event)"
                                 class="absolute inset-0 opacity-0 cursor-pointer z-10"
                             />
-                    
+
                             <!-- Preview Gambar -->
-                            <img 
-                                id="image-preview" 
-                                src="{{ old('image1') ? asset('storage/facultys-image/' . old('image1')) : (isset($faculty) && $faculty->image1 ? asset('storage/' . $faculty->image1) : '#') }}" 
-                                alt="Preview" 
-                                class="absolute inset-0 w-full h-full object-cover {{ (isset($faculty) && $faculty->image1) ? '' : 'hidden' }} z-0 rounded-md" 
+                            <img
+                                id="image-preview"
+                                src="{{ old('image1') ? asset('storage/facultys-image/' . old('image1')) : (isset($faculty) && $faculty->image1 ? asset('storage/' . $faculty->image1) : '#') }}"
+                                alt="Preview"
+                                class="absolute inset-0 w-full h-full object-cover {{ (isset($faculty) && $faculty->image1) ? '' : 'hidden' }} z-0 rounded-md"
                             />
-                    
+
                             <!-- Tombol Hapus -->
                             <button
                                 id="remove-btn"
@@ -229,17 +229,17 @@
                             >
                                 Hapus
                             </button>
-                    
+
                             <!-- Text Default -->
                             <span id="upload-text" class="text-gray-400 z-0 text-center px-2 {{ (isset($faculty) && $faculty->image1) ? 'hidden' : '' }}">
                                 Klik untuk pilih gambar
                             </span>
                         </div>
-                    
+
                         @error('image1')
                             <p class="text-red-500 text-sm mt-2"><i>{{ $message }}</i></p>
                         @enderror
-                    </div>                    
+                    </div>
                     <div class="flex flex-col gap-1 mb-5">
                         <label for="yt_id">ID Youtube Vidio</label>
                         <input type="text" name="yt_id" value="{{ $faculty->yt_id ?? '' }}"
@@ -257,8 +257,8 @@
                             <option value="{{ $team->id }}" @selected(old('id_team', $faculty->id_team ?? '') == $team->id)>{{ $team->name }}</option>
                         @endforeach
                     </select>
-                    
-                    
+
+
 
                 </div>
             </div>
@@ -296,7 +296,7 @@
             const preview = document.getElementById('image-preview');
             const removeBtn = document.getElementById('remove-btn');
             const uploadText = document.getElementById('upload-text');
-    
+
             if (fileInput.files && fileInput.files[0]) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
@@ -308,13 +308,13 @@
                 reader.readAsDataURL(fileInput.files[0]);
             }
         }
-    
+
         function removeImage() {
             const fileInput = document.getElementById('image');
             const preview = document.getElementById('image-preview');
             const removeBtn = document.getElementById('remove-btn');
             const uploadText = document.getElementById('upload-text');
-    
+
             fileInput.value = '';
             preview.src = '#';
             preview.classList.add('hidden');
@@ -330,7 +330,7 @@
         const imgPreview = document.getElementById('image-preview');
         const uploadText = document.getElementById('upload-text');
         const removeBtn = document.getElementById('remove-btn');
-    
+
         if (file) {
             reader.onload = function(e) {
                 imgPreview.src = e.target.result;
@@ -341,7 +341,7 @@
             reader.readAsDataURL(file);
         }
     }
-    
+
     function removeImage() {
         document.getElementById('image1').value = '';
         const imgPreview = document.getElementById('image-preview');
@@ -351,7 +351,7 @@
         document.getElementById('remove-btn').classList.add('hidden');
     }
     </script>
-    
+
 
 <script>
     function confirmSubmit() {

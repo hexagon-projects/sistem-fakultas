@@ -13,14 +13,14 @@ class SliderController extends Controller
     public function index(Request $request)
     {
         $search = $request->input('search');
-     
+
         $sliders = Slider::query()
         ->when($search, function ($query, $search) {
             $query->where('name', 'like', "%{$search}%")
                 ->orWhere('title', 'like', "%{$search}%")
                 ;
         })
-        ->paginate(2)
+        ->paginate(10)
         ->withQueryString(); // biar query search tetap ada saat ganti halaman
 
     return view('setting_menu.sliders.viewSlider', compact('sliders', 'search'));
@@ -47,7 +47,7 @@ class SliderController extends Controller
             'home' => 'required',
         ]);
 
-       
+
         if($request->file('image1')){
             $validate['image1'] = $request->file('image1')->store('slider-image', 'public');
         }
@@ -66,7 +66,7 @@ class SliderController extends Controller
         $slider = Slider::findOrFail($id);
         $departements = Departement::all();
 
-        return view('setting_menu.sliders.editSlider', compact('slider', 'departements')); 
+        return view('setting_menu.sliders.editSlider', compact('slider', 'departements'));
     }
 
     public function update(Request $request, $id)
@@ -84,7 +84,7 @@ class SliderController extends Controller
         'home' => 'nullable',
     ]);
 
-   
+
     if($request->file('image1')){
         $validated['image1'] = $request->file('image1')->store('slider-image', 'public');
     }
@@ -99,7 +99,7 @@ class SliderController extends Controller
     public function destroy($id)
     {
         $slider = Slider::findOrFail($id);
-    
+
         // Cek apakah gambar ada dan hapus dari storage
         if ($slider->image1 && Storage::disk('public')->exists($slider->image1)) {
             Storage::disk('public')->delete($slider->image1);
@@ -107,9 +107,9 @@ class SliderController extends Controller
         if ($slider->image2 && Storage::disk('public')->exists($slider->image2)) {
             Storage::disk('public')->delete($slider->image2);
         }
-    
+
         $slider->delete();
-    
+
         return redirect()->back()->with('success', 'Slider berhasil dihapus.');
     }
 

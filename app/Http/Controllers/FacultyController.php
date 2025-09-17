@@ -16,28 +16,25 @@ class FacultyController extends Controller
     public function index()
     {
         $teams = Ourteam::all();
-        $faculty = Faculty::first();   
+        $faculty = Faculty::first();
         return view('faculty.step1', compact('faculty', 'teams'));
     }
     public function step2($id)
     {
-        $faculty = Faculty::findOrFail($id);   
+        $faculty = Faculty::findOrFail($id);
         return view('faculty.step2', compact('faculty'));
     }
-    
+
     public function step3($id)
     {
-        $faculty = Faculty::findOrFail($id);   
+        $faculty = Faculty::findOrFail($id);
         return view('faculty.step3', compact('faculty'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        
-    }
+    public function create() {}
 
     /**
      * Store a newly created resource in storage.
@@ -58,7 +55,7 @@ class FacultyController extends Controller
             'color2'   => 'required|string',
             'image1'   => 'nullable|mimes:jpg,jpeg,png,pdf,webp|max:2048',
             'yt_id'   => 'required|string',
-            'id_team'   => 'required|integer',
+            'id_team' => 'nullable|integer',
             'status'   => 'nullable|string',
         ]);
 
@@ -108,7 +105,7 @@ class FacultyController extends Controller
             'facebook'    => 'required|string',
             'youtube'     => 'required|string',
             'title1'      => 'required|string',
-            'description1'=> 'required|string',
+            'description1' => 'required|string',
             'color1'      => 'required|string',
             'color2'      => 'required|string',
             'image1'      => 'nullable|mimes:jpg,jpeg,png,pdf,webp|max:2048',
@@ -181,7 +178,7 @@ class FacultyController extends Controller
 
         return redirect()->route('faculty.step3', $faculty->id)->with('success', "Departement {$faculty->name} berhasil diperbarui!");
     }
-    
+
     public function step3Update(Request $request, string $id)
     {
         $faculty = Faculty::findOrFail($id); // Ambil data berdasarkan ID
@@ -212,7 +209,8 @@ class FacultyController extends Controller
         // Simpan perubahan
         $faculty->update($validate);
 
-        return redirect()->route('faculty.index', $faculty->id)->with('success', "Departement {$faculty->name} berhasil diperbarui!");
+        return redirect()->route('faculty.index')
+            ->with('success', "Departement {$faculty->name} berhasil diperbarui!");
     }
 
     /**

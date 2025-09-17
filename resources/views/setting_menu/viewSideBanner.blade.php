@@ -9,9 +9,21 @@
     </h4>
 
     <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md h-auto">
-      <form 
-        action="{{ isset($sideBanner) ? route('sideBanner.update', $sideBanner->id) : route('sideBanner.store') }}" 
-        method="POST" 
+
+        {{-- Error Notification --}}
+      @if ($errors->any())
+        <div class="mb-4 p-3 rounded-md bg-red-100 text-red-700">
+          <ul class="list-disc pl-5 text-sm">
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+      @endif
+      
+      <form
+        action="{{ isset($sideBanner) ? route('sideBanner.update', $sideBanner->id) : route('sideBanner.store') }}"
+        method="POST"
         enctype="multipart/form-data"
         class="px-4 py-3 bg-white rounded-lg shadow-md"
       >
@@ -19,13 +31,13 @@
         @if(isset($sideBanner))
           @method('PUT') <!-- for update -->
         @endif
-        
+
         <label class="inline-flex items-center mt-3">
           <input type="hidden" name="home" value="0">
-          <input 
-            type="checkbox" 
-            name="home" 
-            value="1" 
+          <input
+            type="checkbox"
+            name="home"
+            value="1"
             class="form-checkbox h-5 w-5 text-green-600"
             @if(isset($sideBanner) && $sideBanner->home) checked @endif
           >
@@ -144,16 +156,16 @@
       const input = event.target;
       const preview = document.getElementById(previewId);
       const defaultContent = document.getElementById(defaultId);
-  
+
       if (input.files && input.files[0]) {
         const reader = new FileReader();
-  
+
         reader.onload = function (e) {
           preview.src = e.target.result;
           preview.classList.remove('hidden');
           defaultContent.classList.add('hidden');
         };
-  
+
         reader.readAsDataURL(input.files[0]);
       }
     }

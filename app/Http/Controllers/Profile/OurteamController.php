@@ -13,13 +13,13 @@ class OurteamController extends Controller
     public function index(Request $request)
     {
            $search = $request->input('search');
-     
+
            $ourteams = Ourteam::query()
            ->when($search, function ($query, $search) {
                $query->where('name', 'like', "%{$search}%")
                    ->orWhere('title', 'like', "%{$search}%");
            })
-           ->paginate(2)
+           ->paginate(10)
            ->withQueryString(); // biar query search tetap ada saat ganti halaman
 
        return view('our_team.viewOurteam', compact('ourteams', 'search'));
@@ -40,7 +40,7 @@ class OurteamController extends Controller
         'name' => 'required|string',
         'title' => 'required',
         'phone' => 'required|string',
-        'email' => 'required|email', 
+        'email' => 'required|email',
         'fb' => 'required|string',
         'ig' => 'required|string',
         'tiktok' => 'required|string',
@@ -49,7 +49,7 @@ class OurteamController extends Controller
         'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
-       
+
         if($request->file('image')){
             $validate['image'] = $request->file('image')->store('ourteam-image', 'public');
         }
@@ -65,7 +65,7 @@ class OurteamController extends Controller
         $ourteam = Ourteam::findOrFail($id);
         $departements = Departement::all();
 
-        return view('our_team.editOurteam', compact('ourteam', 'departements')); 
+        return view('our_team.editOurteam', compact('ourteam', 'departements'));
     }
 
     public function update(Request $request, $id)
@@ -77,7 +77,7 @@ class OurteamController extends Controller
         'name' => 'nullable|string',
         'title' => 'nullable',
         'phone' => 'nullable|string',
-        'email' => 'nullable|email', 
+        'email' => 'nullable|email',
         'fb' => 'nullable|string',
         'ig' => 'nullable|string',
         'tiktok' => 'nullable|string',
@@ -86,11 +86,11 @@ class OurteamController extends Controller
         'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
-   
+
     if($request->file('image')){
         $validated['image'] = $request->file('image')->store('ourteam-image', 'public');
     }
-    
+
     $ourteam->update($validated);
 
     return redirect()->route('ourteam.index', $ourteam->id)->with('success', 'Data Ourteam berhasil diperbarui!');
@@ -99,15 +99,15 @@ class OurteamController extends Controller
     public function destroy($id)
     {
         $ourteam = Ourteam::findOrFail($id);
-    
+
         // Cek apakah gambar ada dan hapus dari storage
         if ($ourteam->image && Storage::disk('public')->exists($ourteam->image)) {
             Storage::disk('public')->delete($ourteam->image);
         }
-       
-    
+
+
         $ourteam->delete();
-    
+
         return redirect()->back()->with('success', 'Data Ourteam berhasil dihapus.');
     }
 }

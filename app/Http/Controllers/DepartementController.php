@@ -27,16 +27,16 @@ class DepartementController extends Controller
 
         return view('departement.index', compact('departements', 'search'));
     }
-    
+
     public function step2($id)
     {
-        $departement = Departement::findOrFail($id);   
+        $departement = Departement::findOrFail($id);
         return view('departement.step2', compact('departement'));
     }
-    
+
     public function step3($id)
     {
-        $departement = Departement::findOrFail($id);   
+        $departement = Departement::findOrFail($id);
         return view('departement.step3', compact('departement'));
     }
 
@@ -99,7 +99,7 @@ class DepartementController extends Controller
      */
     public function edit(string $id)
     {
-        $departement = Departement::findOrFail($id);   
+        $departement = Departement::findOrFail($id);
         return view('departement.edit', compact('departement'));
     }
 
@@ -149,7 +149,7 @@ class DepartementController extends Controller
 
         return redirect()->route('departement.step2', $departement->id)->with('success', "Departement {$departement->name} berhasil diperbarui!");
     }
-    
+
     public function step2Update(Request $request, string $id)
     {
         $departement = Departement::findOrFail($id); // Ambil data berdasarkan ID
@@ -193,7 +193,7 @@ class DepartementController extends Controller
 
         return redirect()->route('departement.step3', $departement->id)->with('success', "Departement {$departement->name} berhasil diperbarui!");
     }
-    
+
     public function step3Update(Request $request, string $id)
     {
         $departement = Departement::findOrFail($id); // Ambil data berdasarkan ID
@@ -224,7 +224,8 @@ class DepartementController extends Controller
         // Simpan perubahan
         $departement->update($validate);
 
-        return redirect()->route('departement.index', $departement->id)->with('success', "Departement {$departement->name} berhasil diperbarui!");
+        return redirect()->route('departement.index')
+            ->with('success', "Departement {$departement->name} berhasil diperbarui!");
     }
 
     /**
